@@ -1,0 +1,56 @@
+.city-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4px 0;
+    padding: 8px;
+    background-color: transparent;
+    border-radius: 8px;
+}
+
+.city_card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4px 0;
+    padding: 8px;
+    background-color: transparent;
+    border-radius: 8px;
+}
+
+.city-card a {
+    text-decoration: none;
+}
+
+.city-card h3 {
+    margin: 30px 50px 0;
+    color: white;
+    font-size: 40px;
+    margin-right: 30px;
+    font-weight: normal;
+}
+
+.city-card p {
+    margin: 30px 0px 0;
+    color: #90969c;
+    font-size: 40px;
+    font-weight: normal;
+}
+
+.city-card button {
+    background-color: #c5fba3;
+    color: #303134;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin-right: 30px;
+    font-size: 25px;
+    font-weight: bold;
+    height: 60px;
+    cursor: pointer;
+}
+
+.donut-chart {
+    margin-left: 40px;
+    margin-top: 20px;
+}

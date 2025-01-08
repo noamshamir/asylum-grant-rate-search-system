@@ -1,0 +1,144 @@
+.header {
+    margin-bottom: -30px;
+    display: flex;
+    justify-content: space-between; /* Space between title and icons */
+    align-items: center; /* Center items vertically */
+    padding: 50px 80px;
+    background-color: #202124; /* Background color */
+    font-size: 24px; /* Font size */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #5e5e5e;
+    zoom: 0.5;
+}
+
+.header-title {
+    font-weight: bold; /* Make the title bold */
+    font-size: 50px;
+    color: rgb(238, 238, 238); /* Text color */
+}
+
+.header-icons {
+    display: flex; /* Align icons in a row */
+    gap: 20px; /* Space between icons */
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px;
+    margin-top: -10px;
+    cursor: pointer;
+    border-radius: 60%;
+    font-size: 60px;
+    line-height: 70px;
+    font-weight: bold;
+    color: #bac0c5;
+    flex-direction: column; /* Stack icon and label vertically */
+    align-items: center;
+}
+
+.icon-label {
+    font-size: 25px; /* Font size for labels */
+    margin-bottom: -30px;
+    color: rgb(238, 238, 238); /* Label color */
+}
+
+.search-icon {
+    color: #bac0c5;
+    font-size: 55px;
+}
+
+.comment-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px;
+    cursor: pointer;
+    border-radius: 60%;
+    font-size: 60px;
+    line-height: 70px;
+    font-weight: bold;
+    color: #bac0c5;
+}
+
+.language-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.language-toggle {
+    display: flex;
+    flex-direction: column; /* Stack flag & label vertically if you prefer */
+    align-items: center;
+    cursor: pointer;
+    gap: 6px; /* spacing between flag and label */
+}
+
+.language-flag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px; /* optional */
+}
+
+.language-dropdown {
+    position: absolute;
+    top: 115px; /* position below header or icon as needed */
+    right: 80px;
+    background-color: #303134;
+    border-radius: 8px;
+    margin-top: 8px;
+    border: 1px solid #5e5e5e;
+    z-index: 9999;
+    width: 240px; /* or whatever width you prefer */
+}
+
+.dropdown-arrow {
+    position: absolute;
+    top: -15px;
+    right: 110px;
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid #5e5e5e;
+}
+
+.language-dropdown ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.language-dropdown li {
+    display: flex;
+    align-items: center;
+    padding: 15px 12px;
+    gap: 8px;
+    font-size: 25px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.language-dropdown li:first-child {
+    border-bottom: 1px solid #5e5e5e;
+}
+
+.language-flag-item {
+    margin: 0 15px 0 10px;
+    width: 40px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.language-dropdown li:hover {
+    background-color: #202124;
+}

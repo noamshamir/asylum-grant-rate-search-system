@@ -1,0 +1,201 @@
+/* Container for the entire search bar */
+.search-bar-container {
+    /* Double the original width offset: (100% - 150px) => (200% - 300px) */
+    width: calc(200% - 150px);
+
+    display: flex;
+    flex-direction: column; /* So the dropdown is naturally below */
+    align-items: center;
+
+    /* Double the original margin-top and padding so that
+       after 0.5 scale, it visually appears the same */
+    margin-top: 45px;
+    padding: 0 75px;
+
+    /* Double the original height so that, again, it’s the same size after scaling */
+
+    /* Scale everything down by 0.5, anchoring from top-left corner */
+    transform: scale(0.5);
+    transform-origin: top left;
+}
+
+/* The bar itself */
+.search-bar {
+    display: flex;
+
+    align-items: center;
+    border-radius: 50px;
+    width: 100%;
+    height: 150px; /* Ensure the height is fixed */
+    min-height: 150px;
+    padding: 0 10px;
+    background-color: #303134;
+    position: relative; /* Add relative positioning */
+    z-index: 1; /* Ensure it stays above the dropdown */
+}
+
+/* Left search icon */
+.search-icon {
+    font-size: 55px;
+    color: #90969c;
+}
+
+/* Input field */
+.search-bar input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 40px;
+    background-color: #303134;
+    color: #ffffff;
+}
+
+/* Right icons container */
+.search-actions {
+    display: flex;
+    align-items: center;
+}
+
+/* Clear (x) icon */
+.clear-icon {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 60%;
+    font-size: 55px;
+    line-height: 70px;
+    color: #90969c;
+    font-weight: bold;
+}
+
+.filter-icon {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 0 20px;
+    cursor: pointer;
+    border-radius: 60%;
+    font-size: 50px;
+    line-height: 70px;
+    color: #90969c;
+    font-weight: bold;
+}
+
+/* Divider between icons */
+.divider {
+    margin: 0 8px 0 25px;
+    border-left: 1px solid #90969c;
+    height: 97px;
+    top: 0;
+}
+
+/* Divider between icons */
+.horizontal-divider {
+    margin: 150px 55px;
+    border: none;
+    border-top: 1px solid #90969c;
+    height: 0;
+    position: absolute;
+    top: 0px;
+    z-index: 1;
+    width: calc(100% - 240px);
+    background-color: transparent;
+    margin-bottom: 10px;
+}
+
+/* Info icon */
+.info-icon {
+    font-size: 50px;
+}
+
+/* Search results dropdown (minimal) */
+.search-results-dropdown {
+    padding-top: 30px;
+    max-height: calc(200vh - 500px); /* or whatever height fits your UI */
+    overflow-y: auto;
+    width: calc(100% + 20px);
+    background-color: #303134;
+    border-radius: 0 0 50px 50px;
+    padding-bottom: 40px;
+    margin-left: 0px;
+    margin-top: 0;
+    transform: translateY(-50px);
+    /* max-height: auto; Set a max height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Align h4 to the left */
+.search-results-dropdown h4 {
+    color: white;
+    margin-top: 60px;
+    font-size: 40px;
+    margin-left: 55px;
+    margin-bottom: 8px;
+    text-align: left; /* Align text to the left */
+}
+
+.filter-menu {
+    position: absolute; /* Position it relative to the search bar */
+    z-index: 9999; /* Ensure it appears on top */
+    width: 900px; /* Set a fixed width */
+    height: 210px;
+    background-color: #202124; /* Background color */
+    border-radius: 30px; /* Rounded corners */
+    border: 1px solid #90969c; /* Border color */
+    top: 120px;
+    right: 65px;
+}
+
+/* Header for the filter menu */
+.filter-header {
+    positions: relative;
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between title and clear icon */
+    align-items: center; /* Center items vertically */
+    background-color: #303134; /* Header background color */
+    padding: 5px 20px; /* Padding for the header */
+    border-radius: 30px 30px 0 0; /* Rounded corners for the header */
+}
+
+/* Title for the filter menu */
+.filter-header-title {
+    color: #dce3ec;
+    font-size: 33px; /* Font size for the title */
+    margin-left: 15px;
+    white-space: nowrap;
+}
+
+/* Body of the filter menu */
+.filter-body {
+    display: flex; /* Flexbox for layout */
+    margin-top: 10px; /* Space above the body */
+}
+
+.filter-box-icon {
+    font-size: 40px;
+    color: #bcc5cf;
+    z-index: 10;
+}
+
+/* Sort by text */
+.sort-by-text {
+    font-size: 33px; /* Adjust font size as needed */
+    text-align: left;
+    margin-left: 35px;
+    margin-top: 30px;
+    margin-right: -25px;
+    margin-bottom: 5px; /* Space below the text */
+    color: rgb(230, 230, 230);
+}
+
+.dropdown-menu-div {
+    margin-left: 200px;
+    margin-top: -20px;
+}

@@ -1,0 +1,13 @@
+.donut-chart {
+    /* Just to ensure we don't accidentally rotate the entire svg again, 
+       since we already do transform on the circle itself. */
+    display: inline-block;
+}
+
+.donut-ring {
+    transition: stroke-dashoffset 0.5s;
+}
+
+.donut-segment {
+    transition: stroke-dashoffset 0.5s;
+}
