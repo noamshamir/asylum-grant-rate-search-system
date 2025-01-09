@@ -28,8 +28,7 @@ function App() {
     };
 
     return (
-        // Add basename for GitHub Pages subpath
-        <Router basename='/asylum_grant_rate_search_system'>
+        <Router>
             <div className='App' style={{ height: "calc(100vh - 84px)" }}>
                 <Header
                     toggleChat={toggleChat}
@@ -68,7 +67,7 @@ function App() {
 
                     {/* City Page */}
                     <Route
-                        path='/asylum_grant_rate_search_system/city/:cityName'
+                        path='/city/:cityName'
                         element={
                             <SplitPane
                                 split='vertical'
@@ -97,7 +96,7 @@ function App() {
 
                     {/* Judge Page */}
                     <Route
-                        path='/asylum_grant_rate_search_system/judge/:judgeName'
+                        path='/judge/:judgeName'
                         element={
                             <SplitPane
                                 split='vertical'
