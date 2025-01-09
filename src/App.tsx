@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // Import Router
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SplitPane from "split-pane-react";
 import "./App.css";
 
@@ -7,7 +7,7 @@ import "split-pane-react/esm/themes/default.css";
 import SearchBar from "./components/SearchBar/SearchBar.tsx";
 import DecisionTreeChat from "./components/DecisionTreeChat/DecisionTreeChat.tsx";
 import Header from "./components/Header/Header.tsx";
-import CityPage from "./components/CityPage/CityPage.tsx"; // Import the new CityPage
+import CityPage from "./components/CityPage/CityPage.tsx";
 import JudgePage from "./components/JudgePage/JudgePage.tsx";
 
 function App() {
@@ -28,7 +28,8 @@ function App() {
     };
 
     return (
-        <Router>
+        // Add basename for GitHub Pages subpath
+        <Router basename='/asylum_grant_rate_search_system'>
             <div className='App' style={{ height: "calc(100vh - 84px)" }}>
                 <Header
                     toggleChat={toggleChat}
@@ -93,6 +94,8 @@ function App() {
                             </SplitPane>
                         }
                     />
+
+                    {/* Judge Page */}
                     <Route
                         path='/judge/:judgeName'
                         element={
