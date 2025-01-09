@@ -14,14 +14,6 @@ function App() {
     const [sizes, setSizes] = useState(["70%", "30%"]);
     const [isChatVisible, setIsChatVisible] = useState(true);
     const [currentLanguage, setCurrentLanguage] = useState("en");
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        // Check if the user is on a mobile device
-        const userAgent = window.navigator.userAgent;
-        const mobileDevices = /iPhone|iPad|iPod|Android/i;
-        setIsMobile(mobileDevices.test(userAgent));
-    }, []);
 
     const toggleChat = () => {
         setIsChatVisible((prev) => {
@@ -62,7 +54,7 @@ function App() {
                                         currentLanguage={currentLanguage}
                                     />
                                 </div>
-                                {!isMobile && isChatVisible && (
+                                {isChatVisible && (
                                     <div style={{ height: "100%" }}>
                                         <DecisionTreeChat
                                             currentLanguage={currentLanguage}
@@ -91,7 +83,7 @@ function App() {
                                         currentLanguage={currentLanguage}
                                     />
                                 </div>
-                                {!isMobile && isChatVisible && (
+                                {isChatVisible && (
                                     <div style={{ height: "100%" }}>
                                         <DecisionTreeChat
                                             currentLanguage={currentLanguage}
@@ -118,7 +110,7 @@ function App() {
                                         currentLanguage={currentLanguage}
                                     />
                                 </div>
-                                {!isMobile && isChatVisible && (
+                                {isChatVisible && (
                                     <div style={{ height: "100%" }}>
                                         <DecisionTreeChat
                                             currentLanguage={currentLanguage}
