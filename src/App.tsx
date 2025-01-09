@@ -68,7 +68,7 @@ function App() {
 
                     {/* City Page */}
                     <Route
-                        path='/city/:cityName'
+                        path='/asylum_grant_rate_search_system/city/:cityName'
                         element={
                             <SplitPane
                                 split='vertical'
@@ -97,7 +97,7 @@ function App() {
 
                     {/* Judge Page */}
                     <Route
-                        path='/judge/:judgeName'
+                        path='/asylum_grant_rate_search_system/judge/:judgeName'
                         element={
                             <SplitPane
                                 split='vertical'
