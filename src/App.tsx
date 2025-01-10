@@ -28,7 +28,8 @@ function App() {
     };
 
     return (
-        <Router>
+        // Add the basename to the Router
+        <Router basename='/asylum_grant_rate_search_system'>
             <div className='App' style={{ height: "calc(100vh - 84px)" }}>
                 <Header
                     toggleChat={toggleChat}
@@ -67,7 +68,7 @@ function App() {
 
                     {/* City Page */}
                     <Route
-                        path='/city/:cityName'
+                        path='/asylum_grant_rate_search_system/city/:cityName'
                         element={
                             <SplitPane
                                 split='vertical'
@@ -96,7 +97,7 @@ function App() {
 
                     {/* Judge Page */}
                     <Route
-                        path='/judge/:judgeName'
+                        path='/asylum_grant_rate_search_system/judge/:judgeName'
                         element={
                             <SplitPane
                                 split='vertical'
