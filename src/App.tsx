@@ -38,7 +38,7 @@ function App() {
                 <Routes>
                     {/* Main SplitPane Layout */}
                     <Route
-                        path='/'
+                        path='/asylum_grant_rate_search_system/'
                         element={
                             <SplitPane
                                 split='vertical'
