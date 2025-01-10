@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { HashRouter as Router, Routes, Route } from "react-router-dom"; // Correct imports for Routes and Route
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Correct imports for Routes and Route
 import SplitPane from "split-pane-react";
 import "./App.css";
 
