@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React, { useState } from "react";
+import { HashRouter as Router, Routes, Route } from "react-router-dom"; // Correct imports for Routes and Route
 import SplitPane from "split-pane-react";
 import "./App.css";
 
@@ -28,8 +28,7 @@ function App() {
     };
 
     return (
-        // Add the basename to the Router
-        <Router basename='/asylum_grant_rate_search_system'>
+        <Router>
             <div className='App' style={{ height: "calc(100vh - 84px)" }}>
                 <Header
                     toggleChat={toggleChat}
@@ -68,7 +67,7 @@ function App() {
 
                     {/* City Page */}
                     <Route
-                        path='/asylum_grant_rate_search_system/city/:cityName'
+                        path='/city/:cityName'
                         element={
                             <SplitPane
                                 split='vertical'
@@ -97,7 +96,7 @@ function App() {
 
                     {/* Judge Page */}
                     <Route
-                        path='/asylum_grant_rate_search_system/judge/:judgeName'
+                        path='/judge/:judgeName'
                         element={
                             <SplitPane
                                 split='vertical'
