@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import "./CityPage.css";
 import JudgeInCity from "../JudgeInCity/JudgeInCity.tsx";
 import judgeData from "../../data/judge_grant_rates.json";
@@ -28,6 +28,7 @@ const parsePercentage = (value: string | number | undefined): number => {
 
 function CityPage({ currentLanguage }: CityPageProps) {
     const params = useParams<{ cityName: string }>();
+    const navigate = useNavigate();
     const city = params.cityName;
     const cityJudgesObj = judgeData[city || ""] || {};
     const cityJudges: Judge[] = Object.values(cityJudgesObj).map((judge) => ({
@@ -151,6 +152,10 @@ function CityPage({ currentLanguage }: CityPageProps) {
             ? "This number is the percent of cases in this city that were denied, whether asylum or other."
             : "Este número es el porcentaje de casos en esta ciudad donde se denegaron, ya sea asilo u otro tipo de alivio.";
 
+    const handleJudgeClick = (judgeName: string) => {
+        navigate(`/judge/${judgeName}`);
+    };
+
     return (
         <div className='city-page'>
             <div className='header-section'>
@@ -264,6 +269,9 @@ function CityPage({ currentLanguage }: CityPageProps) {
                                         currentLanguage={currentLanguage}
                                         key={judge.judge_name}
                                         judge={judge}
+                                        onClick={() =>
+                                            handleJudgeClick(judge.judge_name)
+                                        }
                                     />
                                 ))}
                             </>
