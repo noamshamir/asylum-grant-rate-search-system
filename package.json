@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://noamshamir.github.io/asylum_grant_rate_search_system/",
+  "homepage": "https://noamshamir.github.io/asylum_grant_rate_search_system",
 
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.2",

@@ -28,7 +28,7 @@ function App() {
     };
 
     return (
-        <Router>
+        <Router basename='/asylum_grant_rate_search_system'>
             <div className='App' style={{ height: "calc(100vh - 84px)" }}>
                 <Header
                     toggleChat={toggleChat}
