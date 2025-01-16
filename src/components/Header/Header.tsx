@@ -50,7 +50,7 @@ const Header: React.FC<HeaderProps> = ({
     const titleText =
         currentLanguage === "es"
             ? "Búsqueda de Tasa de Aprobaciónde Asilo"
-            : "Asylum Grant Rate Searches bud";
+            : "Asylum Grant Rate Search";
     const searchLabel = currentLanguage === "es" ? "Buscar" : "Search";
     const toggleHelpLabel =
         currentLanguage === "es" ? "Alternar Ayuda" : "Toggle Help";
