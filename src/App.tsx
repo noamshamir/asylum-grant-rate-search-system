@@ -36,7 +36,6 @@ function App() {
                     onLanguageChange={handleLanguageChange}
                 />
                 <Routes>
-                    {/* Main SplitPane Layout */}
                     <Route
                         path='/'
                         element={
@@ -64,62 +63,14 @@ function App() {
                             </SplitPane>
                         }
                     />
-
-                    {/* City Page */}
                     <Route
                         path='/city/:cityName'
-                        element={
-                            <SplitPane
-                                split='vertical'
-                                sizes={sizes}
-                                onChange={setSizes}
-                                resizerSize={13}
-                                sashRender={() => (
-                                    <div className='resizer-line' />
-                                )}
-                            >
-                                <div style={{ height: "100%" }}>
-                                    <CityPage
-                                        currentLanguage={currentLanguage}
-                                    />
-                                </div>
-                                {isChatVisible && (
-                                    <div style={{ height: "100%" }}>
-                                        <DecisionTreeChat
-                                            currentLanguage={currentLanguage}
-                                        />
-                                    </div>
-                                )}
-                            </SplitPane>
-                        }
+                        element={<CityPage currentLanguage={currentLanguage} />}
                     />
-
-                    {/* Judge Page */}
                     <Route
                         path='/judge/:judgeName'
                         element={
-                            <SplitPane
-                                split='vertical'
-                                sizes={sizes}
-                                onChange={setSizes}
-                                resizerSize={13}
-                                sashRender={() => (
-                                    <div className='resizer-line' />
-                                )}
-                            >
-                                <div style={{ height: "100%" }}>
-                                    <JudgePage
-                                        currentLanguage={currentLanguage}
-                                    />
-                                </div>
-                                {isChatVisible && (
-                                    <div style={{ height: "100%" }}>
-                                        <DecisionTreeChat
-                                            currentLanguage={currentLanguage}
-                                        />
-                                    </div>
-                                )}
-                            </SplitPane>
+                            <JudgePage currentLanguage={currentLanguage} />
                         }
                     />
                 </Routes>
