@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/asylum_grant_rate_search_system/static/css/main.4aadb18a.css",
-    "main.js": "/asylum_grant_rate_search_system/static/js/main.ec5d11b1.js",
+    "main.js": "/asylum_grant_rate_search_system/static/js/main.e5704ffa.js",
     "static/js/488.e75445ad.chunk.js": "/asylum_grant_rate_search_system/static/js/488.e75445ad.chunk.js",
     "static/media/fa-solid-900.ttf": "/asylum_grant_rate_search_system/static/media/fa-solid-900.2582b0e4bcf85eceead0.ttf",
     "static/media/fa-brands-400.ttf": "/asylum_grant_rate_search_system/static/media/fa-brands-400.1815e00441357e01619e.ttf",
@@ -13,11 +13,11 @@
     "static/media/fa-v4compatibility.woff2": "/asylum_grant_rate_search_system/static/media/fa-v4compatibility.ea8f94e1d22e0d35ccd4.woff2",
     "index.html": "/asylum_grant_rate_search_system/index.html",
     "main.4aadb18a.css.map": "/asylum_grant_rate_search_system/static/css/main.4aadb18a.css.map",
-    "main.ec5d11b1.js.map": "/asylum_grant_rate_search_system/static/js/main.ec5d11b1.js.map",
+    "main.e5704ffa.js.map": "/asylum_grant_rate_search_system/static/js/main.e5704ffa.js.map",
     "488.e75445ad.chunk.js.map": "/asylum_grant_rate_search_system/static/js/488.e75445ad.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4aadb18a.css",
-    "static/js/main.ec5d11b1.js"
+    "static/js/main.e5704ffa.js"
   ]
 }
