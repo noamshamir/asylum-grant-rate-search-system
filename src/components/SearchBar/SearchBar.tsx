@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./SearchBar.css";
 import DropdownMenu from "../DropdownMenu/DropdownMenu.tsx";
 
@@ -72,6 +73,7 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
     const [searchTerm, setSearchTerm] = useState("");
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [showFilterMenu, setShowFilterMenu] = useState(false);
+    const navigate = useNavigate();
 
     /**
      * Instead of storing the entire label in state,
@@ -242,11 +244,16 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
             break;
     }
 
+    const handleSearchIconClick = () => {
+        // Navigate to the homepage or desired route
+        navigate("/");
+    };
+
     return (
         <div className='search-bar-container'>
             {/* Top Search Bar */}
             <div className='search-bar'>
-                <span className='search-icon'>
+                <span className='search-icon' onClick={handleSearchIconClick}>
                     <i className='fas fa-search'></i>
                 </span>
 
