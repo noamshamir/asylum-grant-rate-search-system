@@ -77,13 +77,23 @@ function CityPage({ currentLanguage }: CityPageProps) {
 
     const sortedJudges = sortJudges(cityJudges, sortOption);
 
-    const dropdownOptions = [
-        "Approval Rate (High to Low)",
-        "Approval Rate (Low to High)",
-        "Amount of Cases (High to Low)",
-        "Amount of Cases (Low to High)",
-        "Alphabetical",
-    ];
+    const dropdownOptions =
+        currentLanguage === "en"
+            ? [
+                  "Approval Rate (High to Low)",
+                  "Approval Rate (High to Low)",
+                  "Approval Rate (Low to High)",
+                  "Amount of Cases (High to Low)",
+                  "Amount of Cases (Low to High)",
+                  "Alphabetical",
+              ]
+            : [
+                  "Tasa de Aprobación (Alta a Baja)",
+                  "Tasa de Aprobación (Baja a Alta)",
+                  "Cantidad de Casos (Alta a Baja)",
+                  "Cantidad de Casos (Baja a Alta)",
+                  "Alfabético",
+              ];
 
     const asylumRates = cityJudges.map((j) =>
         parsePercentage(j.granted_asylum_percentage)

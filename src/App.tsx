@@ -16,7 +16,6 @@ function App() {
     const [currentLanguage, setCurrentLanguage] = useState("en");
 
     useEffect(() => {
-        // Retrieve language from localStorage on component mount
         const savedLanguage = localStorage.getItem("language");
         if (savedLanguage) {
             setCurrentLanguage(savedLanguage);
