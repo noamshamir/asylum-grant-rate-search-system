@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./SearchBar.css";
 import DropdownMenu from "../DropdownMenu/DropdownMenu.tsx";
@@ -74,6 +74,11 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [showFilterMenu, setShowFilterMenu] = useState(false);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        // Ensure the search bar is visible on initial load
+        setIsDropdownOpen(true);
+    }, []);
 
     /**
      * Instead of storing the entire label in state,
@@ -246,7 +251,7 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
 
     const handleSearchIconClick = () => {
         // Navigate to the homepage or desired route
-        navigate("/");
+        navigate("/asylum_grant_rate_search_system/");
     };
 
     return (
