@@ -1,5 +1,6 @@
 import React from "react";
 import "./JudgeCard.css";
+import { Link } from "react-router-dom";
 
 // 1) Import our new DonutChart
 import DonutChart from "../DonutChart/DonutChart.tsx";
@@ -35,16 +36,16 @@ const JudgeCard: React.FC<JudgeCardProps> = ({ judge, currentLanguage }) => {
                     size={115}
                     strokeWidth={17}
                 />
-                <a href={`/judge/${judge.judge_name}`}>
+                <Link to={`/judge/${judge.judge_name}`}>
                     <h3>{judge.judge_name}</h3>
-                </a>
-                <a href={`/city/${judge.city}`}>
+                </Link>
+                <Link to={`/city/${judge.city}`}>
                     <p style={{ marginLeft: "30px" }}>{judge.city}</p>
-                </a>
+                </Link>
             </div>
-            <a href={`/judge/${judge.judge_name}`}>
+            <Link to={`/judge/${judge.judge_name}`}>
                 <button>{viewRatesLabel}</button>
-            </a>
+            </Link>
         </div>
     );
 };

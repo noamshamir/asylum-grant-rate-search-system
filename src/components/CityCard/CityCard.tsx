@@ -1,5 +1,6 @@
 import React from "react";
 import "./CityCard.css";
+import { Link } from "react-router-dom";
 
 // Import the judge data so we can compute averages for the city.
 import judgeData from "../../data/judge_grant_rates.json";
@@ -52,16 +53,16 @@ const CityCard: React.FC<CityCardProps> = ({
                     size={115}
                     strokeWidth={17}
                 />
-                <a href={`/city/${city}`}>
+                <Link to={`/city/${city}`}>
                     <h3>{city}</h3>
-                </a>
+                </Link>
                 <p style={{ marginLeft: "30px" }}>
                     {judgeCount} {judgesCountLabel}
                 </p>
             </div>
-            <a href={`/city/${city}`}>
+            <Link to={`/city/${city}`}>
                 <button>{viewRatesLabel}</button>
-            </a>
+            </Link>
         </div>
     );
 };
