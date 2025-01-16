@@ -107,6 +107,12 @@ function CityPage({ currentLanguage }: CityPageProps) {
         parsePercentage(j.denied_percentage)
     );
 
+    const averageRatesLabel =
+        currentLanguage === "en" ? "Average Rates" : "Tasas Promedio";
+
+    const cityStatsLabel =
+        currentLanguage === "en" ? "City Stats" : "Estadísticas de la Ciudad";
+
     const avgAsylumGrantRate: number = asylumRates.length
         ? asylumRates.reduce((acc, val) => acc + val, 0) / asylumRates.length
         : 0;
@@ -184,7 +190,7 @@ function CityPage({ currentLanguage }: CityPageProps) {
                 </div>
             </div>
             <div className='rates-section'>
-                <h2 className='section-header rates'>Average Rates</h2>
+                <h2 className='section-header rates'>{averageRatesLabel}</h2>
                 <div className='donut-charts-container'>
                     <div className='cases-granted-section'>
                         <div className='donut-chart-div'>
@@ -249,7 +255,7 @@ function CityPage({ currentLanguage }: CityPageProps) {
                 </div>
             </div>
             <div className='stats-section'>
-                <h2 className='section-header stats'>City Stats</h2>
+                <h2 className='section-header stats'>{cityStatsLabel}</h2>
                 <div className='statistics'>
                     <p>
                         {outOf}{" "}
@@ -277,7 +283,7 @@ function CityPage({ currentLanguage }: CityPageProps) {
                 </div>
                 <div className='judges-section'>
                     <div className='judge-header'>
-                        <h2 className='section-header judges'>Judges</h2>
+                        <h2 className='section-header judges'>{judgeLabel}</h2>
                         <span className='sort-by'>Sort by</span>
                         <DropdownMenu
                             options={dropdownOptions}
