@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./CityPage.css";
 import JudgeInCity from "../JudgeInCity/JudgeInCity.tsx";
 import judgeData from "../../data/judge_grant_rates.json";
@@ -25,12 +25,13 @@ const parsePercentage = (value: string | number | undefined): number => {
     if (!value) return 0; // Handle undefined or null
     return parseFloat(value.toString().replace(/[^0-9.]/g, "")) || 0; // Ensure value is a string
 };
-
 function CityPage({ currentLanguage }: CityPageProps) {
     const params = useParams<{ cityName: string }>();
-    const navigate = useNavigate();
+
     const city = params.cityName;
-    const cityJudgesObj = judgeData[city || ""] || {};
+
+    const cityJudgesObj = judgeData[city || ""] || {}; // Fallback to empty object
+
     const cityJudges: Judge[] = Object.values(cityJudgesObj).map((judge) => ({
         ...judge,
         granted_asylum_percentage: parsePercentage(
@@ -152,10 +153,6 @@ function CityPage({ currentLanguage }: CityPageProps) {
             ? "This number is the percent of cases in this city that were denied, whether asylum or other."
             : "Este número es el porcentaje de casos en esta ciudad donde se denegaron, ya sea asilo u otro tipo de alivio.";
 
-    const handleJudgeClick = (judgeName: string) => {
-        navigate(`/judge/${judgeName}`);
-    };
-
     return (
         <div className='city-page'>
             <div className='header-section'>
@@ -250,6 +247,14 @@ function CityPage({ currentLanguage }: CityPageProps) {
                         <span className='denied-amount'>{deniedAmount}</span>{" "}
                         {wereDenied}
                     </p>
+                    <div className='granted-percentile-container'>
+                        {/* <p>
+                            {city} is in the {grantedPercentile} of cases granted
+                        </p>{" "}
+                        <span className='info-icon-city'>
+                            <i className='fas fa-info-circle'></i>
+                        </span> */}
+                    </div>
                 </div>
                 <div className='judges-section'>
                     <div className='judge-header'>
@@ -269,9 +274,6 @@ function CityPage({ currentLanguage }: CityPageProps) {
                                         currentLanguage={currentLanguage}
                                         key={judge.judge_name}
                                         judge={judge}
-                                        onClick={() =>
-                                            handleJudgeClick(judge.judge_name)
-                                        }
                                     />
                                 ))}
                             </>
