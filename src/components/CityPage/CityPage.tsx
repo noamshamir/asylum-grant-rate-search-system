@@ -133,6 +133,15 @@ function CityPage({ currentLanguage }: CityPageProps) {
     );
     const deniedAmount = Math.round((casesAmount * avgDeniedRate) / 100);
 
+    const asylumGranted =
+        currentLanguage === "en" ? "Asylum Granted" : "Asilo Otorgado";
+    const otherRelief =
+        currentLanguage === "en"
+            ? "Other Relief Granted"
+            : "Otro Alivio Otorgado";
+    const denied =
+        currentLanguage === "en" ? "Cases Denied" : "Casos Denegados";
+
     const cityLabel = currentLanguage === "en" ? "City" : "Ciudad";
     const judgeLabel = currentLanguage === "en" ? "Judges" : "Jueces";
     const outOf = currentLanguage === "en" ? "Out of" : "De";
@@ -180,7 +189,7 @@ function CityPage({ currentLanguage }: CityPageProps) {
                     <div className='cases-granted-section'>
                         <div className='donut-chart-div'>
                             <DonutChart
-                                title='Asylum Granted'
+                                title={asylumGranted}
                                 percentage={avgAsylumGrantRate}
                                 className='asylum-granted-donut-chart'
                                 size={110}
@@ -189,7 +198,7 @@ function CityPage({ currentLanguage }: CityPageProps) {
                             />
                         </div>
                         <div className='donut-chart-description'>
-                            <p>Asylum Granted</p>
+                            <p>{asylumGranted}</p>
                             <Tooltip text={asylumGrantedInfo}>
                                 <span className='info-icon-city'>
                                     <i className='fas fa-info-circle'></i>
@@ -200,7 +209,7 @@ function CityPage({ currentLanguage }: CityPageProps) {
                     <div className='other-relief-section'>
                         <div className='donut-chart-div'>
                             <DonutChart
-                                title='Other Relief Granted'
+                                title={otherRelief}
                                 percentage={avgOtherGrantRate}
                                 className='other-relief-donut-chart'
                                 size={110}
@@ -209,7 +218,7 @@ function CityPage({ currentLanguage }: CityPageProps) {
                             />
                         </div>
                         <div className='donut-chart-description'>
-                            <p>Other Relief Granted</p>
+                            <p>{otherRelief}</p>
                             <Tooltip text={otherReliefInfo}>
                                 <span className='info-icon-city'>
                                     <i className='fas fa-info-circle'></i>
@@ -220,7 +229,7 @@ function CityPage({ currentLanguage }: CityPageProps) {
                     <div className='denied-section'>
                         <div className='donut-chart-div'>
                             <DonutChart
-                                title='Denied'
+                                title={denied}
                                 percentage={avgDeniedRate}
                                 className='denied-donut-chart'
                                 size={110}
@@ -229,7 +238,7 @@ function CityPage({ currentLanguage }: CityPageProps) {
                             />
                         </div>
                         <div className='donut-chart-description'>
-                            <p>Cases Denied</p>
+                            <p>{denied}</p>
                             <Tooltip text={deniedIndo}>
                                 <span className='info-icon-city'>
                                     <i className='fas fa-info-circle'></i>
