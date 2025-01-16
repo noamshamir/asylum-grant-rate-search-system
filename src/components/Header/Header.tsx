@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Header.css";
+import { Link } from "react-router-dom";
 
 interface HeaderProps {
     toggleChat: () => void;
@@ -63,19 +64,19 @@ const Header: React.FC<HeaderProps> = ({
             <div className='header-icons'>
                 {/* Search icon */}
                 <span className='icon-container'>
-                    <a href='/' style={{ textDecoration: "none" }}>
+                    <Link to='/' style={{ textDecoration: "none" }}>
                         <span className='search-icon'>
                             <i className='fas fa-search'></i>
                         </span>
-                    </a>
+                    </Link>
 
-                    <a
-                        href='/'
+                    <Link
+                        to='/'
                         style={{ textDecoration: "none" }}
                         className='icon-label'
                     >
                         {searchLabel}
-                    </a>
+                    </Link>
                 </span>
 
                 {/* Chat toggle icon */}
