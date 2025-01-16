@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Correct imports for Routes and Route
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SplitPane from "split-pane-react";
 import "./App.css";
 
@@ -15,6 +15,14 @@ function App() {
     const [isChatVisible, setIsChatVisible] = useState(true);
     const [currentLanguage, setCurrentLanguage] = useState("en");
 
+    useEffect(() => {
+        // Retrieve language from localStorage on component mount
+        const savedLanguage = localStorage.getItem("language");
+        if (savedLanguage) {
+            setCurrentLanguage(savedLanguage);
+        }
+    }, []);
+
     const toggleChat = () => {
         setIsChatVisible((prev) => {
             const newSizes = prev ? ["100%", "0%"] : ["70%", "30%"];
@@ -25,6 +33,7 @@ function App() {
 
     const handleLanguageChange = (lang: string) => {
         setCurrentLanguage(lang);
+        localStorage.setItem("language", lang); // Save language to localStorage
     };
 
     return (
