@@ -67,7 +67,7 @@ const SORT_OPTIONS_ES: Array<{ label: string; key: SortKey }> = [
 
 function SearchBar({ currentLanguage }: SearchBarProps) {
     const [searchTerm, setSearchTerm] = useState("");
-    const [isDropdownOpen, setIsDropdownOpen] = useState(true);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [showFilterMenu, setShowFilterMenu] = useState(false);
     const navigate = useNavigate();
 
