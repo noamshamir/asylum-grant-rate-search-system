@@ -67,7 +67,7 @@ function App() {
 
                     {/* City Page */}
                     <Route
-                        path='/asylum_grant_rate_search_system/city/:cityName'
+                        path='/city/:cityName'
                         element={
                             <SplitPane
                                 split='vertical'
