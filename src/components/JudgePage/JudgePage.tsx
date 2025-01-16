@@ -69,18 +69,14 @@ const parsePercentage = (value: string | number | undefined): number => {
 function JudgePage({ currentLanguage }: JudgePageProps) {
     const params = useParams<{ judgeName: string }>();
     const judgeNameParam = params.judgeName;
-
-    // Flatten all judges from judgeData (which is keyed by city).
     const allJudges: SingleJudge[] = Object.values(judgeData).flatMap(
         (cityObj) => Object.values(cityObj)
     ) as SingleJudge[];
 
-    // Find the specific judge by name
     const theJudge = allJudges.find(
         (j) => j.judge_name.toLowerCase() === judgeNameParam?.toLowerCase()
     );
 
-    // If judge isn't found, display an error or placeholder
     if (!theJudge) {
         return (
             <div className='judge-page'>
@@ -89,7 +85,6 @@ function JudgePage({ currentLanguage }: JudgePageProps) {
         );
     }
 
-    // Convert string percentages to numbers
     const asylumRate = parsePercentage(theJudge.granted_asylum_percentage);
     const otherReliefRate = parsePercentage(
         theJudge.granted_other_relief_percentage
@@ -97,7 +92,6 @@ function JudgePage({ currentLanguage }: JudgePageProps) {
     const deniedRate = parsePercentage(theJudge.denied_percentage);
     const totalDecisions = Number(theJudge.total_decisions);
 
-    // Calculate actual numbers of cases
     const asylumGrantedAmount = Math.round((totalDecisions * asylumRate) / 100);
     const otherGrantedAmount = Math.round(
         (totalDecisions * otherReliefRate) / 100
@@ -106,7 +100,6 @@ function JudgePage({ currentLanguage }: JudgePageProps) {
 
     return (
         <div className='judge-page'>
-            {/* Header Section */}
             <div className='judge-header-section'>
                 <div className='judge-title-description'>
                     <h2 className='judge-section-header judge-title'>
@@ -122,14 +115,11 @@ function JudgePage({ currentLanguage }: JudgePageProps) {
                     </a>
                 </div>
             </div>
-
-            {/* Rates Section */}
             <div className='judge-rates-section'>
                 <h2 className='judge-section-header judge-rates'>
                     {translations[currentLanguage].averageRates}
                 </h2>
                 <div className='judge-donut-charts-container'>
-                    {/* Asylum Granted */}
                     <div className='judge-asylum-granted-section'>
                         <div className='judge-donut-chart-div'>
                             <DonutChart
@@ -157,8 +147,6 @@ function JudgePage({ currentLanguage }: JudgePageProps) {
                             </Tooltip>
                         </div>
                     </div>
-
-                    {/* Other Relief Granted */}
                     <div className='judge-other-relief-section'>
                         <div className='judge-donut-chart-div'>
                             <DonutChart
@@ -192,8 +180,6 @@ function JudgePage({ currentLanguage }: JudgePageProps) {
                             </Tooltip>
                         </div>
                     </div>
-
-                    {/* Denied */}
                     <div className='judge-denied-section'>
                         <div className='judge-donut-chart-div'>
                             <DonutChart
@@ -218,8 +204,6 @@ function JudgePage({ currentLanguage }: JudgePageProps) {
                     </div>
                 </div>
             </div>
-
-            {/* Stats Section */}
             <div className='judge-stats-section'>
                 <h2 className='judge-section-header judge-stats'>
                     {translations[currentLanguage].judgeStats}
