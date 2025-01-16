@@ -2,11 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./SearchBar.css";
 import DropdownMenu from "../DropdownMenu/DropdownMenu.tsx";
-
-// Import JSON data
 import judgeData from "../../data/judge_grant_rates.json";
-
-// Import child components
 import CityCard from "../CityCard/CityCard.tsx";
 import JudgeCard from "../JudgeCard/JudgeCard.tsx";
 
@@ -71,14 +67,9 @@ const SORT_OPTIONS_ES: Array<{ label: string; key: SortKey }> = [
 
 function SearchBar({ currentLanguage }: SearchBarProps) {
     const [searchTerm, setSearchTerm] = useState("");
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(true);
     const [showFilterMenu, setShowFilterMenu] = useState(false);
     const navigate = useNavigate();
-
-    useEffect(() => {
-        // Ensure the search bar is visible on initial load
-        setIsDropdownOpen(true);
-    }, []);
 
     /**
      * Instead of storing the entire label in state,
@@ -250,18 +241,15 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
     }
 
     const handleSearchIconClick = () => {
-        // Navigate to the homepage or desired route
-        navigate("/asylum_grant_rate_search_system/");
+        navigate("/");
     };
 
     return (
         <div className='search-bar-container'>
-            {/* Top Search Bar */}
             <div className='search-bar'>
                 <span className='search-icon' onClick={handleSearchIconClick}>
                     <i className='fas fa-search'></i>
                 </span>
-
                 <input
                     type='text'
                     value={searchTerm}
@@ -272,7 +260,6 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
                     onFocus={() => setIsDropdownOpen(true)}
                     placeholder={placeholder}
                 />
-
                 <div className='search-actions'>
                     <span
                         className='clear-icon'
@@ -285,23 +272,18 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
                     >
                         <i className='fas fa-times'></i>
                     </span>
-
                     <div className='divider' />
-
                     <span
                         className='filter-icon'
                         onClick={() => setShowFilterMenu(!showFilterMenu)}
                     >
                         <i className='fas fa-sliders-h'></i>
                     </span>
-
                     <span className='info-icon'>
                         <i className='fas fa-info-circle'></i>
                     </span>
                 </div>
             </div>
-
-            {/* Simple white box with dropdown (no dragging) */}
             {showFilterMenu && (
                 <div className='filter-menu'>
                     <div className='filter-header'>
@@ -315,7 +297,6 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
                             <i className='fas fa-times'></i>
                         </span>
                     </div>
-
                     <div className='filter-body'>
                         <span className='sort-by-text'>{sortBy}:</span>
                         <div
@@ -323,16 +304,12 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
                             style={{ transform: "scale(2)" }}
                         >
                             <DropdownMenu
-                                // Pass the *translated* label array as "options"
                                 options={dropdownOptions.map((o) => o.label)}
-                                // Find the matching label for the current key, or fallback
                                 selectedOption={
-                                    // get label for the current "sortOption" key
                                     dropdownOptions.find(
                                         (o) => o.key === sortOption
                                     )?.label || ""
                                 }
-                                // On select, we must map the label back to the key
                                 onSelect={(selectedLabel) => {
                                     const found = dropdownOptions.find(
                                         (o) => o.label === selectedLabel
@@ -346,14 +323,11 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
                     </div>
                 </div>
             )}
-
-            {/* Search Results Dropdown */}
             {isDropdownOpen &&
                 (cityResults.length > 0 || judgeResults.length > 0) && (
                     <>
                         <hr className='horizontal-divider' />
                         <div className='search-results-dropdown'>
-                            {/* Cities */}
                             {cityResults.length > 0 && (
                                 <>
                                     <h4>{citiesLabel}</h4>
@@ -374,8 +348,6 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
                                     })}
                                 </>
                             )}
-
-                            {/* Judges */}
                             {judgeResults.length > 0 && (
                                 <>
                                     <h4>{judgesLabel}</h4>
