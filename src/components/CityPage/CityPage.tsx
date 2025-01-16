@@ -25,13 +25,11 @@ const parsePercentage = (value: string | number | undefined): number => {
     if (!value) return 0; // Handle undefined or null
     return parseFloat(value.toString().replace(/[^0-9.]/g, "")) || 0; // Ensure value is a string
 };
+
 function CityPage({ currentLanguage }: CityPageProps) {
     const params = useParams<{ cityName: string }>();
-
     const city = params.cityName;
-
-    const cityJudgesObj = judgeData[city || ""] || {}; // Fallback to empty object
-
+    const cityJudgesObj = judgeData[city || ""] || {};
     const cityJudges: Judge[] = Object.values(cityJudgesObj).map((judge) => ({
         ...judge,
         granted_asylum_percentage: parsePercentage(
@@ -247,14 +245,6 @@ function CityPage({ currentLanguage }: CityPageProps) {
                         <span className='denied-amount'>{deniedAmount}</span>{" "}
                         {wereDenied}
                     </p>
-                    <div className='granted-percentile-container'>
-                        {/* <p>
-                            {city} is in the {grantedPercentile} of cases granted
-                        </p>{" "}
-                        <span className='info-icon-city'>
-                            <i className='fas fa-info-circle'></i>
-                        </span> */}
-                    </div>
                 </div>
                 <div className='judges-section'>
                     <div className='judge-header'>
