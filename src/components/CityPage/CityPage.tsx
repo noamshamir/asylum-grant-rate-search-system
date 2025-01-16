@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./CityPage.css";
 import JudgeInCity from "../JudgeInCity/JudgeInCity.tsx";
 import judgeData from "../../data/judge_grant_rates.json";

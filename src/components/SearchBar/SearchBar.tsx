@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./SearchBar.css";
 import DropdownMenu from "../DropdownMenu/DropdownMenu.tsx";
 import judgeData from "../../data/judge_grant_rates.json";

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./JudgePage.css";
 import judgeData from "../../data/judge_grant_rates.json";
 import DonutChart from "../DonutChart/DonutChart.tsx";
@@ -115,11 +115,11 @@ function JudgePage({ currentLanguage }: JudgePageProps) {
                     <h1 className='judge-descriptor judge-label'>
                         {translations[currentLanguage].judge}
                     </h1>
-                    <a href={`/city/${theJudge.city}`}>
+                    <Link to={`/city/${theJudge.city}`}>
                         <h3 className='judge-descriptor judge-city'>
                             {theJudge.city}
                         </h3>
-                    </a>
+                    </Link>
                 </div>
             </div>
 
