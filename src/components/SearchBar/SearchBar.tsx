@@ -285,7 +285,7 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
                     >
                         <i className='fas fa-sliders-h'></i>
                     </span>
-                    <Tooltip text={searchBarInfo}>
+                    <Tooltip id='search-tooltip' text={searchBarInfo}>
                         <span className='info-icon'>
                             <i className='fas fa-info-circle'></i>
                         </span>
