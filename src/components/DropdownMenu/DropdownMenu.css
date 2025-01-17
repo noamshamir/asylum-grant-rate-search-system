@@ -76,7 +76,7 @@
     position: absolute;
     top: calc(100% + 10px); /* Ensure it’s below the button */
     background-color: #303134;
-    color: #fff;
+    color: #ededed;
     list-style: none;
     margin-top: -20px;
     padding: 5px 0;
