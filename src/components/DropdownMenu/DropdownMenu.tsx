@@ -11,14 +11,14 @@ interface DropdownMenuProps {
     options: DropdownOption[];
     selectedValue: string; // We'll store the "value" in the parent
     onSelect: (value: string) => void;
-    color: string;
+    backgroundColor: string;
 }
 
 const DropdownMenu: React.FC<DropdownMenuProps> = ({
     options,
     selectedValue,
     onSelect,
-    color,
+    backgroundColor,
 }) => {
     const [isOpen, setIsOpen] = useState(false);
     const toggleDropdown = () => setIsOpen(!isOpen);
@@ -26,7 +26,10 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
     // Find the label for the currently selected value
     const selectedOption = options.find((opt) => opt.value === selectedValue);
 
+    console.log(options);
+
     const handleOptionClick = (option: DropdownOption) => {
+        console.log(option.value);
         onSelect(option.value); // pass back the "value" (sort key)
         setIsOpen(false);
     };
@@ -35,7 +38,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
         <div className='dropdown-menu'>
             <button
                 className={`dropdown-button ${isOpen ? "dropdown-open" : ""}`}
-                style={{ backgroundColor: color }}
+                style={{ backgroundColor: backgroundColor }}
                 onClick={toggleDropdown}
             >
                 {selectedOption ? selectedOption.label : "Select"}
@@ -53,7 +56,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
                             key={index}
                             className='dropdown-option'
                             onClick={() => handleOptionClick(opt)}
-                            style={{ backgroundColor: color }}
+                            style={{ backgroundColor: backgroundColor }}
                         >
                             {opt.label}
                         </li>

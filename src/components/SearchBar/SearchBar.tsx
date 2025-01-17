@@ -48,22 +48,37 @@ type SortKey =
  * We store the labels in English & Spanish, and
  * link them to an internal `SortKey` string.
  */
-const SORT_OPTIONS_EN: Array<{ label: string; key: SortKey }> = [
-    { label: "Approval Rate (High to Low)", key: "approvalHigh" },
-    { label: "Approval Rate (Low to High)", key: "approvalLow" },
-    { label: "Amount of Cases (High to Low)", key: "casesHigh" },
-    { label: "Amount of Cases (Low to High)", key: "casesLow" },
-    { label: "Alphabetical (A to Z)", key: "alphaAsc" },
-    { label: "Reverse Alphabetical (Z to A)", key: "alphaDesc" },
-];
-
-const SORT_OPTIONS_ES: Array<{ label: string; key: SortKey }> = [
-    { label: "Tasa de Aprobación (Alta a Baja)", key: "approvalHigh" },
-    { label: "Tasa de Aprobación (Baja a Alta)", key: "approvalLow" },
-    { label: "Número de Casos (Alto a Bajo)", key: "casesHigh" },
-    { label: "Número de Casos (Bajo a Alto)", key: "casesLow" },
-    { label: "Alfabético (A a Z)", key: "alphaAsc" },
-    { label: "Alfabético Inverso (Z a A)", key: "alphaDesc" },
+const SORT_OPTIONS = [
+    {
+        value: "approvalHigh",
+        en: "Approval Rate (High to Low)",
+        es: "Tasa de Aprobación (Alta a Baja)",
+    },
+    {
+        value: "approvalLow",
+        en: "Approval Rate (Low to High)",
+        es: "Tasa de Aprobación (Baja a Alta)",
+    },
+    {
+        value: "casesHigh",
+        en: "Amount of Cases (High to Low)",
+        es: "Cantidad de Casos (Alta a Baja)",
+    },
+    {
+        value: "casesLow",
+        en: "Amount of Cases (Low to High)",
+        es: "Cantidad de Casos (Baja a Alta)",
+    },
+    {
+        value: "alphaAsc",
+        en: "Alphabetical (A to Z)",
+        es: "Alfabético (A a Z)",
+    },
+    {
+        value: "alphaDesc",
+        en: "Reverse Alphabetical (Z to A)",
+        es: "Alfabético Inverso (Z a A)",
+    },
 ];
 
 function SearchBar({ currentLanguage }: SearchBarProps) {
@@ -77,11 +92,14 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
      * we store the "internal" key, e.g. "approvalHigh".
      * Default = "alphaAsc"
      */
-    const [sortOption, setSortOption] = useState<SortKey>("alphaAsc");
+    const [sortOption, setSortOption] = useState<SortKey>("approvalHigh");
 
-    // Depending on language, pick the appropriate array of {label, key} items
-    const dropdownOptions =
-        currentLanguage === "es" ? SORT_OPTIONS_ES : SORT_OPTIONS_EN;
+    const dropdownOptions = SORT_OPTIONS.map((opt) => ({
+        value: opt.value,
+        label: currentLanguage === "en" ? opt.en : opt.es,
+    }));
+
+    const sortByLabel = currentLanguage === "en" ? "Sort by" : "Ordenar por";
 
     // JSON data
     const allCities: AllCities = judgeData;
@@ -312,26 +330,17 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
                         </span>
                     </div>
                     <div className='filter-body'>
-                        <span className='sort-by-text'>{sortBy}:</span>
+                        <span className='sort-by-text'>{sortByLabel}:</span>
                         <div
                             className='dropdown-menu-div'
                             style={{ transform: "scale(2)" }}
                         >
                             <DropdownMenu
-                                options={dropdownOptions.map((o) => o.label)}
-                                selectedOption={
-                                    dropdownOptions.find(
-                                        (o) => o.key === sortOption
-                                    )?.label || ""
+                                options={dropdownOptions}
+                                selectedValue={sortOption}
+                                onSelect={(selectedValue) =>
+                                    setSortOption(selectedValue as SortKey)
                                 }
-                                onSelect={(selectedLabel) => {
-                                    const found = dropdownOptions.find(
-                                        (o) => o.label === selectedLabel
-                                    );
-                                    if (found) {
-                                        setSortOption(found.key);
-                                    }
-                                }}
                             />
                         </div>
                     </div>
