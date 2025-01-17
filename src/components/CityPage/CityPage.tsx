@@ -188,7 +188,7 @@ function CityPage({ currentLanguage }: CityPageProps) {
             ? "This number is the percent of cases in this city where other relief, such as withholding of removal, convention against torture (CAT), or discretionary humanitarian relief was granted."
             : "Este número es el porcentaje de casos en esta ciudad donde se otorgó otro tipo de ayuda, como la suspensión de la deportación, la convención contra la tortura (CAT) o la ayuda humanitaria discrecional.";
 
-    const deniedIndo =
+    const deniedInfo =
         currentLanguage === "en"
             ? "This number is the percent of cases in this city that were denied, whether asylum or other."
             : "Este número es el porcentaje de casos en esta ciudad donde se denegaron, ya sea asilo u otro tipo de alivio.";
@@ -260,7 +260,7 @@ function CityPage({ currentLanguage }: CityPageProps) {
                         </div>
                         <div className='donut-chart-description'>
                             <p>{denied}</p>
-                            <Tooltip text={deniedIndo}>
+                            <Tooltip text={deniedInfo}>
                                 <span className='info-icon-city'>
                                     <i className='fas fa-info-circle'></i>
                                 </span>
