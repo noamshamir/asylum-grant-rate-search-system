@@ -21,17 +21,45 @@ interface CityPageProps {
 }
 
 const parsePercentage = (value: string | number | undefined): number => {
-    if (typeof value === "number") return value; // If it's already a number, return it
-    if (!value) return 0; // Handle undefined or null
-    return parseFloat(value.toString().replace(/[^0-9.]/g, "")) || 0; // Ensure value is a string
+    if (typeof value === "number") return value;
+    if (!value) return 0;
+    return parseFloat(value.toString().replace(/[^0-9.]/g, "")) || 0;
 };
+
+/** Step 1: Define a single set of sort "values" and map them to labels (EN + ES). */
+const SORT_OPTIONS = [
+    {
+        value: "approvalHigh",
+        en: "Approval Rate (High to Low)",
+        es: "Tasa de Aprobación (Alta a Baja)",
+    },
+    {
+        value: "approvalLow",
+        en: "Approval Rate (Low to High)",
+        es: "Tasa de Aprobación (Baja a Alta)",
+    },
+    {
+        value: "casesHigh",
+        en: "Amount of Cases (High to Low)",
+        es: "Cantidad de Casos (Alta a Baja)",
+    },
+    {
+        value: "casesLow",
+        en: "Amount of Cases (Low to High)",
+        es: "Cantidad de Casos (Baja a Alta)",
+    },
+    {
+        value: "alpha",
+        en: "Alphabetical",
+        es: "Alfabético",
+    },
+];
+
 function CityPage({ currentLanguage }: CityPageProps) {
     const params = useParams<{ cityName: string }>();
-
     const city = params.cityName;
 
-    const cityJudgesObj = judgeData[city || ""] || {}; // Fallback to empty object
-
+    const cityJudgesObj = judgeData[city || ""] || {};
     const cityJudges: Judge[] = Object.values(cityJudgesObj).map((judge) => ({
         ...judge,
         granted_asylum_percentage: parsePercentage(
@@ -40,33 +68,33 @@ function CityPage({ currentLanguage }: CityPageProps) {
         total_decisions: Number(judge.total_decisions),
     }));
 
-    const [sortOption, setSortOption] = useState<string>(
-        "Approval Rate (High to Low)"
-    );
+    /** Step 2: Store the internal "value" (e.g. "approvalHigh"), not the displayed text. */
+    const [sortValue, setSortValue] = useState<string>("approvalHigh");
 
-    const sortJudges = (judges: Judge[], option: string): Judge[] => {
-        switch (option) {
-            case "Approval Rate (High to Low)":
+    /** Step 3: Switch on the "value" rather than the displayed text. */
+    const sortJudges = (judges: Judge[], sortValue: string): Judge[] => {
+        switch (sortValue) {
+            case "approvalHigh":
                 return [...judges].sort(
                     (a, b) =>
                         b.granted_asylum_percentage -
                         a.granted_asylum_percentage
                 );
-            case "Approval Rate (Low to High)":
+            case "approvalLow":
                 return [...judges].sort(
                     (a, b) =>
                         a.granted_asylum_percentage -
                         b.granted_asylum_percentage
                 );
-            case "Amount of Cases (High to Low)":
+            case "casesHigh":
                 return [...judges].sort(
                     (a, b) => b.total_decisions - a.total_decisions
                 );
-            case "Amount of Cases (Low to High)":
+            case "casesLow":
                 return [...judges].sort(
                     (a, b) => a.total_decisions - b.total_decisions
                 );
-            case "Alphabetical":
+            case "alpha":
                 return [...judges].sort((a, b) =>
                     a.judge_name.localeCompare(b.judge_name)
                 );
@@ -75,62 +103,49 @@ function CityPage({ currentLanguage }: CityPageProps) {
         }
     };
 
-    const sortedJudges = sortJudges(cityJudges, sortOption);
+    const sortedJudges = sortJudges(cityJudges, sortValue);
 
-    const dropdownOptions =
-        currentLanguage === "en"
-            ? [
-                  "Approval Rate (High to Low)",
-                  "Approval Rate (High to Low)",
-                  "Approval Rate (Low to High)",
-                  "Amount of Cases (High to Low)",
-                  "Amount of Cases (Low to High)",
-                  "Alphabetical",
-              ]
-            : [
-                  "Tasa de Aprobación (Alta a Baja)",
-                  "Tasa de Aprobación (Baja a Alta)",
-                  "Cantidad de Casos (Alta a Baja)",
-                  "Cantidad de Casos (Baja a Alta)",
-                  "Alfabético",
-              ];
+    /** Step 4: Build the dropdown options based on currentLanguage. 
+      Each item: { label: string, value: string } */
+    const dropdownOptions = SORT_OPTIONS.map((opt) => ({
+        value: opt.value,
+        label: currentLanguage === "en" ? opt.en : opt.es,
+    }));
 
-    const asylumRates = cityJudges.map((j) =>
-        parsePercentage(j.granted_asylum_percentage)
-    );
-
-    const otherRates = cityJudges.map((j) =>
-        parsePercentage(j.granted_other_relief_percentage)
-    );
-
-    const deniedPercentage = cityJudges.map((j) =>
-        parsePercentage(j.denied_percentage)
-    );
-
+    const sortByLabel = currentLanguage === "en" ? "Sort by" : "Ordenar por";
     const averageRatesLabel =
         currentLanguage === "en" ? "Average Rates" : "Tasas Promedio";
-
     const cityStatsLabel =
         currentLanguage === "en" ? "City Stats" : "Estadísticas de la Ciudad";
-
-    const avgAsylumGrantRate: number = asylumRates.length
-        ? asylumRates.reduce((acc, val) => acc + val, 0) / asylumRates.length
-        : 0;
-
-    const avgOtherGrantRate: number = otherRates.length
-        ? otherRates.reduce((acc, val) => acc + val, 0) / otherRates.length
-        : 0;
-
-    const avgDeniedRate: number = deniedPercentage.length
-        ? deniedPercentage.reduce((acc, val) => acc + val, 0) /
-          deniedPercentage.length
-        : 0;
 
     let casesAmount: number = 0;
     for (let judge of cityJudges) {
         casesAmount += Number(judge.total_decisions);
     }
 
+    const asylumRates = cityJudges.map((j) =>
+        parsePercentage(j.granted_asylum_percentage)
+    );
+    const otherRates = cityJudges.map((j) =>
+        parsePercentage(j.granted_other_relief_percentage)
+    );
+    const deniedPercentage = cityJudges.map((j) =>
+        parsePercentage(j.denied_percentage)
+    );
+
+    // Then compute the averages
+    const avgAsylumGrantRate: number = asylumRates.length
+        ? asylumRates.reduce((acc, val) => acc + val, 0) / asylumRates.length
+        : 0;
+    const avgOtherGrantRate: number = otherRates.length
+        ? otherRates.reduce((acc, val) => acc + val, 0) / otherRates.length
+        : 0;
+    const avgDeniedRate: number = deniedPercentage.length
+        ? deniedPercentage.reduce((acc, val) => acc + val, 0) /
+          deniedPercentage.length
+        : 0;
+
+    // Then do:
     const asylumGrantedAmount = Math.round(
         (casesAmount * avgAsylumGrantRate) / 100
     );
@@ -284,11 +299,11 @@ function CityPage({ currentLanguage }: CityPageProps) {
                 <div className='judges-section'>
                     <div className='judge-header'>
                         <h2 className='section-header judges'>{judgeLabel}</h2>
-                        <span className='sort-by'>Sort by</span>
+                        <span className='sort-by'>{sortByLabel}</span>
                         <DropdownMenu
                             options={dropdownOptions}
-                            selectedOption={sortOption}
-                            onSelect={(option) => setSortOption(option)}
+                            selectedValue={sortValue}
+                            onSelect={(val) => setSortValue(val)}
                         />
                     </div>
                     <div className='judge-cards'>

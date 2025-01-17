@@ -59,7 +59,9 @@ const Header: React.FC<HeaderProps> = ({
 
     return (
         <header className='header'>
-            <div className='header-title'>{titleText}</div>
+            <Link to='/' style={{ textDecoration: "none" }}>
+                <div className='header-title'>{titleText}</div>
+            </Link>
 
             <div className='header-icons'>
                 {/* Search icon */}

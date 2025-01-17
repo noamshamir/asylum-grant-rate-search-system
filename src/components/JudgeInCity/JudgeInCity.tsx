@@ -25,6 +25,8 @@ const JudgeCard: React.FC<JudgeCardProps> = ({ judge, currentLanguage }) => {
     const viewRatesLabel =
         currentLanguage === "es" ? `Ver Tasas` : `View Rates`;
 
+    const casesLabel = currentLanguage === "en" ? `cases` : `casos`;
+
     return (
         <div className='city-judge-card'>
             <div style={{ display: "flex", alignItems: "center" }}>
@@ -40,7 +42,7 @@ const JudgeCard: React.FC<JudgeCardProps> = ({ judge, currentLanguage }) => {
                 </Link>
 
                 <p style={{ marginLeft: "15px" }}>
-                    {judge.total_decisions} cases
+                    {judge.total_decisions} {casesLabel}
                 </p>
             </div>
             <Link to={`/judge/${judge.judge_name}`}>
