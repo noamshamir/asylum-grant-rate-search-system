@@ -56,10 +56,6 @@
     align-items: center;
 }
 
-#search-tooltip {
-    transform: scale(2);
-}
-
 /* Clear (x) icon */
 .clear-icon {
     width: 70px;

@@ -285,11 +285,17 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
                     >
                         <i className='fas fa-sliders-h'></i>
                     </span>
-                    <Tooltip id='search-tooltip' text={searchBarInfo}>
-                        <span className='info-icon'>
-                            <i className='fas fa-info-circle'></i>
-                        </span>
-                    </Tooltip>
+                    <div className='tooltip-container-search'>
+                        <Tooltip
+                            position='below'
+                            text={searchBarInfo}
+                            scale='2'
+                        >
+                            <span className='info-icon'>
+                                <i className='fas fa-info-circle'></i>
+                            </span>
+                        </Tooltip>
+                    </div>
                 </div>
             </div>
             {showFilterMenu && (
