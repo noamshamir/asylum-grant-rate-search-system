@@ -5,6 +5,7 @@ import DropdownMenu from "../DropdownMenu/DropdownMenu.tsx";
 import judgeData from "../../data/judge_grant_rates.json";
 import CityCard from "../CityCard/CityCard.tsx";
 import JudgeCard from "../JudgeCard/JudgeCard.tsx";
+import Tooltip from "../Tooltip/Tooltip.tsx";
 
 // Interfaces
 interface Judge {
@@ -151,6 +152,11 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
         return sumCases;
     };
 
+    const searchBarInfo =
+        currentLanguage === "en"
+            ? `Find the asylum grant percentages/rates of your judge or city by searching for them in the search bar. For more info, use the info chat on the right`
+            : `Encuentra los porcentajes/tasas de concesión de asilo de tu juez o ciudad buscándolos en la barra de búsqueda. Para más información, utiliza el chat de información a la derecha.`;
+
     /* --------------------------
      *  Filter results by search
      * -------------------------- */
@@ -279,9 +285,11 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
                     >
                         <i className='fas fa-sliders-h'></i>
                     </span>
-                    <span className='info-icon'>
-                        <i className='fas fa-info-circle'></i>
-                    </span>
+                    <Tooltip text={searchBarInfo}>
+                        <span className='info-icon'>
+                            <i className='fas fa-info-circle'></i>
+                        </span>
+                    </Tooltip>
                 </div>
             </div>
             {showFilterMenu && (
