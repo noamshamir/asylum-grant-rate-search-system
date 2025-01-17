@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/asylum_grant_rate_search_system/static/css/main.4434c977.css",
+    "main.css": "/asylum_grant_rate_search_system/static/css/main.873f6aeb.css",
     "main.js": "/asylum_grant_rate_search_system/static/js/main.72963d0f.js",
     "static/js/488.e75445ad.chunk.js": "/asylum_grant_rate_search_system/static/js/488.e75445ad.chunk.js",
     "static/media/fa-solid-900.ttf": "/asylum_grant_rate_search_system/static/media/fa-solid-900.2582b0e4bcf85eceead0.ttf",
@@ -12,12 +12,12 @@
     "static/media/fa-v4compatibility.ttf": "/asylum_grant_rate_search_system/static/media/fa-v4compatibility.da94ef451f4969af06e6.ttf",
     "static/media/fa-v4compatibility.woff2": "/asylum_grant_rate_search_system/static/media/fa-v4compatibility.ea8f94e1d22e0d35ccd4.woff2",
     "index.html": "/asylum_grant_rate_search_system/index.html",
-    "main.4434c977.css.map": "/asylum_grant_rate_search_system/static/css/main.4434c977.css.map",
+    "main.873f6aeb.css.map": "/asylum_grant_rate_search_system/static/css/main.873f6aeb.css.map",
     "main.72963d0f.js.map": "/asylum_grant_rate_search_system/static/js/main.72963d0f.js.map",
     "488.e75445ad.chunk.js.map": "/asylum_grant_rate_search_system/static/js/488.e75445ad.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4434c977.css",
+    "static/css/main.873f6aeb.css",
     "static/js/main.72963d0f.js"
   ]
 }
