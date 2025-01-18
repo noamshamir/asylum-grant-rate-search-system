@@ -1,0 +1,94 @@
+{
+  "start": {
+    "message": "Welcome! What do you need help with?",
+    "options": [
+      { "label": "Finding my Judge/City", "next": "JudgeAndCity" },
+      { "label": "Using the Website", "next": "UsingWebsite" }
+    ]
+  },
+
+  "JudgeAndCity": {
+    "message": "Do you know your A Number?",
+    "options": [
+      { "label": "Yes", "next": "UseANumber" },
+      { "label": "No", "next": "FindANumber" }
+    ]
+  },
+  
+  "UsingWebsite": {
+    "message": "What do you need help with regarding using the website?",
+    "options": [
+      { "label": "Finding my asylum grant rate", "next": "FindGrantRate" },
+      { "label": "Understanding the data", "next": "UnderstandingGraphs" }
+    ]
+  },
+
+  "UseANumber": {
+    "message": [
+      "Go to ",
+      { "type": "link", "text": "this website", "url": "https://acis.eoir.justice.gov/en/" },
+      " and enter your ",
+      { "type": "bold", "text": "A number. " },
+      "After you click enter, you will see your ",
+      { "type": "bold", "text": "judge and city." }
+    ],
+    "options": []
+  },
+
+  "FindANumber": {
+    "message": [
+      "You can find your ",
+      { "type": "bold", "text": "A number" },
+      " at the top of", 
+      { "type": "bold", "text": " most forms you got from a government official at court or at the border. " },
+      "For more information, go to ",
+      { "type": "link", "text": "this website", "url": "https://www.immigrationhelp.org/learning-center/what-is-an-alien-registration-number#" },
+      ""
+    ],
+    "next": "SeeImageOrFindInfo",
+    "options": []
+  },
+
+  "SeeImageOrFindInfo": {
+    "message": "Would you like to see an example of an A number on a form or use your A number to find your judge and city?",
+    "options": [{"label": "Find Judge/City", "next": "UseANumber"}, {"label": "See Example of A Number", "next": "SeeANumberExample"}]
+  },
+
+  "SeeANumberExample": {
+    "message": [
+      "Here is an example of an ",
+      { "type": "bold", "text": "A number" },
+      " on a ", 
+      { "type": "bold", "text": "Notice of Action form: " },
+      {
+        "type": "image",
+        "src": "/Users/noamshamir/Documents/projects/judge_grant_rates/frontend/src/data/A_number_example.png",
+        "alt": "Example A Number"
+      }
+ 
+    ],
+    "options": [{"label": "Find Judge/City", "next": "UseANumber"}]
+  },
+
+  "FindGrantRate": {
+    "message": [
+      "Type your judge or city in the ",
+      { "type": "bold", "text": "search bar" },
+      ". Click on the judge or city you want, and you will see your asylum grant rate."
+    ],
+    "options": []
+  },
+
+  "UnderstandingGraphs": {
+    "message": [
+      "The number inside of the donut graphs is the ",
+      { "type": "bold", "text": "percent of asylum cases granted" },
+      " by each judge. If your judge has a ",
+      { "type": "bold", "text": "high grant rate (above 50%)" },
+      ", they are probably more likely to grant your case. If your judge has a ",
+      { "type": "bold", "text": "low grant rate (below 50%)" },
+      ", they are probably more likely to deny your case."
+    ],
+    "options": []
+  }
+}

@@ -1,0 +1,52 @@
+.judge_in_city {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4px 0;
+    padding: 8px;
+    background-color: transparent;
+    border-radius: 8px;
+}
+
+.city-judge-card a {
+    text-decoration: none;
+}
+
+.city-judge-card h3 {
+    margin: 15px 25px 0;
+    color: white;
+    font-size: 20px;
+    margin-right: 15px;
+    font-weight: normal;
+}
+
+.city-judge-card p {
+    margin: 15px 0px 0;
+    color: #90969c;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.city-judge-card button {
+    background-color: #c5fba3;
+    color: #303134;
+    border: none;
+    border-radius: 8px;
+    padding: 4px 8px;
+    margin-right: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    height: 30px;
+    cursor: pointer;
+}
+
+.city-donut-chart {
+    margin-left: 20px;
+    margin-top: -20px;
+}
+
+.city-judge-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

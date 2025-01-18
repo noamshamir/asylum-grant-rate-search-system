@@ -1,0 +1,137 @@
+/* Base layout for the single judge page */
+.judge-page {
+    margin: 10px 5px 0 20px;
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 100vh; /* Set a maximum height for the page */
+}
+
+h2 {
+    color: rgb(230, 230, 230);
+    padding-bottom: 5px;
+}
+
+/* Header section */
+.judge-header-section {
+    margin-top: 55px;
+    text-align: left;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.judge-title-description {
+    margin-top: -30px;
+}
+
+.judge-section-header {
+    text-align: left;
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: rgb(230, 230, 230);
+}
+
+.judge-title {
+    font-size: 20px;
+}
+
+.judge-descriptor {
+    font-weight: normal;
+    font-size: 20px;
+    margin: 5px 0 10px 0;
+    color: rgb(230, 230, 230);
+}
+
+.judge-label {
+    color: rgb(230, 230, 230);
+}
+
+.judge-city {
+    color: #90969c;
+}
+
+/* Rates section layout */
+.judge-rates-section {
+    margin-top: 40px;
+    padding: 0 20px;
+}
+
+/* Donut chart container */
+.judge-donut-charts-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 60px;
+}
+
+/* Individual donut chart section */
+.judge-asylum-granted-section,
+.judge-other-relief-section,
+.judge-denied-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.judge-donut-chart-div {
+    display: inline-block;
+    margin-left: -50px;
+}
+
+.judge-donut-chart-description {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.judge-donut-chart-description p {
+    font-size: 16px;
+    color: rgb(230, 230, 230);
+    margin: 0;
+    text-align: center;
+}
+
+/* Info icon styling */
+.judge-info-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 15px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #c5fba3;
+    height: 20px;
+    width: auto;
+}
+
+/* Stats section */
+.judge-stats-section {
+    margin-top: 60px;
+    padding: 0 20px;
+}
+
+.judge-statistics {
+    font-size: 16px;
+    text-align: left;
+    color: rgb(230, 230, 230);
+}
+
+.judge-cases-amount {
+    color: white;
+    font-weight: bold;
+}
+
+.judge-asylum-granted {
+    color: #c5fba3;
+    font-weight: bold;
+}
+
+.judge-other-granted {
+    color: #c5fba3;
+    font-weight: bold;
+}
+
+.judge-denied-amount {
+    color: #ff7a7a;
+    font-weight: bold;
+}
