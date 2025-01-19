@@ -36,7 +36,7 @@ function MobileApp() {
     };
 
     return (
-        <Router basename='/asylum_grant_rate_search_system'>
+        <Router>
             <div
                 className='mobile-app'
                 style={{ height: "calc(100vh - 84px)" }}
