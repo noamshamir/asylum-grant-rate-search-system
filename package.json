@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://asylumtools.com",
+  "homepage": "https://rates.asylumtools.com",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.2",
     "cra-template-typescript": "1.2.0",
