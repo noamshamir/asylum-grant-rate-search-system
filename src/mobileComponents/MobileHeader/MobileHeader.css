@@ -72,6 +72,7 @@
 }
 
 .mobile-language-toggle {
+    margin-top: 10px;
     display: flex;
     flex-direction: column; /* Stack flag & label vertically if you prefer */
     align-items: center;
@@ -87,8 +88,8 @@
     width: 60px;
     height: 60px;
     border-radius: 50px; /* optional */
-    margin-bottom: -15px;
-    padding-top: 10px;
+    margin-bottom: -20px;
+    border: 1px solid #5e5e5e;
 }
 
 .mobile-language-dropdown {

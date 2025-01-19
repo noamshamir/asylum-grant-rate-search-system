@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import SplitPane from "split-pane-react";
+// import SplitPane from "split-pane-react";
 import "./MobileApp.css";
 
 import "split-pane-react/esm/themes/default.css";
 import SearchBar from "../mobileComponents/MobileSearchBar/MobileSearchBar.tsx";
-import DecisionTreeChat from "../mobileComponents/MobileDecisionTreeChat/MobileDecisionTreeChat.tsx";
+// import DecisionTreeChat from "../mobileComponents/MobileDecisionTreeChat/MobileDecisionTreeChat.tsx";
 import Header from "../mobileComponents/MobileHeader/MobileHeader.tsx";
 import CityPage from "../mobileComponents/MobileCityPage/MobileCityPage.tsx";
 import JudgePage from "../mobileComponents/MobileJudgePage/MobileJudgePage.tsx";

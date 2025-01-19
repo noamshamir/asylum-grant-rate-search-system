@@ -11,7 +11,7 @@
     align-items: center;
 
     padding: 30px 0;
-    /* Double the original height so that, again, it’s the same size after scaling */
+    /* Double the original height so that, again, it's the same size after scaling */
 
     /* Scale everything down by 0.5, anchoring from top-left corner */
     transform-origin: top left;
@@ -95,13 +95,14 @@
 
 /* Divider between icons */
 .mobile-horizontal-divider {
+    position: relative; /* Ensure it's positioned */
+    z-index: 1; /* Lower than the tooltip */
     margin: 15px 55px;
     border: none;
     border-top: 1px solid #90969c;
     height: 0;
     position: absolute;
     top: 150px;
-    z-index: 1;
     width: calc(100% - 70px);
     background-color: transparent;
     margin-bottom: 10px;
@@ -151,12 +152,12 @@
 .mobile-filter-menu {
     position: absolute; /* Position it relative to the search bar */
     z-index: 9999; /* Ensure it appears on top */
-    width: 90vw; /* Set a fixed width */
+    width: 92vw; /* Set a fixed width */
     height: 100px;
     background-color: #202124; /* Background color */
     border-radius: 15px; /* Rounded corners */
     border: 1px solid #686d71; /* Border color */
-    top: 170px;
+    top: 165px;
 }
 
 /* Header for the filter menu */
@@ -205,4 +206,9 @@
     transform: scale(0.9);
     margin-top: -35px;
     margin-left: 25px;
+}
+
+.mobile-tooltip-container-search {
+    position: relative; /* Ensure it's positioned */
+    z-index: 10; /* Higher than the divider */
 }

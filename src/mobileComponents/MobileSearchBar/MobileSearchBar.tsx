@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./MobileSearchBar.css";
 import DropdownMenu from "../MobileDropdownMenu/MobileDropdownMenu.tsx";
@@ -83,7 +83,7 @@ const SORT_OPTIONS = [
 
 function SearchBar({ currentLanguage }: SearchBarProps) {
     const [searchTerm, setSearchTerm] = useState("");
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(true);
     const [showFilterMenu, setShowFilterMenu] = useState(false);
     const navigate = useNavigate();
 
