@@ -1,38 +1,70 @@
-.tooltip-container {
+/* Tooltip container for positioning */
+.mobile-tooltip-container {
     position: relative;
     display: inline-block;
 }
 
-.tooltip-text {
-    visibility: hidden;
-    width: 200px;
-    background-color: #c5fba3;
-    color: rgb(20, 20, 20);
-    text-align: center;
-    border-radius: 6px;
-    padding: 15px 10px;
-
+/* The tooltip itself */
+.mobile-tooltip {
     position: absolute;
-    z-index: 1;
-    /* Default position */
-    bottom: 125%; /* Position above by default */
-    left: 50%;
-    margin-left: -100px;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.tooltip-container:hover .tooltip-text {
-    visibility: visible;
+    background-color: #c5fba3;
+    color: rgb(31, 31, 31);
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    white-space: normal;
+    z-index: 1001;
     opacity: 1;
+    width: 50vw;
 }
 
-.tooltip-below .tooltip-text {
-    bottom: auto; /* Reset bottom */
-    top: 200%; /* Position below */
-    padding-right: 200px;
+/* Tooltip above */
+.mobile-tooltip-above {
+    bottom: 100%; /* Position above */
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 8px; /* Space between tooltip and target */
 }
 
-.tooltip-default .tooltip-text {
-    /* Keep default styles for above positioning */
+/* Tooltip below */
+.mobile-tooltip-below {
+    padding-right: 120px;
+    top: 100%; /* Position below */
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: -20px; /* Space between tooltip and target */
+}
+
+/* Tooltip arrow */
+.mobile-tooltip::after {
+    content: "";
+    position: absolute;
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent;
+}
+
+.mobile-tooltip-above::after {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top-color: #333; /* Arrow pointing down */
+}
+
+.mobile-tooltip-below::after {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-color: #333; /* Arrow pointing up */
+}
+
+/* Tooltip target styles */
+.mobile-tooltip-target {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }

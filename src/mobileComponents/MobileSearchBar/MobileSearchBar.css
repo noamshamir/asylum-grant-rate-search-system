@@ -67,7 +67,7 @@
     padding: 0;
     cursor: pointer;
     border-radius: 60%;
-    font-size: 25px;
+    font-size: 20px;
     color: #90969c;
     font-weight: bold;
 }
@@ -100,7 +100,7 @@
     border-top: 1px solid #90969c;
     height: 0;
     position: absolute;
-    top: 0px;
+    top: 150px;
     z-index: 1;
     width: calc(100% - 70px);
     background-color: transparent;
@@ -124,7 +124,7 @@
 /* Search results dropdown (minimal) */
 .mobile-search-results-dropdown {
     padding-top: 15px;
-    max-height: calc(100vh - 300px); /* or whatever height fits your UI */
+    max-height: calc(100vh); /* or whatever height fits your UI */
     overflow-y: auto;
     background-color: #303134;
     border-radius: 0 0 50px 50px;
@@ -133,7 +133,6 @@
     max-width: calc(93vw - 1px);
     margin-top: 0;
     transform: translateY(-30px);
-    /* max-height: auto; Set a max height */
     overflow-y: auto; /* Enable vertical scrolling */
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
@@ -156,8 +155,8 @@
     height: 100px;
     background-color: #202124; /* Background color */
     border-radius: 15px; /* Rounded corners */
-    border: 1px solid #90969c; /* Border color */
-    top: 200px;
+    border: 1px solid #686d71; /* Border color */
+    top: 170px;
 }
 
 /* Header for the filter menu */
@@ -167,14 +166,14 @@
     justify-content: space-between; /* Space between title and clear icon */
     align-items: center; /* Center items vertically */
     background-color: #303134; /* Header background color */
-    padding: 5px 20px; /* Padding for the header */
-    border-radius: 30px 30px 0 0; /* Rounded corners for the header */
+    padding: 7px 10px; /* Padding for the header */
+    border-radius: 15px 15px 0 0; /* Rounded corners for the header */
 }
 
 /* Title for the filter menu */
 .mobile-filter-header-title {
     color: #dce3ec;
-    font-size: 20px; /* Font size for the title */
+    font-size: 15px; /* Font size for the title */
     margin-left: 5px;
     white-space: nowrap;
 }
@@ -186,18 +185,24 @@
 }
 
 .mobile-filter-box-icon {
-    font-size: 22px;
+    font-size: 15px;
     color: #bcc5cf;
-    z-index: 10;
 }
 
 /* Sort by text */
 .mobile-sort-by-text {
-    font-size: 20px; /* Adjust font size as needed */
+    font-size: 15px; /* Adjust font size as needed */
+    white-space: nowrap;
     text-align: left;
-    margin-left: 15px;
-    margin-top: 10px;
-    margin-right: -25px;
+    margin-left: 10px;
+    margin-top: 15px;
+    margin-right: -35px;
     margin-bottom: 5px; /* Space below the text */
     color: rgb(230, 230, 230);
+}
+
+.mobile-dropdown-menu-div {
+    transform: scale(0.9);
+    margin-top: -35px;
+    margin-left: 25px;
 }

@@ -99,7 +99,7 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
         label: currentLanguage === "en" ? opt.en : opt.es,
     }));
 
-    const sortByLabel = currentLanguage === "en" ? "Sort by" : "Ordenar por";
+    const sortByLabel = currentLanguage === "en" ? "Sort by" : "Ordenar";
 
     // JSON data
     const allCities: AllCities = judgeData;
@@ -305,12 +305,12 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
                     </span>
                     <div className='mobile-tooltip-container-search'>
                         <Tooltip
-                            position='below'
-                            text={searchBarInfo}
-                            scale='2'
+                            position='below' // Adjust position dynamically if needed
+                            text={searchBarInfo} // Tooltip content
                         >
                             <span className='mobile-info-icon'>
-                                <i className='fas fa-info-circle'></i>
+                                <i className='fas fa-info-circle'></i>{" "}
+                                {/* Info icon */}
                             </span>
                         </Tooltip>
                     </div>
@@ -333,10 +333,7 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
                         <span className='mobile-sort-by-text'>
                             {sortByLabel}:
                         </span>
-                        <div
-                            className='mobile-dropdown-menu-div'
-                            style={{ transform: "scale(2)" }}
-                        >
+                        <div className='mobile-dropdown-menu-div'>
                             <DropdownMenu
                                 options={dropdownOptions}
                                 selectedValue={sortOption}
