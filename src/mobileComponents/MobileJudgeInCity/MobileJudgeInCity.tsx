@@ -22,21 +22,21 @@ const JudgeCard: React.FC<JudgeCardProps> = ({ judge, currentLanguage }) => {
     const other = parseFloat(judge.granted_other_relief_percentage) || 0;
     const totalGrantRate = asylum + other;
 
-    const viewRatesLabel =
-        currentLanguage === "es" ? `Ver Tasas` : `View Rates`;
+    const viewRatesLabel = currentLanguage === "es" ? `Ver` : `View`;
 
     const casesLabel = currentLanguage === "en" ? `cases` : `casos`;
 
     return (
-        <div className='city-judge-card'>
+        <div className='mobile-city-judge-card'>
             <div style={{ display: "flex", alignItems: "center" }}>
-                <DonutChart
-                    className='donut-chart'
-                    percentage={totalGrantRate}
-                    size={65}
-                    strokeWidth={10}
-                    fontSize={18}
-                />
+                <div className='mobile-city-donut-chart'>
+                    <DonutChart
+                        percentage={totalGrantRate}
+                        size={55}
+                        strokeWidth={7}
+                        fontSize={15}
+                    />
+                </div>
                 <Link to={`/judge/${judge.judge_name}`}>
                     <h3>{judge.judge_name}</h3>
                 </Link>

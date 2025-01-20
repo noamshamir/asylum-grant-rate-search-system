@@ -194,74 +194,92 @@ function CityPage({ currentLanguage }: CityPageProps) {
             : "Este número es el porcentaje de casos en esta ciudad donde se denegaron, ya sea asilo u otro tipo de alivio.";
 
     return (
-        <div className='city-page'>
-            <div className='header-section'>
-                <div className='city-title-description'>
-                    <h2 className='section-header city-title'>{city}</h2>
-                    <h1 className='city-descriptor label'>{cityLabel}</h1>
-                    <h3 className='city-descriptor judge-count'>
+        <div className='mobile-judge-page'>
+            <div className='mobile-judge-header-section'>
+                <div className='mobile-judge-title-description'>
+                    <h2 className='mobile-judge-section-header judge-title'>
+                        {city}
+                    </h2>
+                    <h1 className='mobile-judge-descriptor judge-label'>
+                        {cityLabel}
+                    </h1>
+                    <h3 className='mobile-judge-descriptor judge-city'>
                         {cityJudges.length} {judgeLabel}
                     </h3>
                 </div>
             </div>
-            <div className='rates-section'>
-                <h2 className='section-header rates'>{averageRatesLabel}</h2>
-                <div className='donut-charts-container'>
-                    <div className='cases-granted-section'>
-                        <div className='donut-chart-div'>
+            <div className='mobile-judge-rates-section'>
+                <h2 className='mobile-judge-section-header judge-rates'>
+                    {averageRatesLabel}
+                </h2>
+                <div className='mobile-judge-donut-charts-container'>
+                    <div className='mobile-judge-asylum-granted-section'>
+                        <div
+                            className='mobile-judge-donut-chart-div'
+                            id='asylum-chart'
+                        >
                             <DonutChart
                                 title={asylumGranted}
                                 percentage={avgAsylumGrantRate}
-                                className='asylum-granted-donut-chart'
-                                size={110}
-                                strokeWidth={13}
+                                className='mobile-judge-asylum-granted-donut-chart'
+                                size={80}
+                                strokeWidth={11}
                                 color={"#C5FBA3"}
+                                fontSize='20'
                             />
                         </div>
-                        <div className='donut-chart-description'>
+                        <div className='mobile-judge-donut-chart-description'>
                             <p>{asylumGranted}</p>
-                            <Tooltip text={asylumGrantedInfo}>
-                                <span className='info-icon-city'>
+                            <Tooltip text={asylumGrantedInfo} position='above'>
+                                <span className='mobile-judge-info-icon'>
                                     <i className='fas fa-info-circle'></i>
                                 </span>
                             </Tooltip>
                         </div>
                     </div>
-                    <div className='other-relief-section'>
-                        <div className='donut-chart-div'>
+                    <div className='mobile-judge-other-relief-section'>
+                        <div
+                            className='mobile-judge-donut-chart-div'
+                            id='other-chart'
+                        >
                             <DonutChart
                                 title={otherRelief}
                                 percentage={avgOtherGrantRate}
-                                className='other-relief-donut-chart'
-                                size={110}
-                                strokeWidth={13}
+                                className='mobile-judge-other-relief-donut-chart'
+                                size={80}
+                                strokeWidth={11}
                                 color={"#C5FBA3"}
+                                fontSize='20'
                             />
                         </div>
-                        <div className='donut-chart-description'>
+                        <div className='mobile-judge-donut-chart-description'>
                             <p>{otherRelief}</p>
-                            <Tooltip text={otherReliefInfo}>
-                                <span className='info-icon-city'>
+                            <Tooltip text={otherReliefInfo} position='above'>
+                                <span className='mobile-judge-info-icon'>
                                     <i className='fas fa-info-circle'></i>
                                 </span>
                             </Tooltip>
                         </div>
                     </div>
-                    <div className='denied-section'>
-                        <div className='donut-chart-div'>
+                    <div className='mobile-judge-denied-section'>
+                        <div
+                            className='mobile-judge-donut-chart-div'
+                            id='denied-chart'
+                        >
                             <DonutChart
                                 title={denied}
                                 percentage={avgDeniedRate}
-                                className='denied-donut-chart'
-                                size={110}
-                                strokeWidth={13}
+                                className='mobile-judge-denied-donut-chart'
+                                size={80}
+                                strokeWidth={11}
                                 color={"#FF7A7A"}
+                                fontSize='20'
                             />
                         </div>
-                        <div className='donut-chart-description'>
+                        <div className='mobile-judge-donut-chart-description'>
                             <p>{denied}</p>
-                            <Tooltip text={deniedInfo}>
-                                <span className='info-icon-city'>
+                            <Tooltip text={deniedInfo} position='above-right'>
+                                <span className='mobile-judge-info-icon'>
                                     <i className='fas fa-info-circle'></i>
                                 </span>
                             </Tooltip>
@@ -269,9 +287,11 @@ function CityPage({ currentLanguage }: CityPageProps) {
                     </div>
                 </div>
             </div>
-            <div className='stats-section'>
-                <h2 className='section-header stats'>{cityStatsLabel}</h2>
-                <div className='statistics'>
+            <div className='mobile-judge-stats-section'>
+                <h2 className='mobile-judge-section-header judge-stats'>
+                    {cityStatsLabel}
+                </h2>
+                <div className='mobile-judge-statistics'>
                     <p>
                         {outOf}{" "}
                         <span className='cases-amount'>{casesAmount}</span>{" "}
@@ -296,17 +316,21 @@ function CityPage({ currentLanguage }: CityPageProps) {
                         </span> */}
                     </div>
                 </div>
-                <div className='judges-section'>
-                    <div className='judge-header'>
-                        <h2 className='section-header judges'>{judgeLabel}</h2>
-                        <span className='sort-by'>{sortByLabel}</span>
+                <div className='mobile-judges-section'>
+                    <div className='mobile-judge-header'>
+                        <h2 className='mobile-judge-section-header mobile-judges'>
+                            {judgeLabel}
+                        </h2>
+                        <span className='mobile-city-sort-by'>
+                            {sortByLabel}
+                        </span>
                         <DropdownMenu
                             options={dropdownOptions}
                             selectedValue={sortValue}
                             onSelect={(val) => setSortValue(val)}
                         />
                     </div>
-                    <div className='judge-cards'>
+                    <div className='mobile-judge-cards'>
                         {sortedJudges.length > 0 && (
                             <>
                                 {sortedJudges.map((judge) => (

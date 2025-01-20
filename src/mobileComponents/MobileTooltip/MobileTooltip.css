@@ -15,7 +15,7 @@
     white-space: normal;
     z-index: 1001;
     opacity: 1;
-    width: 50vw;
+    width: 40vw;
 }
 
 /* Tooltip above */
@@ -33,6 +33,13 @@
     left: 50%;
     transform: translateX(-50%);
     margin-top: -20px; /* Space between tooltip and target */
+}
+
+.mobile-tooltip-above-right {
+    right: -23vw;
+    bottom: 100%; /* Position above */
+    transform: translateX(-50%);
+    margin-bottom: 8px; /* Space between tooltip and target */
 }
 
 /* Tooltip arrow */
