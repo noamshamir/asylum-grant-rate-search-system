@@ -131,7 +131,7 @@
     border-radius: 0 0 50px 50px;
     padding-bottom: 40px;
     margin-left: 0px;
-    max-width: calc(93vw - 1px);
+    width: calc(93vw - 1px);
     margin-top: 0;
     transform: translateY(-30px);
     overflow-y: auto; /* Enable vertical scrolling */
