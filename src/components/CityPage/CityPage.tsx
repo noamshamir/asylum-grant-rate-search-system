@@ -300,11 +300,13 @@ function CityPage({ currentLanguage }: CityPageProps) {
                     <div className='judge-header'>
                         <h2 className='section-header judges'>{judgeLabel}</h2>
                         <span className='sort-by'>{sortByLabel}</span>
-                        <DropdownMenu
-                            options={dropdownOptions}
-                            selectedValue={sortValue}
-                            onSelect={(val) => setSortValue(val)}
-                        />
+                        <div className='city-page-dropdown-desktop'>
+                            <DropdownMenu
+                                options={dropdownOptions}
+                                selectedValue={sortValue}
+                                onSelect={(val) => setSortValue(val)}
+                            />
+                        </div>
                     </div>
                     <div className='judge-cards'>
                         {sortedJudges.length > 0 && (
