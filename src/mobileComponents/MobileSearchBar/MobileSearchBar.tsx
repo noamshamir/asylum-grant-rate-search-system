@@ -334,9 +334,6 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
     return (
         <div className='mobile-search-bar-container'>
             <div className='mobile-search-bar'>
-                {/* <span className='mobile-search-icon' onClick={handleSearchIconClick}>
-                    <i className='mobile-fas fa-search'></i>
-                </span> */}
                 <input
                     type='text'
                     value={searchTerm}

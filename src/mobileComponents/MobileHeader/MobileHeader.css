@@ -20,16 +20,11 @@
     margin-bottom: 10px;
 }
 
-/* .header-icons {
-    display: flex;
-    gap: 20px;
-} */
-
 .mobile-icon-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 20px;
+    margin-right: 20px;
     margin-top: -5px;
     cursor: pointer;
     border-radius: 60%;
@@ -89,7 +84,6 @@
     height: 60px;
     border-radius: 50px; /* optional */
     margin-bottom: -20px;
-    border: 1px solid #5e5e5e;
 }
 
 .mobile-language-dropdown {
@@ -145,4 +139,23 @@
 
 .mobile-language-dropdown li:hover {
     background-color: #202124;
+}
+
+.mobile-header-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between help and language icons */
+    margin-right: 3px;
+}
+
+.mobile-question-icon {
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px; /* optional */
+    margin-bottom: -20px;
 }

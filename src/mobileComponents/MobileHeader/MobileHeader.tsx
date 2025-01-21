@@ -67,86 +67,104 @@ const Header: React.FC<HeaderProps> = ({
             ? "Cambiar Idioma"
             : "Chanje Lang";
 
+    const FAQs =
+        currentLanguage === "en"
+            ? "Help"
+            : currentLanguage === "es"
+            ? "Ayuda"
+            : "Éd";
+
     return (
         <header className='mobile-header'>
             <Link to='/' style={{ textDecoration: "none" }}>
                 <div className='mobile-header-title'>{titleText}</div>
             </Link>
-
             <div className='mobile-header-icons'>
-                {/* Language popover container */}
-                <div className='mobile-icon-container' ref={dropdownRef}>
+                <Link to='/faq' className='mobile-icon-container'>
                     <div className='mobile-language-wrapper'>
-                        <div
-                            className='mobile-language-toggle'
-                            onClick={() =>
-                                setShowLanguageOptions(!showLanguageOptions)
-                            }
-                        >
-                            <img
-                                src={currentFlag}
-                                alt={
-                                    currentLanguage === "en"
-                                        ? "English Flag"
-                                        : currentLanguage === "es"
-                                        ? "Spanish Flag"
-                                        : "Haitian Creole Flag"
-                                }
-                                className='mobile-language-flag'
-                            />
-                            <span className='mobile-icon-label'>
-                                {changeLanguageLabel}
+                        <div className='mobile-language-toggle'>
+                            <span className='mobile-question-icon'>
+                                <i class='fa-solid fa-question'></i>{" "}
                             </span>
+                            <span className='mobile-icon-label'>{FAQs}</span>
                         </div>
                     </div>
-
-                    {/* Overlay dropdown */}
-                    {showLanguageOptions && (
-                        <div className='mobile-language-dropdown'>
-                            <div className='mobile-dropdown-arrow' />
-                            <ul>
-                                <li
-                                    onClick={() => {
-                                        onLanguageChange("en");
-                                        setShowLanguageOptions(false);
-                                    }}
-                                >
-                                    <img
-                                        src={englishFlag}
-                                        alt='English Flag'
-                                        className='mobile-language-flag-item'
-                                    />
-                                    <span>English</span>
-                                </li>
-                                <li
-                                    onClick={() => {
-                                        onLanguageChange("es");
-                                        setShowLanguageOptions(false);
-                                    }}
-                                >
-                                    <img
-                                        src={spanishFlag}
-                                        alt='Spanish Flag'
-                                        className='mobile-language-flag-item'
-                                    />
-                                    <span>Español</span>
-                                </li>
-                                <li
-                                    onClick={() => {
-                                        onLanguageChange("ht");
-                                        setShowLanguageOptions(false);
-                                    }}
-                                >
-                                    <img
-                                        src={haitianFlag}
-                                        alt='Haitian Creole Flag'
-                                        className='mobile-language-flag-item'
-                                    />
-                                    <span>Kreyòl Ayisyen</span>
-                                </li>
-                            </ul>
+                </Link>
+                <div className='mobile-header-icons'>
+                    {/* Language popover container */}
+                    <div className='mobile-icon-container' ref={dropdownRef}>
+                        <div className='mobile-language-wrapper'>
+                            <div
+                                className='mobile-language-toggle'
+                                onClick={() =>
+                                    setShowLanguageOptions(!showLanguageOptions)
+                                }
+                            >
+                                <img
+                                    src={currentFlag}
+                                    alt={
+                                        currentLanguage === "en"
+                                            ? "English Flag"
+                                            : currentLanguage === "es"
+                                            ? "Spanish Flag"
+                                            : "Haitian Creole Flag"
+                                    }
+                                    className='mobile-language-flag'
+                                />
+                                <span className='mobile-icon-label'>
+                                    {changeLanguageLabel}
+                                </span>
+                            </div>
                         </div>
-                    )}
+
+                        {/* Overlay dropdown */}
+                        {showLanguageOptions && (
+                            <div className='mobile-language-dropdown'>
+                                <div className='mobile-dropdown-arrow' />
+                                <ul>
+                                    <li
+                                        onClick={() => {
+                                            onLanguageChange("en");
+                                            setShowLanguageOptions(false);
+                                        }}
+                                    >
+                                        <img
+                                            src={englishFlag}
+                                            alt='English Flag'
+                                            className='mobile-language-flag-item'
+                                        />
+                                        <span>English</span>
+                                    </li>
+                                    <li
+                                        onClick={() => {
+                                            onLanguageChange("es");
+                                            setShowLanguageOptions(false);
+                                        }}
+                                    >
+                                        <img
+                                            src={spanishFlag}
+                                            alt='Spanish Flag'
+                                            className='mobile-language-flag-item'
+                                        />
+                                        <span>Español</span>
+                                    </li>
+                                    <li
+                                        onClick={() => {
+                                            onLanguageChange("ht");
+                                            setShowLanguageOptions(false);
+                                        }}
+                                    >
+                                        <img
+                                            src={haitianFlag}
+                                            alt='Haitian Creole Flag'
+                                            className='mobile-language-flag-item'
+                                        />
+                                        <span>Kreyòl Ayisyen</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
         </header>
