@@ -113,6 +113,7 @@ function MobileFAQ({ currentLanguage }: FAQProps) {
                 ),
             },
         },
+
         {
             en: {
                 question: "What do the percentages in the graphs mean?",
@@ -120,8 +121,7 @@ function MobileFAQ({ currentLanguage }: FAQProps) {
                     <>
                         The graphs and percentages show the percentage of cases
                         where relief (asylum or other) is granted. The higher
-                        the number, the more cases are approved by that judge or
-                        city.
+                        the number, the more cases are approved by that judge.
                     </>
                 ),
             },
@@ -132,7 +132,72 @@ function MobileFAQ({ currentLanguage }: FAQProps) {
                         Los gráficos y porcentajes muestran el porcentaje de
                         casos en los que se otorga un alivio (asilo u otro).
                         Cuanto más alto sea el número, más casos son aprobados
-                        por ese juez o ciudad.
+                        por ese juez.
+                    </>
+                ),
+            },
+        },
+        {
+            en: {
+                question: "Can I switch judges if mine is bad?",
+                answer: (
+                    <>
+                        You generally can't change judges, but you may be able
+                        to move to a new city and transfer your case, in which
+                        case you would get a new judge. This is known as a
+                        "Change of Venue" and it may be complex.
+                    </>
+                ),
+            },
+            es: {
+                question: "¿Puedo cambiar de juez si el mío es malo?",
+                answer: (
+                    <>
+                        Generalmente no puedes cambiar de juez, pero podrías
+                        mudarte a una nueva ciudad y transferir tu caso, en cuyo
+                        caso obtendrías un nuevo juez. Esto se conoce como un
+                        "Cambio de Sede" y puede ser complejo.
+                    </>
+                ),
+            },
+        },
+        {
+            en: {
+                question:
+                    "Does the percentage tell me how likely I am to get asylum?",
+                answer: (
+                    <>
+                        The percentage does not tell you your chances of success
+                        in your case. Your chances of success depend on your
+                        particular case. T he most important factor is finding a
+                        trusted lawyer. For more information see :
+                        <a
+                            href='https://www.youtube.com/watch?v=Xh5hyRsX6K4
+'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                        >
+                            this video
+                        </a>
+                    </>
+                ),
+            },
+            es: {
+                question:
+                    "¿El porcentaje me dice qué tan probable es que obtenga asilo?",
+                answer: (
+                    <>
+                        El porcentaje no indica tus probabilidades de éxito en
+                        tu caso. Tus probabilidades de éxito dependen de tu caso
+                        particular. El factor más importante es encontrar un
+                        abogado de confianza. Para más información, consulta:
+                        <a
+                            href='https://www.youtube.com/watch?v=NVugGm-bFy8'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                        >
+                            este video
+                        </a>
                     </>
                 ),
             },
