@@ -22,10 +22,20 @@ const JudgeCard: React.FC<JudgeCardProps> = ({ judge, currentLanguage }) => {
     const other = parseFloat(judge.granted_other_relief_percentage) || 0;
     const totalGrantRate = asylum + other;
 
+    // Translations for labels
     const viewRatesLabel =
-        currentLanguage === "es" ? `Ver Tasas` : `View Rates`;
+        currentLanguage === "en"
+            ? `View Rates`
+            : currentLanguage === "es"
+            ? `Ver Tasas`
+            : `Gade Taux yo`;
 
-    const casesLabel = currentLanguage === "en" ? `cases` : `casos`;
+    const casesLabel =
+        currentLanguage === "en"
+            ? `cases`
+            : currentLanguage === "es"
+            ? `casos`
+            : `ka`;
 
     return (
         <div className='city-judge-card'>

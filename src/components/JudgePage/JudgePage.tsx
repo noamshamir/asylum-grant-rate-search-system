@@ -58,6 +58,24 @@ const translations = {
         deniedInfo:
             "Este es el porcentaje de casos en los que este juez denegó la solicitud.",
     },
+    ht: {
+        judgeNotFound: "Jij pa jwenn",
+        asylumGranted: "Azil Akòde",
+        otherReliefGranted: "Lòt Sekou Akòde",
+        denied: "Refize",
+        averageRates: "To Mwayèn",
+        judgeStats: "Estatistik Jij",
+        judge: "Jij",
+        outOf: "Soti nan",
+        casesFor: "ka pou",
+        wereGrantedAsylum: "te akòde azil,",
+        wereGrantedOtherRelief: "te akòde lòt sekou,",
+        wereDenied: "te refize.",
+        asylumGrantedInfo: "Sa a se pousantaj ka jij sa a te akòde azil.",
+        otherReliefInfo:
+            "Sa a se pousantaj ka jij sa a te akòde lòt sekou, tankou retansyon ekspilsyon oswa CAT.",
+        deniedInfo: "Sa a se pousantaj ka jij sa a te refize.",
+    },
 };
 
 const parsePercentage = (value: string | number | undefined): number => {

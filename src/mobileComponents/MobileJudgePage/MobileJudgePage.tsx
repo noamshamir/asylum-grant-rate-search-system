@@ -58,8 +58,25 @@ const translations = {
         deniedInfo:
             "Este es el porcentaje de casos en los que este juez denegó la solicitud.",
     },
+    ht: {
+        judgeNotFound: "Jij pa jwenn",
+        asylumGranted: "Azil Bay",
+        otherReliefGranted: "Lòt Sekou Bay",
+        denied: "Refize",
+        averageRates: "Pousantaj Mwayèn",
+        judgeStats: "Estatistik Jij",
+        judge: "Jij",
+        outOf: "Nan",
+        casesFor: "ka pou",
+        wereGrantedAsylum: "te bay azil,",
+        wereGrantedOtherRelief: "te resevwa lòt sekou,",
+        wereDenied: "te refize.",
+        asylumGrantedInfo: "Sa a se pousantaj ka jij sa a bay azil.",
+        otherReliefInfo:
+            "Sa a se pousantaj ka jij sa a bay lòt sekou, tankou sispansyon depòtasyon oswa CAT.",
+        deniedInfo: "Sa a se pousantaj ka jij sa a refize.",
+    },
 };
-
 const parsePercentage = (value: string | number | undefined): number => {
     if (typeof value === "number") return value;
     if (!value) return 0;
@@ -128,7 +145,11 @@ function JudgePage({ currentLanguage }: JudgePageProps) {
                 <h2 className='mobile-judge-section-header judge-rates'>
                     {translations[currentLanguage].averageRates}
                 </h2>
-                <div className='mobile-judge-donut-charts-container'>
+                <div
+                    className={`mobile-judge-donut-charts-container ${
+                        currentLanguage === "ht" ? "haitian-percents" : ""
+                    }`}
+                >
                     <div className='mobile-judge-asylum-granted-section'>
                         <div
                             className='mobile-judge-donut-chart-div'

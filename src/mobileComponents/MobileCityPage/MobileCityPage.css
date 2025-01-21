@@ -52,13 +52,44 @@
 }
 
 .mobile-city-sort-by {
-    margin-right: 10px; /* Add margin to the right to separate it from the dropdown */
     color: rgb(230, 230, 230); /* Match the text color to the theme */
     font-size: 16px; /* Adjust font size as needed */
     white-space: nowrap; /* Prevent text wrapping */
+    margin-right: -10px; /* Add some space between the text and dropdown */
 }
 
 .dropdown-menu {
-    margin-top: 10px;
+    margin-top: 0; /* Remove top margin to align with text */
     margin-left: 5px; /* Ensure a small gap between "Sort by" and the dropdown */
+}
+
+.mobile-sort-section {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: flex-start; /* Align items to the start */
+    margin-top: 5px; /* Add some spacing above */
+}
+
+.haitian-percents {
+    padding-left: 10px;
+}
+
+.haitian-percents #denied-chart {
+    margin-left: -20px;
+}
+
+.haitian-percents #asylum-chart {
+    margin-left: -40px;
+}
+
+.haitian-percents #other-chart {
+    margin-left: -55px;
+}
+
+.haitian-percents .mobile-judge-asylum-granted-section {
+    margin-right: 30px;
+}
+
+.haitian-percents .mobile-judge-other-relief-section {
+    margin-right: 0px;
 }

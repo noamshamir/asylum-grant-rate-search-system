@@ -2,7 +2,7 @@ import React from "react";
 import "./JudgeCard.css";
 import { Link } from "react-router-dom";
 
-// 1) Import our new DonutChart
+// Import our DonutChart
 import DonutChart from "../DonutChart/DonutChart.tsx";
 
 interface Judge {
@@ -20,12 +20,18 @@ interface JudgeCardProps {
 }
 
 const JudgeCard: React.FC<JudgeCardProps> = ({ judge, currentLanguage }) => {
-    // 2) Compute total grant rate (asylum + other relief).
+    // Compute total grant rate (asylum + other relief)
     const asylum = parseFloat(judge.granted_asylum_percentage) || 0;
     const other = parseFloat(judge.granted_other_relief_percentage) || 0;
     const totalGrantRate = asylum + other; // e.g., 51.1 + 2.5 => 53.6
 
-    const viewRatesLabel = currentLanguage === "es" ? `Ver Tasas` : `View Rate`;
+    // Labels based on the current language
+    const viewRatesLabel =
+        currentLanguage === "es"
+            ? `Ver Tasas`
+            : currentLanguage === "ht"
+            ? `Gade Taux yo`
+            : `View Rate`;
 
     return (
         <div className='judge-card'>

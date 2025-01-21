@@ -2,7 +2,7 @@ import React from "react";
 import "./MobileCityCard.css";
 import { Link } from "react-router-dom";
 
-// Import the judge data so we can compute averages for the city.
+// Import data sou jij yo pou kalkile mwayèn pou vil la.
 import judgeData from "../../data/judge_grant_rates.json";
 import DonutChart from "../MobileDonutChart/MobileDonutChart.tsx";
 
@@ -26,11 +26,21 @@ const CityCard: React.FC<CityCardProps> = ({
     judgeCount,
     currentLanguage,
 }) => {
-    // 1) Get all judges for this city from the JSON
+    // 1) Jwenn tout jij pou vil sa a nan JSON
     const cityJudgesObj = (judgeData as any)[city] || {};
     const cityJudges: Judge[] = Object.values(cityJudgesObj);
-    const judgesCountLabel = currentLanguage === "es" ? "Jueces" : "Judges";
-    const viewRatesLabel = currentLanguage === "es" ? "Ver" : "View";
+    const judgesCountLabel =
+        currentLanguage === "es"
+            ? "Jueces"
+            : currentLanguage === "ht"
+            ? "Jij"
+            : "Judges";
+    const viewRatesLabel =
+        currentLanguage === "es"
+            ? "Ver"
+            : currentLanguage === "ht"
+            ? "Gade"
+            : "View";
 
     const totalRates = cityJudges.map((j) => {
         const asylum = parseFloat(j.granted_asylum_percentage) || 0;
@@ -41,10 +51,10 @@ const CityCard: React.FC<CityCardProps> = ({
     let avgGrantRate = 0;
     if (totalRates.length > 0) {
         const sum = totalRates.reduce((acc, val) => acc + val, 0);
-        avgGrantRate = sum / totalRates.length; // e.g., 45.2
+        avgGrantRate = sum / totalRates.length; // egzanp: 45.2
     }
 
-    // Truncate city name if longer than 20 characters
+    // Tronse non vil la si li pi long pase 20 karaktè
     const truncatedCityName =
         city.length > 20 ? `${city.substring(0, 17)}...` : city;
 

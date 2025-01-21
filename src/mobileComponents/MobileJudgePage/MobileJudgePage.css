@@ -1,6 +1,6 @@
 /* Base layout for the single judge page */
 .mobile-judge-page {
-    margin: 10px 5px 0 20px;
+    margin: 10px 5px 0 15px;
     overflow-y: auto; /* Enable vertical scrolling */
     overflow-x: hidden;
     max-height: 100vh; /* Set a maximum height for the page */
@@ -55,6 +55,7 @@ h2 {
     justify-content: flex-start;
     align-items: center;
     margin-top: -5px;
+    margin-left: 0;
 }
 
 /* Individual donut chart section */
@@ -78,7 +79,7 @@ h2 {
 }
 
 .mobile-judge-donut-chart-description p {
-    font-size: 13px;
+    font-size: 12px;
     white-space: nowrap;
     color: rgb(230, 230, 230);
     margin: 0;
@@ -135,9 +136,33 @@ h2 {
 }
 
 #other-chart {
-    margin-left: -100px;
+    margin-left: -70px;
 }
 
 #denied-chart {
-    margin-left: -70px;
+    margin-left: -40px;
+}
+
+.haitian-percents {
+    padding-left: 10px;
+}
+
+.haitian-percents #denied-chart {
+    margin-left: -20px;
+}
+
+.haitian-percents #asylum-chart {
+    margin-left: -40px;
+}
+
+.haitian-percents #other-chart {
+    margin-left: -55px;
+}
+
+.haitian-percents .mobile-judge-asylum-granted-section {
+    margin-right: 30px;
+}
+
+.haitian-percents .mobile-judge-other-relief-section {
+    margin-right: 0px;
 }

@@ -27,7 +27,7 @@ function MobileFAQ({ currentLanguage }: FAQProps) {
                         . Step 2) Enter your A Number in the input field and
                         click enter. Step 3) You will see your case information,
                         including your judge and city. You can now search for
-                        their grant rates on this website’s search bar.
+                        their grant rates on this website's search bar.
                     </>
                 ),
             },
@@ -48,6 +48,26 @@ function MobileFAQ({ currentLanguage }: FAQProps) {
                         enter. Paso 3) Verás tu información de caso, incluyendo
                         tu juez y ciudad. Ahora puedes buscar sus tasas de
                         concesión en la barra de búsqueda de este sitio web.
+                    </>
+                ),
+            },
+            ht: {
+                question:
+                    "Kijan mwen ka jwenn jij mwen ak vil mwen si mwen konnen nimewo A mwen?",
+                answer: (
+                    <>
+                        Etap 1) Ale sou{" "}
+                        <a
+                            href='https://example.gov/lookupA'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                        >
+                            sit entènèt sa a
+                        </a>
+                        . Etap 2) Antre nimewo A ou nan chan an epi peze antre.
+                        Etap 3) Ou pral wè enfòmasyon sou ka ou, ki gen ladan
+                        jij ou ak vil ou. Kounye a ou ka rechèch pou pousantaj
+                        koncesyon yo sou ba rechèch sit entènèt sa a.
                     </>
                 ),
             },
@@ -90,6 +110,25 @@ function MobileFAQ({ currentLanguage }: FAQProps) {
                     </>
                 ),
             },
+            ht: {
+                question: "Kijan mwen ka jwenn nimewo A mwen?",
+                answer: (
+                    <>
+                        Ou ka jwenn Nimewo Etranje (Nimewo A) ou nan tèt pifò
+                        fòm ou resevwa nan men yon ofisyèl gouvènman an nan
+                        tribinal la oswa sou fontyè a. Pou w jwenn imaj ak plis
+                        detay, vizite{" "}
+                        <a
+                            href='https://example.gov/guide'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                        >
+                            gid sa a
+                        </a>
+                        .
+                    </>
+                ),
+            },
         },
         {
             en: {
@@ -97,7 +136,7 @@ function MobileFAQ({ currentLanguage }: FAQProps) {
                 answer: (
                     <>
                         Search for your asylum grant rate by entering your
-                        judge’s name or your city into the search box on this
+                        judge's name or your city into the search box on this
                         website.
                     </>
                 ),
@@ -112,8 +151,16 @@ function MobileFAQ({ currentLanguage }: FAQProps) {
                     </>
                 ),
             },
+            ht: {
+                question: "Kijan mwen ka jwenn pousantaj koncesyon mwen?",
+                answer: (
+                    <>
+                        Rechèch pousantaj koncesyon azil ou lè ou antre non jij
+                        ou oswa vil ou nan bwat rechèch la sou sit entènèt sa a.
+                    </>
+                ),
+            },
         },
-
         {
             en: {
                 question: "What do the percentages in the graphs mean?",
@@ -133,6 +180,16 @@ function MobileFAQ({ currentLanguage }: FAQProps) {
                         casos en los que se otorga un alivio (asilo u otro).
                         Cuanto más alto sea el número, más casos son aprobados
                         por ese juez.
+                    </>
+                ),
+            },
+            ht: {
+                question: "Ki sa pousantaj yo nan graf yo vle di?",
+                answer: (
+                    <>
+                        Graf yo ak pousantaj yo montre pousantaj ka kote se bay
+                        soulajman (azil oswa lòt) ki apwouve. Plis chif la wo,
+                        se plis ka jij sa a apwouve.
                     </>
                 ),
             },
@@ -160,6 +217,16 @@ function MobileFAQ({ currentLanguage }: FAQProps) {
                     </>
                 ),
             },
+            ht: {
+                question: "Èske mwen ka chanje jij si pa'm nan pa bon?",
+                answer: (
+                    <>
+                        An jeneral ou pa kapab chanje jij, men ou ka deplase nan
+                        yon nouvo vil epi transfere ka w la, kote w ta jwenn yon
+                        nouvo jij. Sa rele "Chanjman Tribinal" e li ka konplike.
+                    </>
+                ),
+            },
         },
         {
             en: {
@@ -169,11 +236,10 @@ function MobileFAQ({ currentLanguage }: FAQProps) {
                     <>
                         The percentage does not tell you your chances of success
                         in your case. Your chances of success depend on your
-                        particular case. T he most important factor is finding a
-                        trusted lawyer. For more information see :
+                        particular case. The most important factor is finding a
+                        trusted lawyer. For more information see :{" "}
                         <a
-                            href='https://www.youtube.com/watch?v=Xh5hyRsX6K4
-'
+                            href='https://www.youtube.com/watch?v=Xh5hyRsX6K4'
                             target='_blank'
                             rel='noopener noreferrer'
                         >
@@ -188,9 +254,9 @@ function MobileFAQ({ currentLanguage }: FAQProps) {
                 answer: (
                     <>
                         El porcentaje no indica tus probabilidades de éxito en
-                        tu caso. Tus probabilidades de éxito dependen de tu caso
+                        tu caso. Tus probabilidades dependen de tu caso
                         particular. El factor más importante es encontrar un
-                        abogado de confianza. Para más información, consulta:
+                        abogado de confianza. Para más información, consulta:{" "}
                         <a
                             href='https://www.youtube.com/watch?v=NVugGm-bFy8'
                             target='_blank'
@@ -201,13 +267,32 @@ function MobileFAQ({ currentLanguage }: FAQProps) {
                     </>
                 ),
             },
+            ht: {
+                question:
+                    "Èske pousantaj la di m konbyen chans mwen genyen pou m jwenn azil?",
+                answer: (
+                    <>
+                        Pousantaj la pa di w konbyen chans ou genyen pou w
+                        reyisi nan ka w la. Chans ou depende de ka w. Pi gwo
+                        faktè a se jwenn yon avoka ou fè konfyans. Pou plis
+                        enfòmasyon, gade:{" "}
+                        <a
+                            href='https://www.youtube.com/watch?v=Xh5hyRsX6K4'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                        >
+                            videyo sa a
+                        </a>
+                    </>
+                ),
+            },
         },
         {
             en: {
-                question: "What does ‘other relief’ mean?",
+                question: "What does 'other relief' mean?",
                 answer: (
                     <>
-                        ‘Other relief’ refers to cases where relief other than
+                        'Other relief' refers to cases where relief other than
                         asylum—such as withholding of removal, Convention
                         Against Torture (CAT), or discretionary humanitarian
                         relief—was granted.
@@ -215,13 +300,23 @@ function MobileFAQ({ currentLanguage }: FAQProps) {
                 ),
             },
             es: {
-                question: "¿Qué significa ‘otro tipo de alivio’?",
+                question: "¿Qué significa 'otro tipo de alivio'?",
                 answer: (
                     <>
-                        “Otro tipo de alivio” se refiere a casos en los que se
+                        "Otro tipo de alivio" se refiere a casos en los que se
                         otorga un alivio diferente al asilo, como retención de
                         expulsión, la Convención contra la Tortura (CAT), o
                         alivio humanitario discrecional.
+                    </>
+                ),
+            },
+            ht: {
+                question: "Kisa 'lòt soulajman' vle di?",
+                answer: (
+                    <>
+                        "Lòt soulajman" se pou ka kote ou jwenn soulajman ki pa
+                        azil — tankou retansyon pou pa depòte, Konvansyon Kont
+                        Tòtiti (CAT), oswa soulajman imanitè diskresyonè.
                     </>
                 ),
             },
@@ -234,7 +329,9 @@ function MobileFAQ({ currentLanguage }: FAQProps) {
                 <h3>
                     {currentLanguage === "en"
                         ? "Frequently Asked Questions (FAQs)"
-                        : "Preguntas Frecuentes (FAQs)"}
+                        : currentLanguage === "es"
+                        ? "Preguntas Frecuentes (FAQs)"
+                        : "Kesyon Yo Poze Souvan (FAQs)"}
                 </h3>
             </div>
             <div className='back-div'>
@@ -242,7 +339,9 @@ function MobileFAQ({ currentLanguage }: FAQProps) {
                     <span className='back-to-search'>
                         {currentLanguage === "en"
                             ? "Back to search"
-                            : "Regresar a la búsqueda"}
+                            : currentLanguage === "es"
+                            ? "Regresar a la búsqueda"
+                            : "Tounen nan rechèch"}
                     </span>
                 </Link>
             </div>
@@ -250,7 +349,11 @@ function MobileFAQ({ currentLanguage }: FAQProps) {
             <div className='FAQs'>
                 {faqs.map((item, idx) => {
                     const faqContent =
-                        currentLanguage === "en" ? item.en : item.es;
+                        currentLanguage === "en"
+                            ? item.en
+                            : currentLanguage === "es"
+                            ? item.es
+                            : item.ht;
 
                     return (
                         <MobileQA

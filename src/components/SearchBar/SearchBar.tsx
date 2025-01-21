@@ -53,31 +53,37 @@ const SORT_OPTIONS = [
         value: "approvalHigh",
         en: "Approval Rate (High to Low)",
         es: "Tasa de Aprobación (Alta a Baja)",
+        ht: "To Apwobasyon (Segondè a Ba)",
     },
     {
         value: "approvalLow",
         en: "Approval Rate (Low to High)",
         es: "Tasa de Aprobación (Baja a Alta)",
+        ht: "To Apwobasyon (Ba a Segondè)",
     },
     {
         value: "casesHigh",
         en: "Amount of Cases (High to Low)",
         es: "Cantidad de Casos (Alta a Baja)",
+        ht: "Kantite Ka (Segondè a Ba)",
     },
     {
         value: "casesLow",
         en: "Amount of Cases (Low to High)",
         es: "Cantidad de Casos (Baja a Alta)",
+        ht: "Kantite Ka (Ba a Segondè)",
     },
     {
         value: "alphaAsc",
         en: "Alphabetical (A to Z)",
         es: "Alfabético (A a Z)",
+        ht: "Alfabètik (A rive Z)",
     },
     {
         value: "alphaDesc",
         en: "Reverse Alphabetical (Z to A)",
         es: "Alfabético Inverso (Z a A)",
+        ht: "Alfabètik Ranvèse (Z rive A)",
     },
 ];
 
@@ -104,10 +110,13 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
 
     const dropdownOptions = SORT_OPTIONS.map((opt) => ({
         value: opt.value,
-        label: currentLanguage === "en" ? opt.en : opt.es,
+        label:
+            currentLanguage === "en"
+                ? opt.en
+                : currentLanguage === "es"
+                ? opt.es
+                : opt.ht,
     }));
-
-    const sortByLabel = currentLanguage === "en" ? "Sort by" : "Ordenar por";
 
     // JSON data
     const allCities: AllCities = judgeData;
@@ -146,6 +155,18 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
                 message:
                     "No se pudieron encontrar estos resultados. No todos los jueces están en nuestro sistema.",
                 help: "¿Necesitas ayuda? Usa el chat de información a la derecha.",
+            },
+        },
+        ht: {
+            placeholder: "Rechèch pa jij oswa vil...",
+            citiesLabel: "Vil",
+            judgesLabel: "Jij",
+            filterOptions: "Opsyon Filtre",
+            sortBy: "Triage pa",
+            noResults: {
+                message:
+                    "Nou pa jwenn rezilta sa yo. Pa tout jij ki nan sistèm nou an.",
+                help: "Bezwen èd? Itilize chat enfòmasyon an sou bò dwat la.",
             },
         },
     };
@@ -197,7 +218,9 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
     const searchBarInfo =
         currentLanguage === "en"
             ? `Find the asylum grant percentages/rates of your judge or city by searching for them in the search bar. For more info, use the info chat on the right`
-            : `Encuentra los porcentajes/tasas de concesión de asilo de tu juez o ciudad buscándolos en la barra de búsqueda. Para más información, utiliza el chat de información a la derecha.`;
+            : currentLanguage === "es"
+            ? `Encuentra los porcentajes/tasas de concesión de asilo de tu juez o ciudad buscándolos en la barra de búsqueda. Para más información, utiliza el chat de información a la derecha.`
+            : "Jwenn pousantaj/taux apwobasyon azil pou jij ou oswa vil ou lè ou fè rechèch pou yo nan ba rechèch la. Pou plis enfòmasyon, itilize chat enfòmasyon ki sou bò dwat la.";
 
     /* --------------------------
      *  Filter results by search
@@ -355,7 +378,7 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
                         </span>
                     </div>
                     <div className='filter-body'>
-                        <span className='sort-by-text'>{sortByLabel}:</span>
+                        <span className='sort-by-text'>{sortBy}:</span>
                         <div
                             className='dropdown-menu-div'
                             style={{ transform: "scale(2)" }}

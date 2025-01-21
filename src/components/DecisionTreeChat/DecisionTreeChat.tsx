@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import decisionTreeEnglish from "./decisionTreeEnglish.json";
 import decisionTreeSpanish from "./decisionTreeSpanish.json"; // Import Spanish decision tree
+import decisionTreeHaitianCreole from "./decisionTreeChatHaitianCreole.json"; // Import Spanish decision tree
+
 import "./DecisionTreeChat.css";
 
 interface ChatMessage {
@@ -24,7 +26,11 @@ const DecisionTreeChat: React.FC<DecisionTreeChatProps> = ({
 
     // Determine which decision tree to use based on the current language
     const decisionTree =
-        currentLanguage === "es" ? decisionTreeSpanish : decisionTreeEnglish;
+        currentLanguage === "es"
+            ? decisionTreeSpanish
+            : currentLanguage === "en"
+            ? decisionTreeEnglish
+            : decisionTreeHaitianCreole;
 
     // Format the message with bold text and links
     const formatMessage = (

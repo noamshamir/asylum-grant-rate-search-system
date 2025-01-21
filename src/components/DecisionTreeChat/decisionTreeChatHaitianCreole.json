@@ -1,0 +1,91 @@
+{
+    "start": {
+      "message": "Byenveni! Ki sa ou bezwen èd avèk?",
+      "options": [
+        { "label": "Jwenn Jij/Vil mwen", "next": "JudgeAndCity" },
+        { "label": "Itilize Sitwèb la", "next": "UsingWebsite" }
+      ]
+    },
+  
+    "JudgeAndCity": {
+      "message": "Èske ou konnen nimewo A ou?",
+      "options": [
+        { "label": "Wi", "next": "UseANumber" },
+        { "label": "Non", "next": "FindANumber" }
+      ]
+    },
+  
+    "UsingWebsite": {
+      "message": "Ki sa ou bezwen èd avèk nan lè w ap itilize sitwèb la?",
+      "options": [
+        { "label": "Jwenn pousantaj apwobasyon azil mwen", "next": "FindGrantRate" },
+        { "label": "Konprann done yo", "next": "UnderstandingGraphs" }
+      ]
+    },
+  
+    "UseANumber": {
+      "message": [
+        "Ale sou ",
+        { "type": "link", "text": "sitwèb sa a", "url": "https://acis.eoir.justice.gov/en/" },
+        " epi antre ",
+        { "type": "bold", "text": "nimewo A ou. " },
+        "Apre ou peze antre, ou pral wè ",
+        { "type": "bold", "text": "jij ak vil ou." }
+      ],
+      "options": [""]
+    },
+  
+    "FindANumber": {
+      "message": [
+        "Ou ka jwenn ",
+        { "type": "bold", "text": "nimewo A ou" },
+        " nan tèt ",
+        { "type": "bold", "text": "pifò fòm ou resevwa nan men yon ofisyèl gouvènman nan tribinal oswa nan fwontyè a. " },
+        "Pou plis enfòmasyon, ale sou ",
+        { "type": "link", "text": "sitwèb sa a", "url": "https://www.immigrationhelp.org/learning-center/what-is-an-alien-registration-number#" },
+        ""
+      ],
+      "options": [""]
+    },
+  
+    "FindGrantRate": {
+      "message": [
+        "Tape non jij ou oswa vil ou nan ",
+        { "type": "bold", "text": "ba rechèch la" },
+        ". Klike sou jij oswa vil ou vle a, epi ou pral wè pousantaj apwobasyon azil ou."
+      ],
+      "options": [""]
+    },
+  
+    "UnderstandingGraphs": {
+      "message": [
+        "Èske ou bezwen èd pou konprann pousantaj yo oswa definisyon 'lòt kalite sekou'?"
+      ],
+      "options": [
+        { "label": "Siyifikasyon pousantaj yo", "next": "GraphMeanings" },
+        { "label": "Siyifikasyon lòt kalite sekou", "next": "OtherRelief" }
+      ]
+    },
+  
+    "GraphMeanings": {
+      "message": [
+        "Chif ki andedan graf la se ",
+        { "type": "bold", "text": "pousantaj ka azil yo akòde" },
+        " pa chak jij. Si jij ou gen ",
+        { "type": "bold", "text": "yon pousantaj apwobasyon ki wo (pi wo pase 50%)" },
+        ", li ka pi fasil pou jij la akòde ka ou. Si jij ou gen ",
+        { "type": "bold", "text": "yon pousantaj apwobasyon ki ba (pi ba pase 50%)" },
+        ", li ka pi fasil pou jij la refize ka ou."
+      ],
+      "options": [""]
+    },
+  
+    "OtherRelief": {
+      "message": [
+        "Chif sa a se pousantaj ka nan vil sa a kote lòt kalite sekou, ",
+        { "type": "bold", "text": "tankou retansyon ekspilsyon, Konvansyon kont Tòti (CAT), oswa sekou imanitè diskresyonè " },
+        "te akòde."
+      ],
+      "options": [""]
+    }
+  }

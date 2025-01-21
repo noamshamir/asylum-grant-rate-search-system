@@ -92,13 +92,13 @@
 .language-dropdown {
     position: absolute;
     top: 115px; /* position below header or icon as needed */
-    right: 80px;
+    right: 50px;
     background-color: #303134;
     border-radius: 8px;
     margin-top: 8px;
     border: 1px solid #5e5e5e;
     z-index: 9999;
-    width: 240px; /* or whatever width you prefer */
+    width: 280px; /* or whatever width you prefer */
 }
 
 .dropdown-arrow {
@@ -128,7 +128,8 @@
     cursor: pointer;
 }
 
-.language-dropdown li:first-child {
+.language-dropdown li:first-child,
+.language-dropdown li:nth-child(2) {
     border-bottom: 1px solid #5e5e5e;
 }
 

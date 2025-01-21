@@ -29,9 +29,23 @@ const CityCard: React.FC<CityCardProps> = ({
     // 1) Get all judges for this city from the JSON
     const cityJudgesObj = (judgeData as any)[city] || {};
     const cityJudges: Judge[] = Object.values(cityJudgesObj);
-    const judgesCountLabel = currentLanguage === "es" ? "Jueces" : "Judges";
-    const viewRatesLabel = currentLanguage === "es" ? "Ver Tasas" : "View Rate";
 
+    // Labels based on the current language
+    const judgesCountLabel =
+        currentLanguage === "es"
+            ? "Jueces"
+            : currentLanguage === "ht"
+            ? "Jij"
+            : "Judges";
+
+    const viewRatesLabel =
+        currentLanguage === "es"
+            ? "Ver Tasas"
+            : currentLanguage === "ht"
+            ? "Gade Taux yo"
+            : "View Rates";
+
+    // Calculate average grant rate
     const totalRates = cityJudges.map((j) => {
         const asylum = parseFloat(j.granted_asylum_percentage) || 0;
         const other = parseFloat(j.granted_other_relief_percentage) || 0;

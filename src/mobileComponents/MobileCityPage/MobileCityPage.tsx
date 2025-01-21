@@ -32,26 +32,31 @@ const SORT_OPTIONS = [
         value: "approvalHigh",
         en: "Approval Rate (High to Low)",
         es: "Tasa de Aprobación (Alta a Baja)",
+        ht: "Pousantaj Apwobasyon (Segondè pou Ba)",
     },
     {
         value: "approvalLow",
         en: "Approval Rate (Low to High)",
         es: "Tasa de Aprobación (Baja a Alta)",
+        ht: "Pousantaj Apwobasyon (Ba pou Segondè)",
     },
     {
         value: "casesHigh",
         en: "Amount of Cases (High to Low)",
         es: "Cantidad de Casos (Alta a Baja)",
+        ht: "Kantite Ka (Segondè pou Ba)",
     },
     {
         value: "casesLow",
         en: "Amount of Cases (Low to High)",
         es: "Cantidad de Casos (Baja a Alta)",
+        ht: "Kantite Ka (Ba pou Segondè)",
     },
     {
         value: "alpha",
         en: "Alphabetical",
         es: "Alfabético",
+        ht: "Alfabè",
     },
 ];
 
@@ -109,14 +114,32 @@ function CityPage({ currentLanguage }: CityPageProps) {
       Each item: { label: string, value: string } */
     const dropdownOptions = SORT_OPTIONS.map((opt) => ({
         value: opt.value,
-        label: currentLanguage === "en" ? opt.en : opt.es,
+        label:
+            currentLanguage === "en"
+                ? opt.en
+                : currentLanguage === "es"
+                ? opt.es
+                : opt.ht,
     }));
 
-    const sortByLabel = currentLanguage === "en" ? "Sort by" : "Ordenar por";
+    const sortByLabel =
+        currentLanguage === "en"
+            ? "Sort by"
+            : currentLanguage === "es"
+            ? "Ordenar por"
+            : "Triye pa";
     const averageRatesLabel =
-        currentLanguage === "en" ? "Average Rates" : "Tasas Promedio";
+        currentLanguage === "en"
+            ? "Average Rates"
+            : currentLanguage === "es"
+            ? "Tasas Promedio"
+            : "Pousantaj Mwayèn";
     const cityStatsLabel =
-        currentLanguage === "en" ? "City Stats" : "Estadísticas de la Ciudad";
+        currentLanguage === "en"
+            ? "City Stats"
+            : currentLanguage === "es"
+            ? "Estadísticas de la Ciudad"
+            : "Estatistik Vil la";
 
     let casesAmount: number = 0;
     for (let judge of cityJudges) {
@@ -155,44 +178,91 @@ function CityPage({ currentLanguage }: CityPageProps) {
     const deniedAmount = Math.round((casesAmount * avgDeniedRate) / 100);
 
     const asylumGranted =
-        currentLanguage === "en" ? "Asylum Granted" : "Asilo Otorgado";
+        currentLanguage === "en"
+            ? "Asylum Granted"
+            : currentLanguage === "es"
+            ? "Asilo Otorgado"
+            : "Azil Bay";
     const otherRelief =
         currentLanguage === "en"
             ? "Other Relief Granted"
-            : "Otro Alivio Otorgado";
+            : currentLanguage === "es"
+            ? "Otro Alivio Otorgado"
+            : "Lòt Sekou Bay";
     const denied =
-        currentLanguage === "en" ? "Cases Denied" : "Casos Denegados";
+        currentLanguage === "en"
+            ? "Cases Denied"
+            : currentLanguage === "es"
+            ? "Casos Denegados"
+            : "Ka Refize";
 
-    const cityLabel = currentLanguage === "en" ? "City" : "Ciudad";
-    const judgeLabel = currentLanguage === "en" ? "Judges" : "Jueces";
-    const outOf = currentLanguage === "en" ? "Out of" : "De";
-    const caseIn = currentLanguage === "en" ? "cases in" : "casos en";
+    const cityLabel =
+        currentLanguage === "en"
+            ? "City"
+            : currentLanguage === "es"
+            ? "Ciudad"
+            : "Vil";
+    const judgeLabel =
+        currentLanguage === "en"
+            ? "Judges"
+            : currentLanguage === "es"
+            ? "Jueces"
+            : "Jij";
+    const outOf =
+        currentLanguage === "en"
+            ? "Out of"
+            : currentLanguage === "es"
+            ? "De"
+            : "Sou";
+
+    const caseIn =
+        currentLanguage === "en"
+            ? "cases in"
+            : currentLanguage === "es"
+            ? "casos en"
+            : "ka nan";
+
     const wereGrantedAsylum =
         currentLanguage === "en"
             ? "were granted asylum, "
-            : "fueron otorgados asilo, ";
+            : currentLanguage === "es"
+            ? "fueron otorgados asilo, "
+            : "te bay azil, ";
+
     const wereGrantedOtherRelief =
         currentLanguage === "en"
             ? "were granted other relief, and "
-            : "fueron otorgados otro alivio, y ";
+            : currentLanguage === "es"
+            ? "fueron otorgados otro alivio, y "
+            : "te resevwa lòt sekou, epi ";
+
     const wereDenied =
-        currentLanguage === "en" ? "were denied" : "fueron denegados";
+        currentLanguage === "en"
+            ? "were denied"
+            : currentLanguage === "es"
+            ? "fueron denegados"
+            : "te refize";
 
     const asylumGrantedInfo =
         currentLanguage === "en"
             ? "This number is the percent of cases in this city where asylum was granted."
-            : "Este número es el porcentaje de casos en esta ciudad donde se otorgó asilo. ";
+            : currentLanguage === "es"
+            ? "Este número es el porcentaje de casos en esta ciudad donde se otorgó asilo. "
+            : "Nimewo sa a se pousantaj ka nan vil sa a kote yo te bay azil.";
 
     const otherReliefInfo =
         currentLanguage === "en"
             ? "This number is the percent of cases in this city where other relief, such as withholding of removal, convention against torture (CAT), or discretionary humanitarian relief was granted."
-            : "Este número es el porcentaje de casos en esta ciudad donde se otorgó otro tipo de ayuda, como la suspensión de la deportación, la convención contra la tortura (CAT) o la ayuda humanitaria discrecional.";
+            : currentLanguage === "es"
+            ? "Este número es el porcentaje de casos en esta ciudad donde se otorgó otro tipo de ayuda, como la suspensión de la deportación, la convención contra la tortura (CAT) o la ayuda humanitaria discrecional."
+            : "Nimewo sa a se pousantaj ka nan vil sa a kote yo te bay lòt sekou, tankou sispansyon depòtasyon, konvansyon kont tòti (CAT), oswa sekou imanitè diskresyonè.";
 
     const deniedInfo =
         currentLanguage === "en"
             ? "This number is the percent of cases in this city that were denied, whether asylum or other."
-            : "Este número es el porcentaje de casos en esta ciudad donde se denegaron, ya sea asilo u otro tipo de alivio.";
-
+            : currentLanguage === "es"
+            ? "Este número es el porcentaje de casos en esta ciudad donde se denegaron, ya sea asilo u otro tipo de alivio."
+            : "Nimewo sa a se pousantaj ka nan vil sa a ki te refize, kit se azil oswa lòt sekou.";
     return (
         <div className='mobile-judge-page'>
             <div className='mobile-judge-header-section'>
@@ -212,7 +282,11 @@ function CityPage({ currentLanguage }: CityPageProps) {
                 <h2 className='mobile-judge-section-header judge-rates'>
                     {averageRatesLabel}
                 </h2>
-                <div className='mobile-judge-donut-charts-container'>
+                <div
+                    className={`mobile-judge-donut-charts-container ${
+                        currentLanguage === "ht" ? "haitian-percents" : ""
+                    }`}
+                >
                     <div className='mobile-judge-asylum-granted-section'>
                         <div
                             className='mobile-judge-donut-chart-div'
@@ -321,14 +395,16 @@ function CityPage({ currentLanguage }: CityPageProps) {
                         <h2 className='mobile-judge-section-header mobile-judges'>
                             {judgeLabel}
                         </h2>
-                        <span className='mobile-city-sort-by'>
-                            {sortByLabel}
-                        </span>
-                        <DropdownMenu
-                            options={dropdownOptions}
-                            selectedValue={sortValue}
-                            onSelect={(val) => setSortValue(val)}
-                        />
+                        <div className='mobile-sort-section'>
+                            <span className='mobile-city-sort-by'>
+                                {sortByLabel}
+                            </span>
+                            <DropdownMenu
+                                options={dropdownOptions}
+                                selectedValue={sortValue}
+                                onSelect={(val) => setSortValue(val)}
+                            />
+                        </div>
                     </div>
                     <div className='mobile-judge-cards'>
                         {sortedJudges.length > 0 && (

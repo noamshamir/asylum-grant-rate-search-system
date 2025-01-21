@@ -101,10 +101,10 @@
     margin-top: 8px;
     border: 1px solid #5e5e5e;
     z-index: 9999;
-    width: 240px; /* or whatever width you prefer */
+    width: 280px; /* or whatever width you prefer */
 }
 
-.mobiledropdown-arrow {
+.mobile-dropdown-arrow {
     position: absolute;
     top: -15px;
     right: 110px;
@@ -131,7 +131,8 @@
     cursor: pointer;
 }
 
-.mobile-language-dropdown li:first-child {
+.mobile-language-dropdown li:first-child,
+.mobile-language-dropdown li:nth-child(2) {
     border-bottom: 1px solid #5e5e5e;
 }
 

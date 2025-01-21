@@ -25,7 +25,12 @@ const JudgeCard: React.FC<JudgeCardProps> = ({ judge, currentLanguage }) => {
     const other = parseFloat(judge.granted_other_relief_percentage) || 0;
     const totalGrantRate = asylum + other; // e.g., 51.1 + 2.5 => 53.6
 
-    const viewRatesLabel = currentLanguage === "es" ? `Ver` : `View`;
+    const viewRatesLabel =
+        currentLanguage === "es"
+            ? `Ver`
+            : currentLanguage === "en"
+            ? `View`
+            : "Gade";
 
     // Truncate judge name if longer than 20 characters
     const truncatedJudgeName =

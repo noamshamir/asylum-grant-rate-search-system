@@ -53,31 +53,37 @@ const SORT_OPTIONS = [
         value: "approvalHigh",
         en: "Approval Rate (High to Low)",
         es: "Tasa de Aprobación (Alta a Baja)",
+        ht: "To Apwobasyon (Wo a Ba)",
     },
     {
         value: "approvalLow",
         en: "Approval Rate (Low to High)",
         es: "Tasa de Aprobación (Baja a Alta)",
+        ht: "To Apwobasyon (Ba a Wo)",
     },
     {
         value: "casesHigh",
         en: "Amount of Cases (High to Low)",
         es: "Cantidad de Casos (Alta a Baja)",
+        ht: "Kantite Ka (Wo a Ba)",
     },
     {
         value: "casesLow",
         en: "Amount of Cases (Low to High)",
         es: "Cantidad de Casos (Baja a Alta)",
+        ht: "Kantite Ka (Ba a Wo)",
     },
     {
         value: "alphaAsc",
         en: "Alphabetical (A to Z)",
         es: "Alfabético (A a Z)",
+        ht: "Alfabètik (A rive Z)",
     },
     {
         value: "alphaDesc",
         en: "Reverse Alphabetical (Z to A)",
         es: "Alfabético Inverso (Z a A)",
+        ht: "Alfabètik Ranvèse (Z rive A)",
     },
 ];
 
@@ -96,10 +102,13 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
 
     const dropdownOptions = SORT_OPTIONS.map((opt) => ({
         value: opt.value,
-        label: currentLanguage === "en" ? opt.en : opt.es,
+        label:
+            currentLanguage === "en"
+                ? opt.en
+                : currentLanguage === "es"
+                ? opt.es
+                : opt.ht, // Use Haitian Creole translation
     }));
-
-    const sortByLabel = currentLanguage === "en" ? "Sort by" : "Ordenar";
 
     // JSON data
     const allCities: AllCities = judgeData;
@@ -140,7 +149,7 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
             citiesLabel: "Ciudades",
             judgesLabel: "Jueces",
             filterOptions: "Opciones de Filtro",
-            sortBy: "Ordenar por",
+            sortBy: "Ordenar",
             tooltipText: (
                 <>
                     Encuentra los porcentajes/tasas de concesión de asilo de tu
@@ -158,6 +167,25 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
                 page: "página de Preguntas Frecuentes",
             },
         },
+        ht: {
+            placeholder: "Rechèch jij/vil...",
+            citiesLabel: "Vil",
+            judgesLabel: "Jij",
+            filterOptions: "Opsyon Filtre",
+            sortBy: "Triye pa",
+            tooltipText: (
+                <>
+                    Rechèch pousantaj ak to koncesyon azil jij ou oswa vil ou a
+                    lè w antre non yo nan ba rechèch la. Pou plis enfòmasyon,
+                    ale nan <Link to='/faq'>paj Kesyon yo Poze Souvan</Link>.
+                </>
+            ),
+            noResults: {
+                main: "Nou pa jwenn rezilta sa yo. Pa tout jij ki nan sistèm nou an.",
+                help: "Bezwen èd? Ale nan ",
+                page: "paj Kesyon yo Poze Souvan",
+            },
+        },
     };
 
     const {
@@ -167,6 +195,7 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
         filterOptions,
         tooltipText,
         noResults,
+        sortBy,
     } = translations[currentLanguage] || translations.en;
 
     /* ---------------------------------------------------
@@ -364,9 +393,7 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
                         </span>
                     </div>
                     <div className='mobile-filter-body'>
-                        <span className='mobile-sort-by-text'>
-                            {sortByLabel}:
-                        </span>
+                        <span className='mobile-sort-by-text'>{sortBy}:</span>
                         <div className='mobile-dropdown-menu-div'>
                             <DropdownMenu
                                 options={dropdownOptions}
