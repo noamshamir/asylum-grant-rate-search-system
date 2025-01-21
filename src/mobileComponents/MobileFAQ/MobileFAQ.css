@@ -1,0 +1,46 @@
+.FAQ-page {
+    padding: 0;
+    margin: 0;
+    border: none;
+    margin-left: 20px;
+    margin-top: 30px;
+}
+
+.faq-header {
+    border: none;
+    padding: 0;
+    margin: 0;
+
+    align-items: left;
+}
+
+.faq-header h3 {
+    margin: 0;
+    margin-bottom: 8px;
+    font-size: 20px;
+    border: none;
+    color: rgb(199, 198, 198);
+    text-align: left;
+}
+
+.back-div {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+
+    margin-bottom: 15px;
+}
+
+.back-to-search {
+    font-size: 15px;
+    text-decoration: underline;
+    color: rgb(134, 154, 221);
+    text-align: left;
+    border: none;
+}
+
+.FAQs {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 50px;
+}
