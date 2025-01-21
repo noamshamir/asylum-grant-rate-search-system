@@ -10,7 +10,7 @@
 
 .question {
     margin-top: 20px;
-    color: #c5fba3;
+    color: #f1f1f1;
 }
 
 .question-content {
@@ -18,7 +18,7 @@
 
 .answer {
     margin-top: 5px;
-    color: rgb(210, 210, 210);
+    color: #aaaaaa;
 }
 
 .answer-content {
