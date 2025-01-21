@@ -277,7 +277,7 @@ function MobileFAQ({ currentLanguage }: FAQProps) {
                         faktè a se jwenn yon avoka ou fè konfyans. Pou plis
                         enfòmasyon, gade:{" "}
                         <a
-                            href='https://www.youtube.com/watch?v=Xh5hyRsX6K4'
+                            href='https://www.youtube.com/watch?v=zXTnvGtUbRQ'
                             target='_blank'
                             rel='noopener noreferrer'
                         >
