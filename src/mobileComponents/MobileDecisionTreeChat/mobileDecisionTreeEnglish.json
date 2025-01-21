@@ -81,6 +81,13 @@
 
   "UnderstandingGraphs": {
     "message": [
+      "Do you need help understanding the percentages or with the definition of 'other relief info'"
+    ],
+    "options": [{"label": "Percentages Meaning", "next": "GraphMeanings"}, {"label": "Other Relief Meaning", "next": "OtherRelief"}]
+  },
+
+  "GraphMeanings": {
+    "message": [
       "The number inside of the donut graphs is the ",
       { "type": "bold", "text": "percent of asylum cases granted" },
       " by each judge. If your judge has a ",
@@ -88,6 +95,16 @@
       ", they are probably more likely to grant your case. If your judge has a ",
       { "type": "bold", "text": "low grant rate (below 50%)" },
       ", they are probably more likely to deny your case."
+    ],
+    "options": []
+  },
+
+  "OtherRelief": {
+    "message": [
+      "This number is the percent of cases in this city where other relief, ",
+      { "type": "bold", "text": "such as withholding of removal, convention against torture (CAT), or discretionary humanitarian relief "},
+      "was granted."
+      
     ],
     "options": []
   }

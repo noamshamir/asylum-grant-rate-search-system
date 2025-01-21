@@ -84,15 +84,34 @@
     },
   
     "UnderstandingGraphs": {
-      "message": [
-        "El número dentro de los gráficos de dona es el ",
+    "message": [
+        "¿Necesitas ayuda para entender los porcentajes o con la definición de 'otra información de alivio'?"
+    ],
+    "options": [
+        { "label": "Significado de los porcentajes", "next": "GraphMeanings" },
+        { "label": "Significado de otra información de alivio", "next": "OtherRelief" }
+    ]
+},
+
+"GraphMeanings": {
+    "message": [
+        "El número dentro de los gráficos circulares es el ",
         { "type": "bold", "text": "porcentaje de casos de asilo aprobados" },
-        " por cada juez. Si tu juez tiene una ",
-        { "type": "bold", "text": "alta tasa de aprobación (más del 50%)" },
-        ", probablemente es más probable que apruebe tu caso. Si tu juez tiene una ",
-        { "type": "bold", "text": "baja tasa de aprobación (menos del 50%)" },
-        ", probablemente es más probable que niegue tu caso."
-      ],
-      "options": []
-    }
+        " por cada juez. Si tu juez tiene un ",
+        { "type": "bold", "text": "alto porcentaje de aprobación (más del 50%)" },
+        ", es más probable que aprueben tu caso. Si tu juez tiene un ",
+        { "type": "bold", "text": "bajo porcentaje de aprobación (menos del 50%)" },
+        ", es más probable que nieguen tu caso."
+    ],
+    "options": []
+},
+
+"OtherRelief": {
+    "message": [
+        "Este número representa el porcentaje de casos en esta ciudad donde se concedió otro tipo de alivio, ",
+        { "type": "bold", "text": "como la retención de deportación, la convención contra la tortura (CAT) o el alivio humanitario discrecional" },
+        "."
+    ],
+    "options": []
+}
   }

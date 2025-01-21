@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./MobileApp.css";
 
 import "split-pane-react/esm/themes/default.css";
+import MobileFAQ from "../mobileComponents/MobileFAQ/MobileFAQ.tsx"; // Import the FAQ component
 import SearchBar from "../mobileComponents/MobileSearchBar/MobileSearchBar.tsx";
 // import DecisionTreeChat from "../mobileComponents/MobileDecisionTreeChat/MobileDecisionTreeChat.tsx";
 import Header from "../mobileComponents/MobileHeader/MobileHeader.tsx";
@@ -125,6 +126,14 @@ function MobileApp() {
                             //     </div>
                             // )} */}
                             // </SplitPane>
+                        }
+                    />
+                    <Route
+                        path='/faq'
+                        element={
+                            <MobileFAQ
+                                currentLanguage={currentLanguage}
+                            ></MobileFAQ>
                         }
                     />
                 </Routes>
