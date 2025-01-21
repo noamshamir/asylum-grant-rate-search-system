@@ -212,3 +212,33 @@
     position: relative; /* Ensure it's positioned */
     z-index: 10; /* Higher than the divider */
 }
+
+.mobile-no-results {
+    padding-top: 15px;
+    max-height: calc(100vh); /* or whatever height fits your UI */
+    overflow-y: auto;
+    background-color: #303134;
+    border-radius: 0 0 50px 50px;
+    padding-bottom: 40px;
+    margin-left: 0px;
+    width: calc(93vw - 1px);
+    margin-top: 0;
+    transform: translateY(-30px);
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.mobile-no-results p {
+    color: rgb(230, 230, 230);
+    padding: 0 20px;
+    margin-bottom: 0;
+}
+
+.mobile-no-results a {
+    color: rgb(113, 143, 226);
+}
+
+.mobile-no-results-text {
+    margin-top: 40px;
+    margin-bottom: -10px;
+}

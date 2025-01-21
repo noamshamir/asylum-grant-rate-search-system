@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./MobileSearchBar.css";
 import DropdownMenu from "../MobileDropdownMenu/MobileDropdownMenu.tsx";
 import judgeData from "../../data/judge_grant_rates.json";
@@ -122,6 +122,18 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
             judgesLabel: "Judges",
             filterOptions: "Filter Options",
             sortBy: "Sort by",
+            tooltipText: (
+                <>
+                    Find the asylum grant percentages/rates of your judge or
+                    city by searching for them in the search bar. For more info,
+                    check out our <Link to='/faq'>FAQ page</Link>.
+                </>
+            ),
+            noResults: {
+                main: "Couldn't find these results. Not all judges are in our system.",
+                help: "Need help? Visit our ",
+                page: "Frequently Asked Questions page",
+            },
         },
         es: {
             placeholder: "Buscar juez/ciudad...",
@@ -129,11 +141,33 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
             judgesLabel: "Jueces",
             filterOptions: "Opciones de Filtro",
             sortBy: "Ordenar por",
+            tooltipText: (
+                <>
+                    Encuentra los porcentajes/tasas de concesión de asilo de tu
+                    juez o ciudad buscándolos en la barra de búsqueda. Para más
+                    información, visita{" "}
+                    <Link to='/faq'>
+                        nuestra página de Preguntas Frecuentes
+                    </Link>
+                    .
+                </>
+            ),
+            noResults: {
+                main: "No se pudieron encontrar estos resultados. No todos los jueces están en nuestro sistema.",
+                help: "¿Necesitas ayuda? Visita nuestra ",
+                page: "página de Preguntas Frecuentes",
+            },
         },
     };
 
-    const { placeholder, citiesLabel, judgesLabel, filterOptions } =
-        translations[currentLanguage] || translations.en;
+    const {
+        placeholder,
+        citiesLabel,
+        judgesLabel,
+        filterOptions,
+        tooltipText,
+        noResults,
+    } = translations[currentLanguage] || translations.en;
 
     /* ---------------------------------------------------
      *  Helpers to get numeric metrics for Judges and Cities
@@ -306,7 +340,7 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
                     <div className='mobile-tooltip-container-search'>
                         <Tooltip
                             position='below' // Adjust position dynamically if needed
-                            text={searchBarInfo} // Tooltip content
+                            text={tooltipText} // Tooltip content
                         >
                             <span className='mobile-info-icon'>
                                 <i className='fas fa-info-circle'></i>{" "}
@@ -346,45 +380,56 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
                 </div>
             )}
             {isDropdownOpen &&
-                (cityResults.length > 0 || judgeResults.length > 0) && (
-                    <>
-                        <hr className='mobile-horizontal-divider' />
-                        <div className='mobile-search-results-dropdown'>
-                            {cityResults.length > 0 && (
-                                <>
-                                    <h4>{citiesLabel}</h4>
-                                    {cityResults.map((cityName) => {
-                                        const judgeCount = Object.keys(
-                                            allCities[cityName]
-                                        ).length;
-                                        return (
-                                            <CityCard
-                                                currentLanguage={
-                                                    currentLanguage
-                                                }
-                                                key={cityName}
-                                                city={cityName}
-                                                judgeCount={judgeCount}
-                                            />
-                                        );
-                                    })}
-                                </>
-                            )}
-                            {judgeResults.length > 0 && (
-                                <>
-                                    <h4>{judgesLabel}</h4>
-                                    {judgeResults.map((judge) => (
-                                        <JudgeCard
+            (cityResults.length > 0 || judgeResults.length > 0) ? (
+                <>
+                    <hr className='mobile-horizontal-divider' />
+                    <div className='mobile-search-results-dropdown'>
+                        {cityResults.length > 0 && (
+                            <>
+                                <h4>{citiesLabel}</h4>
+                                {cityResults.map((cityName) => {
+                                    const judgeCount = Object.keys(
+                                        allCities[cityName]
+                                    ).length;
+                                    return (
+                                        <CityCard
                                             currentLanguage={currentLanguage}
-                                            key={judge.judge_name}
-                                            judge={judge}
+                                            key={cityName}
+                                            city={cityName}
+                                            judgeCount={judgeCount}
                                         />
-                                    ))}
-                                </>
-                            )}
+                                    );
+                                })}
+                            </>
+                        )}
+                        {judgeResults.length > 0 && (
+                            <>
+                                <h4>{judgesLabel}</h4>
+                                {judgeResults.map((judge) => (
+                                    <JudgeCard
+                                        currentLanguage={currentLanguage}
+                                        key={judge.judge_name}
+                                        judge={judge}
+                                    />
+                                ))}
+                            </>
+                        )}
+                    </div>
+                </>
+            ) : (
+                <>
+                    <hr className='mobile-horizontal-divider' />
+                    <div className='mobile-no-results'>
+                        <div className='mobile-no-results-text'>
+                            <p>{noResults.main}</p>
+                            <p>
+                                {noResults.help}
+                                <Link to='/faq'>{noResults.page}</Link>.
+                            </p>
                         </div>
-                    </>
-                )}
+                    </div>
+                </>
+            )}
         </div>
     );
 }

@@ -94,6 +94,14 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
      */
     const [sortOption, setSortOption] = useState<SortKey>("approvalHigh");
 
+    const [searchAttempted, setSearchAttempted] = useState(false);
+
+    useEffect(() => {
+        if (searchTerm.trim()) {
+            setSearchAttempted(true);
+        }
+    }, [searchTerm]);
+
     const dropdownOptions = SORT_OPTIONS.map((opt) => ({
         value: opt.value,
         label: currentLanguage === "en" ? opt.en : opt.es,
@@ -122,6 +130,11 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
             judgesLabel: "Judges",
             filterOptions: "Filter Options",
             sortBy: "Sort by",
+            noResults: {
+                message:
+                    "Couldn't find these results. Not all judges are in our system.",
+                help: "Need help? Use the info chat on the right.",
+            },
         },
         es: {
             placeholder: "Buscar por juez o ciudad...",
@@ -129,11 +142,22 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
             judgesLabel: "Jueces",
             filterOptions: "Opciones de Filtro",
             sortBy: "Ordenar por",
+            noResults: {
+                message:
+                    "No se pudieron encontrar estos resultados. No todos los jueces están en nuestro sistema.",
+                help: "¿Necesitas ayuda? Usa el chat de información a la derecha.",
+            },
         },
     };
 
-    const { placeholder, citiesLabel, judgesLabel, filterOptions, sortBy } =
-        translations[currentLanguage] || translations.en;
+    const {
+        placeholder,
+        citiesLabel,
+        judgesLabel,
+        filterOptions,
+        sortBy,
+        noResults,
+    } = translations[currentLanguage] || translations.en;
 
     /* ---------------------------------------------------
      *  Helpers to get numeric metrics for Judges and Cities
@@ -292,6 +316,7 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
                             if (!searchTerm.trim()) {
                                 setIsDropdownOpen(false);
                             }
+                            setSearchAttempted(false);
                         }}
                     >
                         <i className='fas fa-times'></i>
@@ -347,45 +372,55 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
                 </div>
             )}
             {isDropdownOpen &&
-                (cityResults.length > 0 || judgeResults.length > 0) && (
+            (cityResults.length > 0 || judgeResults.length > 0) ? (
+                <>
+                    <hr className='horizontal-divider' />
+                    <div className='search-results-dropdown'>
+                        {cityResults.length > 0 && (
+                            <>
+                                <h4>{citiesLabel}</h4>
+                                {cityResults.map((cityName) => {
+                                    const judgeCount = Object.keys(
+                                        allCities[cityName]
+                                    ).length;
+                                    return (
+                                        <CityCard
+                                            currentLanguage={currentLanguage}
+                                            key={cityName}
+                                            city={cityName}
+                                            judgeCount={judgeCount}
+                                        />
+                                    );
+                                })}
+                            </>
+                        )}
+                        {judgeResults.length > 0 && (
+                            <>
+                                <h4>{judgesLabel}</h4>
+                                {judgeResults.map((judge) => (
+                                    <JudgeCard
+                                        currentLanguage={currentLanguage}
+                                        key={judge.judge_name}
+                                        judge={judge}
+                                    />
+                                ))}
+                            </>
+                        )}
+                    </div>
+                </>
+            ) : (
+                searchAttempted && (
                     <>
                         <hr className='horizontal-divider' />
-                        <div className='search-results-dropdown'>
-                            {cityResults.length > 0 && (
-                                <>
-                                    <h4>{citiesLabel}</h4>
-                                    {cityResults.map((cityName) => {
-                                        const judgeCount = Object.keys(
-                                            allCities[cityName]
-                                        ).length;
-                                        return (
-                                            <CityCard
-                                                currentLanguage={
-                                                    currentLanguage
-                                                }
-                                                key={cityName}
-                                                city={cityName}
-                                                judgeCount={judgeCount}
-                                            />
-                                        );
-                                    })}
-                                </>
-                            )}
-                            {judgeResults.length > 0 && (
-                                <>
-                                    <h4>{judgesLabel}</h4>
-                                    {judgeResults.map((judge) => (
-                                        <JudgeCard
-                                            currentLanguage={currentLanguage}
-                                            key={judge.judge_name}
-                                            judge={judge}
-                                        />
-                                    ))}
-                                </>
-                            )}
+                        <div className='no-results'>
+                            <div className='no-results-text'>
+                                <p>{noResults.message}</p>
+                                <p>{noResults.help}</p>
+                            </div>
                         </div>
                     </>
-                )}
+                )
+            )}
         </div>
     );
 }
