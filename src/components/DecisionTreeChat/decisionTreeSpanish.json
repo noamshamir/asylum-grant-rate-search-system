@@ -1,98 +1,91 @@
 {
-    "start": {
-      "message": "¡Bienvenido! ¿En qué necesitas ayuda?",
-      "options": [
-        { "label": "Encontrar mi juez/ciudad", "next": "JudgeAndCity" },
-        { "label": "Usar el sitio web", "next": "UsingWebsite" }
-      ]
-    },
+  "start": {
+    "message": "¡Bienvenido! ¿En qué necesitas ayuda?",
+    "options": [
+      { "label": "Encontrar mi juez/ciudad", "next": "JudgeAndCity" },
+      { "label": "Usar el sitio web", "next": "UsingWebsite" }
+    ]
+  },
+
+  "JudgeAndCity": {
+    "message": "¿Conoces tu número A?",
+    "options": [
+      { "label": "Sí", "next": "UseANumber" },
+      { "label": "No", "next": "FindANumber" }
+    ]
+  },
   
-    "JudgeAndCity": {
-      "message": "¿Conoces tu número A?",
-      "options": [
-        { "label": "Sí", "next": "UseANumber" },
-        { "label": "No", "next": "FindANumber" }
-      ]
-    },
-    
-    "UsingWebsite": {
-      "message": "¿Con qué necesitas ayuda respecto a usar el sitio web?",
-      "options": [
-        { "label": "Encontrar mi tasa de aprobación de asilo", "next": "FindGrantRate" },
-        { "label": "Entender los datos", "next": "UnderstandingGraphs" }
-      ]
-    },
-  
-    "UseANumber": {
-      "message": [
-        "Ve a ",
-        { "type": "link", "text": "este sitio web", "url": "https://acis.eoir.justice.gov/en/" },
-        " e ingresa tu ",
-        { "type": "bold", "text": "número A. " },
-        "Después de hacer clic en enter, verás tu ",
-        { "type": "bold", "text": "juez y ciudad." }
-      ],
-      "options": []
-    },
-  
-    "FindANumber": {
-      "message": [
-        "Puedes encontrar tu ",
-        { "type": "bold", "text": "número A" },
-        " en la parte superior de",
-        { "type": "bold", "text": " la mayoría de los formularios que recibiste de un funcionario gubernamental en la corte o en la frontera. " },
-        "Para más información, ve a ",
-        { "type": "link", "text": "este sitio web", "url": "https://www.immigrationhelp.org/learning-center/what-is-an-alien-registration-number#" },
-        ""
-      ],
-      "next": "SeeImageOrFindInfo",
-      "options": []
-    },
-  
-    "SeeImageOrFindInfo": {
-      "message": "¿Te gustaría ver un ejemplo de un número A en un formulario o usar tu número A para encontrar tu juez y ciudad?",
-      "options": [
-        { "label": "Encontrar juez/ciudad", "next": "UseANumber" },
-        { "label": "Ver ejemplo de un número A", "next": "SeeANumberExample" }
-      ]
-    },
-  
-    "SeeANumberExample": {
-      "message": [
-        "Aquí tienes un ejemplo de un ",
-        { "type": "bold", "text": "número A" },
-        " en un ", 
-        { "type": "bold", "text": "formulario de Aviso de Acción: " },
-        {
-          "type": "image",
-          "src": "/Users/noamshamir/Documents/projects/judge_grant_rates/frontend/src/data/A_number_example.png",
-          "alt": "Ejemplo de Número A"
-        }
-      ],
-      "options": [
-        { "label": "Encontrar juez/ciudad", "next": "UseANumber" }
-      ]
-    },
-  
-    "FindGrantRate": {
-      "message": [
-        "Escribe tu juez o ciudad en la ",
-        { "type": "bold", "text": "barra de búsqueda" },
-        ". Haz clic en el juez o ciudad que deseas, y verás tu tasa de aprobación de asilo."
-      ],
-      "options": []
-    },
-  
-    "UnderstandingGraphs": {
-      "message": [
-        "El número dentro de los gráficos de dona es el ",
-        { "type": "bold", "text": "porcentaje de casos de asilo aprobados" },
-        " por cada juez. Si tu juez tiene una ",
-        { "type": "bold", "text": "alta tasa de aprobación (más del 50%)" },
-        ", probablemente es más probable que apruebe tu caso. Si tu juez tiene una ",
-        { "type": "bold", "text": "baja tasa de aprobación (menos del 50%)" },
-        ", probablemente es más probable que niegue tu caso."
-      ],
-      "options": []
-    }
-  }
+  "UsingWebsite": {
+    "message": "¿Con qué necesitas ayuda respecto a usar el sitio web?",
+    "options": [
+      { "label": "Encontrar mi tasa de aprobación de asilo", "next": "FindGrantRate" },
+      { "label": "Entender los datos", "next": "UnderstandingGraphs" }
+    ]
+  },
+
+  "UseANumber": {
+    "message": [
+      "Ve a ",
+      { "type": "link", "text": "este sitio web", "url": "https://acis.eoir.justice.gov/en/" },
+      " e ingresa tu ",
+      { "type": "bold", "text": "número A. " },
+      "Después de hacer clic en enter, verás tu ",
+      { "type": "bold", "text": "juez y ciudad." }
+    ],
+    "options": [""]
+  },
+
+  "FindANumber": {
+    "message": [
+      "Puedes encontrar tu ",
+      { "type": "bold", "text": "número A" },
+      " en la parte superior de",
+      { "type": "bold", "text": " la mayoría de los formularios que recibiste de un funcionario gubernamental en la corte o en la frontera. " },
+      "Para más información, ve a ",
+      { "type": "link", "text": "este sitio web", "url": "https://www.immigrationhelp.org/learning-center/what-is-an-alien-registration-number#" },
+      ""
+    ],
+    "options": [""]
+  },
+
+  "FindGrantRate": {
+    "message": [
+      "Escribe tu juez o ciudad en la ",
+      { "type": "bold", "text": "barra de búsqueda" },
+      ". Haz clic en el juez o ciudad que deseas, y verás tu tasa de aprobación de asilo."
+    ],
+    "options": []
+  },
+
+  "UnderstandingGraphs": {
+  "message": [
+      "¿Necesitas ayuda para entender los porcentajes o con la definición de 'otra información de alivio'?"
+  ],
+  "options": [
+      { "label": "Significado de los porcentajes", "next": "GraphMeanings" },
+      { "label": "Significado de otra información de alivio", "next": "OtherRelief" }
+  ]
+},
+
+"GraphMeanings": {
+  "message": [
+      "El número dentro de los gráficos circulares es el ",
+      { "type": "bold", "text": "porcentaje de casos de asilo aprobados" },
+      " por cada juez. Si tu juez tiene un ",
+      { "type": "bold", "text": "alto porcentaje de aprobación (más del 50%)" },
+      ", es más probable que aprueben tu caso. Si tu juez tiene un ",
+      { "type": "bold", "text": "bajo porcentaje de aprobación (menos del 50%)" },
+      ", es más probable que nieguen tu caso."
+  ],
+  "options": []
+},
+
+"OtherRelief": {
+  "message": [
+      "Este número representa el porcentaje de casos en esta ciudad donde se concedió otro tipo de alivio, ",
+      { "type": "bold", "text": "como la retención de deportación, la convención contra la tortura (CAT) o el alivio humanitario discrecional" },
+      "."
+  ],
+  "options": []
+}
+}
