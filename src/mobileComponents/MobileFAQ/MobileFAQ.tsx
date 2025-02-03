@@ -18,7 +18,7 @@ function MobileFAQ({ currentLanguage }: FAQProps) {
                     <>
                         Step 1) Go to{" "}
                         <a
-                            href='https://example.gov/lookupA'
+                            href='https://acis.eoir.justice.gov/en/'
                             target='_blank'
                             rel='noopener noreferrer'
                         >
@@ -38,7 +38,7 @@ function MobileFAQ({ currentLanguage }: FAQProps) {
                     <>
                         Paso 1) Ve a{" "}
                         <a
-                            href='https://example.gov/lookupA'
+                            href='https://acis.eoir.justice.gov/en/'
                             target='_blank'
                             rel='noopener noreferrer'
                         >
@@ -58,7 +58,7 @@ function MobileFAQ({ currentLanguage }: FAQProps) {
                     <>
                         Etap 1) Ale sou{" "}
                         <a
-                            href='https://example.gov/lookupA'
+                            href='https://acis.eoir.justice.gov/en/'
                             target='_blank'
                             rel='noopener noreferrer'
                         >
@@ -81,7 +81,7 @@ function MobileFAQ({ currentLanguage }: FAQProps) {
                         most forms you get from a government official at court
                         or the border. For images and more details, visit{" "}
                         <a
-                            href='https://example.gov/guide'
+                            href='https://www.immigrationhelp.org/learning-center/what-is-an-alien-registration-number#'
                             target='_blank'
                             rel='noopener noreferrer'
                         >
@@ -100,7 +100,7 @@ function MobileFAQ({ currentLanguage }: FAQProps) {
                         recibes de un funcionario gubernamental en la corte o en
                         la frontera. Para ver imágenes y más detalles, visita{" "}
                         <a
-                            href='https://example.gov/guide'
+                            href='https://www.immigrationhelp.org/learning-center/what-is-an-alien-registration-number#'
                             target='_blank'
                             rel='noopener noreferrer'
                         >
@@ -119,7 +119,7 @@ function MobileFAQ({ currentLanguage }: FAQProps) {
                         tribinal la oswa sou fontyè a. Pou w jwenn imaj ak plis
                         detay, vizite{" "}
                         <a
-                            href='https://example.gov/guide'
+                            href='https://www.immigrationhelp.org/learning-center/what-is-an-alien-registration-number#'
                             target='_blank'
                             rel='noopener noreferrer'
                         >
