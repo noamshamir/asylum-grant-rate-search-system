@@ -26,7 +26,7 @@ const JudgeCard: React.FC<JudgeCardProps> = ({ judge, currentLanguage }) => {
         currentLanguage === "en"
             ? `View`
             : currentLanguage === "es"
-            ? `View`
+            ? `Ver`
             : "Gade";
     const casesLabel =
         currentLanguage === "en"
