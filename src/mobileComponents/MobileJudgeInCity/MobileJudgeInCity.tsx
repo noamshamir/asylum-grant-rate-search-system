@@ -23,8 +23,8 @@ const JudgeCard: React.FC<JudgeCardProps> = ({ judge, currentLanguage }) => {
     const totalGrantRate = asylum + other;
 
     const viewRatesLabel =
-        currentLanguage === "es"
-            ? `Ver`
+        currentLanguage === "en"
+            ? `View`
             : currentLanguage === "es"
             ? `View`
             : "Gade";
