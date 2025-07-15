@@ -197,5 +197,31 @@
 
 .dropdown-menu-div {
     margin-left: 200px;
-    margin-top: -20px;
+    margin-top: 30px;
+}
+
+.no-results {
+    padding-top: 30px;
+    max-height: calc(200vh - 500px); /* or whatever height fits your UI */
+    overflow-y: auto;
+    width: calc(100% + 20px);
+    background-color: #303134;
+    border-radius: 0 0 50px 50px;
+    padding-bottom: 20px;
+    margin-left: 0px;
+    margin-top: 0;
+    transform: translateY(-50px);
+    /* max-height: auto; Set a max height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.no-results p {
+    margin-top: 50px;
+    font-size: 30px;
+    color: rgb(230, 230, 230);
+}
+
+.no-results-text {
+    padding-top: 30px;
 }

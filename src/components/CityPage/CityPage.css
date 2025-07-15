@@ -35,6 +35,10 @@ h2 {
     margin-top: -30px;
 }
 
+.city-page-dropdown-desktop {
+    margin-top: 20px;
+}
+
 .city-title-description .city-descriptor {
     font-weight: normal;
     font-size: 20px;
@@ -149,13 +153,11 @@ h2 {
 }
 
 .judge-cards {
-    max-height: calc(400vh - 500px);
     width: calc(100% + 20px);
     background-color: transparent;
     border-radius: 0 0 50px 50px;
     margin-left: -40px;
     margin-top: -10px;
-    margin-bottom: 80px;
     /* overflow-y: auto;
     overflow-x: hidden; */
 }

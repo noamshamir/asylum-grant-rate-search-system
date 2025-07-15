@@ -1,0 +1,95 @@
+#denied-chart {
+    margin-right: 30px !important;
+}
+
+.mobile-judges {
+    margin-top: 60px;
+}
+
+.mobile-judge-cards {
+    width: calc(100% + 20px);
+    background-color: transparent;
+    border-radius: 0 0 50px 50px;
+    margin-left: -40px;
+    margin-top: -10px;
+    margin-bottom: 200px;
+}
+
+.mobile-cases-amount {
+    color: white; /* Set text color to white */
+    font-weight: bold; /* Make text bold */
+}
+
+.mobile-asylum-granted {
+    color: #c5fba3; /* Set text color to green */
+    font-weight: bold; /* Make text bold */
+}
+
+.mobile-other-granted {
+    color: #c5fba3; /* Set text color to green */
+    font-weight: bold; /* Make text bold */
+}
+
+.mobile-denied-amount {
+    color: #ff7a7a; /* Set text color to red */
+    font-weight: bold; /* Make text bold */
+}
+
+.judge-header {
+    display: flex; /* Use flexbox for horizontal alignment */
+    justify-content: space-between; /* Space out items between left and right */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 10px; /* Add spacing below the header */
+}
+
+.dropdown-menu {
+    transform: scale(0.9);
+    margin-left: 0; /* Ensure no extra spacing is added to the dropdown */
+}
+
+.section-header.judges {
+    flex-grow: 1; /* Push the "Judges" text to the left */
+}
+
+.mobile-city-sort-by {
+    color: rgb(230, 230, 230); /* Match the text color to the theme */
+    font-size: 16px; /* Adjust font size as needed */
+    white-space: nowrap; /* Prevent text wrapping */
+    margin-right: -10px; /* Add some space between the text and dropdown */
+}
+
+.dropdown-menu {
+    margin-top: 0; /* Remove top margin to align with text */
+    margin-left: 5px; /* Ensure a small gap between "Sort by" and the dropdown */
+}
+
+.mobile-sort-section {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: flex-start; /* Align items to the start */
+    margin-top: 5px; /* Add some spacing above */
+}
+
+.haitian-percents {
+    padding-left: 10px;
+}
+
+.haitian-percents #denied-chart {
+    margin-left: -20px;
+}
+
+.haitian-percents #asylum-chart {
+    margin-left: -40px;
+}
+
+.haitian-percents #other-chart {
+    margin-left: -55px;
+}
+
+.haitian-percents .mobile-judge-asylum-granted-section {
+    margin-right: 30px;
+}
+
+.haitian-percents .mobile-judge-other-relief-section {
+    margin-right: 0px;
+}

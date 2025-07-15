@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Header.css";
+import { Link } from "react-router-dom";
 
 interface HeaderProps {
     toggleChat: () => void;
@@ -30,52 +31,75 @@ const Header: React.FC<HeaderProps> = ({
     currentLanguage,
     onLanguageChange,
 }) => {
-    // local state to toggle the dropdown
     const [showLanguageOptions, setShowLanguageOptions] = useState(false);
-
-    // ref to the wrapper so we can detect clicks outside
     const dropdownRef = useRef<HTMLDivElement>(null);
 
-    // Hide dropdown if user clicks away
     useClickOutside(dropdownRef, () => setShowLanguageOptions(false));
 
-    // Flag URLs (examples from flagcdn.com — adjust as you like)
-    const englishFlag = "https://flagcdn.com/h20/gb.png"; // or use your own .png
+    // Flag URLs
+    const englishFlag = "https://flagcdn.com/h20/gb.png";
     const spanishFlag = "https://flagcdn.com/h20/es.png";
+    const haitianFlag = "https://flagcdn.com/h20/ht.png"; // Haitian flag
 
     // Decide which flag to show based on language
-    const currentFlag = currentLanguage === "en" ? englishFlag : spanishFlag;
+    const currentFlag =
+        currentLanguage === "en"
+            ? englishFlag
+            : currentLanguage === "es"
+            ? spanishFlag
+            : haitianFlag;
 
+    // Translations based on the current language
     const titleText =
         currentLanguage === "es"
-            ? "Búsqueda de Tasa de Aprobaciónde Asilo"
+            ? "Búsqueda de Tasa de Aprobación de Asilo"
+            : currentLanguage === "ht"
+            ? "Rechèch To Apwobasyon Azil"
             : "Asylum Grant Rate Search";
-    const searchLabel = currentLanguage === "es" ? "Buscar" : "Search";
+
+    const searchLabel =
+        currentLanguage === "es"
+            ? "Buscar"
+            : currentLanguage === "ht"
+            ? "Chèche"
+            : "Search";
+
     const toggleHelpLabel =
-        currentLanguage === "es" ? "Alternar Ayuda" : "Toggle Help";
+        currentLanguage === "es"
+            ? "Alternar Ayuda"
+            : currentLanguage === "ht"
+            ? "Chanje Èd"
+            : "Toggle Help";
+
     const changeLanguageLabel =
-        currentLanguage === "es" ? "Cambiar Idioma" : "Change Language";
+        currentLanguage === "es"
+            ? "Cambiar Idioma"
+            : currentLanguage === "ht"
+            ? "Chanje Lang"
+            : "Change Language";
 
     return (
         <header className='header'>
-            <div className='header-title'>{titleText}</div>
+            <Link to='/' style={{ textDecoration: "none" }}>
+                <div className='header-title'>{titleText}</div>
+            </Link>
 
             <div className='header-icons'>
                 {/* Search icon */}
                 <span className='icon-container'>
-                    <a href='/' style={{ textDecoration: "none" }}>
+                    <Link to='/' style={{ textDecoration: "none" }}>
                         <span className='search-icon'>
                             <i className='fas fa-search'></i>
                         </span>
-                    </a>
+                    </Link>
 
-                    <a
-                        href='/'
+                    <Link
+                        to='/'
                         style={{ textDecoration: "none" }}
                         className='icon-label'
                     >
                         {searchLabel}
-                    </a>
+                    </Link>
                 </span>
 
                 {/* Chat toggle icon */}
@@ -100,7 +124,9 @@ const Header: React.FC<HeaderProps> = ({
                                 alt={
                                     currentLanguage === "en"
                                         ? "English Flag"
-                                        : "Spanish Flag"
+                                        : currentLanguage === "es"
+                                        ? "Spanish Flag"
+                                        : "Haitian Flag"
                                 }
                                 className='language-flag'
                             />
@@ -110,7 +136,7 @@ const Header: React.FC<HeaderProps> = ({
                         </div>
                     </div>
 
-                    {/* Overlay dropdown (only 2 languages) */}
+                    {/* Overlay dropdown */}
                     {showLanguageOptions && (
                         <div className='language-dropdown'>
                             <div className='dropdown-arrow' />
@@ -140,6 +166,19 @@ const Header: React.FC<HeaderProps> = ({
                                         className='language-flag-item'
                                     />
                                     <span>Español</span>
+                                </li>
+                                <li
+                                    onClick={() => {
+                                        onLanguageChange("ht");
+                                        setShowLanguageOptions(false);
+                                    }}
+                                >
+                                    <img
+                                        src={haitianFlag}
+                                        alt='Haitian Flag'
+                                        className='language-flag-item'
+                                    />
+                                    <span>Kreyòl Ayisyen</span>
                                 </li>
                             </ul>
                         </div>

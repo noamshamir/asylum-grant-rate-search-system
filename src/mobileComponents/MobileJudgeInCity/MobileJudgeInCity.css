@@ -1,0 +1,84 @@
+.judge_in_city {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 100vw;
+    background-color: transparent;
+    border-radius: 8px;
+    margin-left: -15px;
+    margin-right: -15px;
+    margin-bottom: -5px;
+    position: relative;
+}
+
+.mobile-city-judge-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 104vw;
+    background-color: transparent;
+    border-radius: 8px;
+    margin-left: -20px;
+    margin-right: -15px;
+    margin-bottom: -5px;
+    position: relative;
+}
+
+.mobile-city-judge-card .content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.mobile-city-judge-card a {
+    text-decoration: none;
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+.mobile-city-judge-card h3 {
+    flex: 1;
+    margin: 15px 0px 5px 15px;
+    text-align: left;
+    color: white;
+    font-size: 18px;
+    font-weight: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mobile-city-judge-card p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 15px 0px 5px 0;
+    color: #90969c;
+    font-size: 18px;
+    text-align: left;
+    font-weight: normal;
+}
+
+.mobile-city-judge-card button {
+    border: none;
+    background-color: #c5fba3;
+    color: #303134;
+    outline: 20px solid #202124;
+    border-radius: 4px;
+    padding: 8px 8px 10px 8px;
+    font-size: 12px;
+    font-weight: bold;
+    height: 30px;
+    cursor: pointer;
+    position: absolute;
+    right: 0px;
+    bottom: 20px;
+    z-index: 1;
+}
+
+.mobile-city-donut-chart {
+    margin-left: 20px;
+}

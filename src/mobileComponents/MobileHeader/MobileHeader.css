@@ -1,9 +1,9 @@
-.header {
+.mobile-header {
     margin-bottom: -30px;
     display: flex;
     justify-content: space-between; /* Space between title and icons */
     align-items: center; /* Center items vertically */
-    padding: 50px 80px;
+    padding: 20px 0 10px 40px;
     background-color: #202124; /* Background color */
     font-size: 24px; /* Font size */
     position: sticky;
@@ -13,45 +13,40 @@
     zoom: 0.5;
 }
 
-.header-title {
+.mobile-header-title {
     font-weight: bold; /* Make the title bold */
     font-size: 50px;
-    color: rgb(238, 238, 238); /* Text color */
+    color: rgb(213, 213, 213); /* Text color */
+    margin-bottom: 10px;
 }
 
-.header-icons {
-    display: flex; /* Align icons in a row */
-    gap: 20px; /* Space between icons */
-}
-
-.icon-container {
+.mobile-icon-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 20px;
-    margin-top: -10px;
+    margin-right: 20px;
+    margin-top: -5px;
     cursor: pointer;
     border-radius: 60%;
     font-size: 60px;
     line-height: 70px;
     font-weight: bold;
     color: #bac0c5;
-    flex-direction: column; /* Stack icon and label vertically */
+    flex-direction: column;
     align-items: center;
 }
 
-.icon-label {
+.mobile-icon-label {
     font-size: 25px; /* Font size for labels */
-    margin-bottom: -30px;
-    color: rgb(238, 238, 238); /* Label color */
+    color: rgb(207, 207, 207); /* Label color */
 }
 
-.search-icon {
+.mobile-search-icon {
     color: #bac0c5;
     font-size: 55px;
 }
 
-.comment-icon {
+.mobile-comment-icon {
     width: 60px;
     height: 60px;
     display: flex;
@@ -66,12 +61,13 @@
     color: #bac0c5;
 }
 
-.language-wrapper {
+.mobile-language-wrapper {
     position: relative;
     display: inline-block;
 }
 
-.language-toggle {
+.mobile-language-toggle {
+    margin-top: 10px;
     display: flex;
     flex-direction: column; /* Stack flag & label vertically if you prefer */
     align-items: center;
@@ -79,7 +75,7 @@
     gap: 6px; /* spacing between flag and label */
 }
 
-.language-flag {
+.mobile-language-flag {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,12 +83,13 @@
     width: 60px;
     height: 60px;
     border-radius: 50px; /* optional */
+    margin-bottom: -20px;
 }
 
-.language-dropdown {
+.mobile-language-dropdown {
     position: absolute;
-    top: 115px; /* position below header or icon as needed */
-    right: 50px;
+    top: 100px; /* position below header or icon as needed */
+    right: 0px;
     background-color: #303134;
     border-radius: 8px;
     margin-top: 8px;
@@ -101,7 +98,7 @@
     width: 280px; /* or whatever width you prefer */
 }
 
-.dropdown-arrow {
+.mobile-dropdown-arrow {
     position: absolute;
     top: -15px;
     right: 110px;
@@ -112,34 +109,53 @@
     border-bottom: 15px solid #5e5e5e;
 }
 
-.language-dropdown ul {
+.mobile-language-dropdown ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.language-dropdown li {
+.mobile-language-dropdown li {
     display: flex;
     align-items: center;
-    padding: 15px 12px;
+    padding: 10px 12px;
     gap: 8px;
     font-size: 25px;
     color: #fff;
     cursor: pointer;
 }
 
-.language-dropdown li:first-child,
-.language-dropdown li:nth-child(2) {
+.mobile-language-dropdown li:first-child,
+.mobile-language-dropdown li:nth-child(2) {
     border-bottom: 1px solid #5e5e5e;
 }
 
-.language-flag-item {
+.mobile-language-flag-item {
     margin: 0 15px 0 10px;
     width: 40px;
     height: auto;
     border-radius: 5px;
 }
 
-.language-dropdown li:hover {
+.mobile-language-dropdown li:hover {
     background-color: #202124;
+}
+
+.mobile-header-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between help and language icons */
+    margin-right: 3px;
+}
+
+.mobile-question-icon {
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px; /* optional */
+    margin-bottom: -20px;
 }

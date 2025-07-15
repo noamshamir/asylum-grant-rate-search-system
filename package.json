@@ -2,12 +2,12 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://noamshamir.github.io/asylum_grant_rate_search_system/",
-
+  "homepage": "https://rates.asylumtools.com",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.2",
     "cra-template-typescript": "1.2.0",
     "react": "^18.2.0",
+    "react-device-detect": "^2.2.3",
     "react-dom": "^18.2.0",
     "react-router-dom": "^7.1.1",
     "react-scripts": "5.0.1",
@@ -42,6 +42,5 @@
   },
   "devDependencies": {
     "gh-pages": "^6.3.0"
-    
   }
 }

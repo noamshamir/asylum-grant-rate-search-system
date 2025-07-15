@@ -1,10 +1,10 @@
 import React from "react";
-import "./CityCard.css";
+import "./MobileCityCard.css";
 import { Link } from "react-router-dom";
 
-// Import the judge data so we can compute averages for the city.
+// Import data sou jij yo pou kalkile mwayèn pou vil la.
 import judgeData from "../../data/judge_grant_rates.json";
-import DonutChart from "../DonutChart/DonutChart.tsx";
+import DonutChart from "../MobileDonutChart/MobileDonutChart.tsx";
 
 interface Judge {
     city: string;
@@ -26,26 +26,22 @@ const CityCard: React.FC<CityCardProps> = ({
     judgeCount,
     currentLanguage,
 }) => {
-    // 1) Get all judges for this city from the JSON
+    // 1) Jwenn tout jij pou vil sa a nan JSON
     const cityJudgesObj = (judgeData as any)[city] || {};
     const cityJudges: Judge[] = Object.values(cityJudgesObj);
-
-    // Labels based on the current language
     const judgesCountLabel =
         currentLanguage === "es"
             ? "Jueces"
             : currentLanguage === "ht"
             ? "Jij"
             : "Judges";
-
     const viewRatesLabel =
         currentLanguage === "es"
-            ? "Ver Tasas"
+            ? "Ver"
             : currentLanguage === "ht"
-            ? "Gade Taux yo"
-            : "View Rates";
+            ? "Gade"
+            : "View";
 
-    // Calculate average grant rate
     const totalRates = cityJudges.map((j) => {
         const asylum = parseFloat(j.granted_asylum_percentage) || 0;
         const other = parseFloat(j.granted_other_relief_percentage) || 0;
@@ -55,28 +51,35 @@ const CityCard: React.FC<CityCardProps> = ({
     let avgGrantRate = 0;
     if (totalRates.length > 0) {
         const sum = totalRates.reduce((acc, val) => acc + val, 0);
-        avgGrantRate = sum / totalRates.length; // e.g., 45.2
+        avgGrantRate = sum / totalRates.length; // egzanp: 45.2
     }
 
+    // Tronse non vil la si li pi long pase 20 karaktè
+    const truncatedCityName =
+        city.length > 20 ? `${city.substring(0, 17)}...` : city;
+
     return (
-        <div className='judge-card'>
+        <div className='mobile-city-card'>
             <div style={{ display: "flex", alignItems: "center" }}>
                 <DonutChart
                     className='donut-chart'
                     percentage={avgGrantRate}
-                    size={115}
-                    strokeWidth={17}
+                    size={55}
+                    strokeWidth={7}
+                    fontSize={15}
                 />
                 <Link to={`/city/${city}`}>
-                    <h3>{city}</h3>
+                    <h3>{truncatedCityName}</h3>
                 </Link>
-                <p style={{ marginLeft: "30px" }}>
+                <p className='judge-count' style={{ marginLeft: "30px" }}>
                     {judgeCount} {judgesCountLabel}
                 </p>
             </div>
-            <Link to={`/city/${city}`}>
-                <button>{viewRatesLabel}</button>
-            </Link>
+            <div className='button-container'>
+                <Link to={`/city/${city}`}>
+                    <button>{viewRatesLabel}</button>
+                </Link>
+            </div>
         </div>
     );
 };

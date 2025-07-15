@@ -1,6 +1,7 @@
 import React from "react";
 import "./JudgeInCity.css";
 import DonutChart from "../DonutChart/DonutChart.tsx";
+import { Link } from "react-router-dom";
 
 interface Judge {
     city: string;
@@ -21,8 +22,20 @@ const JudgeCard: React.FC<JudgeCardProps> = ({ judge, currentLanguage }) => {
     const other = parseFloat(judge.granted_other_relief_percentage) || 0;
     const totalGrantRate = asylum + other;
 
+    // Translations for labels
     const viewRatesLabel =
-        currentLanguage === "es" ? `Ver Tasas` : `View Rates`;
+        currentLanguage === "en"
+            ? `View Rates`
+            : currentLanguage === "es"
+            ? `Ver Tasas`
+            : `Gade Taux yo`;
+
+    const casesLabel =
+        currentLanguage === "en"
+            ? `cases`
+            : currentLanguage === "es"
+            ? `casos`
+            : `ka`;
 
     return (
         <div className='city-judge-card'>
@@ -34,17 +47,17 @@ const JudgeCard: React.FC<JudgeCardProps> = ({ judge, currentLanguage }) => {
                     strokeWidth={10}
                     fontSize={18}
                 />
-                <a href={`/judge/${judge.judge_name}`}>
+                <Link to={`/judge/${judge.judge_name}`}>
                     <h3>{judge.judge_name}</h3>
-                </a>
+                </Link>
 
                 <p style={{ marginLeft: "15px" }}>
-                    {judge.total_decisions} cases
+                    {judge.total_decisions} {casesLabel}
                 </p>
             </div>
-            <a href={`/judge/${judge.judge_name}`}>
+            <Link to={`/judge/${judge.judge_name}`}>
                 <button>{viewRatesLabel}</button>
-            </a>
+            </Link>
         </div>
     );
 };

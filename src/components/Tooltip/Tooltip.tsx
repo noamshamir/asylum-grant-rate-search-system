@@ -1,16 +1,31 @@
 import React from "react";
-import "./Tooltip.css"; // Create a CSS file for styling
+import "./Tooltip.css"; // Ensure you have styles for different positions
 
 interface TooltipProps {
     text: string;
     children: React.ReactNode;
+    scale?: string;
+    position?: "default" | "below"; // Add position prop
 }
 
-const Tooltip: React.FC<TooltipProps> = ({ text, children }) => {
+const Tooltip: React.FC<TooltipProps> = ({
+    text,
+    children,
+    scale,
+    position = "default",
+}) => {
+    const positionClass =
+        position === "below" ? "tooltip-below" : "tooltip-default";
+
     return (
-        <div className='tooltip-container'>
+        <div className={`tooltip-container ${positionClass}`}>
             {children}
-            <span className='tooltip-text'>{text}</span>
+            <span
+                style={{ transform: `scale(${scale})` }}
+                className='tooltip-text'
+            >
+                {text}
+            </span>
         </div>
     );
 };

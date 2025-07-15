@@ -1,9 +1,7 @@
 import React from "react";
-import "./JudgeCard.css";
+import "./MobileJudgeInCity.css";
+import DonutChart from "../MobileDonutChart/MobileDonutChart.tsx";
 import { Link } from "react-router-dom";
-
-// Import our DonutChart
-import DonutChart from "../DonutChart/DonutChart.tsx";
 
 interface Judge {
     city: string;
@@ -20,34 +18,41 @@ interface JudgeCardProps {
 }
 
 const JudgeCard: React.FC<JudgeCardProps> = ({ judge, currentLanguage }) => {
-    // Compute total grant rate (asylum + other relief)
     const asylum = parseFloat(judge.granted_asylum_percentage) || 0;
     const other = parseFloat(judge.granted_other_relief_percentage) || 0;
-    const totalGrantRate = asylum + other; // e.g., 51.1 + 2.5 => 53.6
+    const totalGrantRate = asylum + other;
 
-    // Labels based on the current language
     const viewRatesLabel =
-        currentLanguage === "es"
-            ? `Ver Tasas`
-            : currentLanguage === "ht"
-            ? `Gade Taux yo`
-            : `View Rate`;
+        currentLanguage === "en"
+            ? `View`
+            : currentLanguage === "es"
+            ? `Ver`
+            : "Gade";
+    const casesLabel =
+        currentLanguage === "en"
+            ? `cases`
+            : currentLanguage === "es"
+            ? `casos`
+            : "ka";
 
     return (
-        <div className='judge-card'>
+        <div className='mobile-city-judge-card'>
             <div style={{ display: "flex", alignItems: "center" }}>
-                <DonutChart
-                    className='donut-chart'
-                    percentage={totalGrantRate}
-                    size={115}
-                    strokeWidth={17}
-                />
+                <div className='mobile-city-donut-chart'>
+                    <DonutChart
+                        percentage={totalGrantRate}
+                        size={55}
+                        strokeWidth={7}
+                        fontSize={15}
+                    />
+                </div>
                 <Link to={`/judge/${judge.judge_name}`}>
                     <h3>{judge.judge_name}</h3>
                 </Link>
-                <Link to={`/city/${judge.city}`}>
-                    <p style={{ marginLeft: "30px" }}>{judge.city}</p>
-                </Link>
+
+                <p style={{ marginLeft: "15px" }}>
+                    {judge.total_decisions} {casesLabel}
+                </p>
             </div>
             <Link to={`/judge/${judge.judge_name}`}>
                 <button>{viewRatesLabel}</button>

@@ -1,0 +1,47 @@
+/* Basic styling for the overall App */
+.App {
+    font-family: sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.resizer-line {
+    background-color: #5e5e5e;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 0 6px #202124; /* "Takes away" 10px from all sides */
+}
+
+/* Info icon */
+.info-icon {
+    width: 75px;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 30px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 50px;
+    line-height: 70px;
+    color: #c5fba3;
+}
+
+.search-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 40px;
+    cursor: pointer;
+    border-radius: 60%;
+    font-size: 50px;
+    line-height: 70px;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+}

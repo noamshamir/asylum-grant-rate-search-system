@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import "./JudgePage.css";
+import "./MobileJudgePage.css";
 import judgeData from "../../data/judge_grant_rates.json";
-import DonutChart from "../DonutChart/DonutChart.tsx";
-import Tooltip from "../Tooltip/Tooltip.tsx";
+import DonutChart from "../MobileDonutChart/MobileDonutChart.tsx";
+import Tooltip from "../MobileTooltip/MobileTooltip.tsx";
 
 interface SingleJudge {
     city: string;
@@ -60,24 +60,23 @@ const translations = {
     },
     ht: {
         judgeNotFound: "Jij pa jwenn",
-        asylumGranted: "Azil Akòde",
-        otherReliefGranted: "Lòt Sekou Akòde",
+        asylumGranted: "Azil Bay",
+        otherReliefGranted: "Lòt Sekou Bay",
         denied: "Refize",
-        averageRates: "To Mwayèn",
+        averageRates: "Pousantaj Mwayèn",
         judgeStats: "Estatistik Jij",
         judge: "Jij",
-        outOf: "Soti nan",
+        outOf: "Nan",
         casesFor: "ka pou",
-        wereGrantedAsylum: "te akòde azil,",
-        wereGrantedOtherRelief: "te akòde lòt sekou,",
+        wereGrantedAsylum: "te bay azil,",
+        wereGrantedOtherRelief: "te resevwa lòt sekou,",
         wereDenied: "te refize.",
-        asylumGrantedInfo: "Sa a se pousantaj ka jij sa a te akòde azil.",
+        asylumGrantedInfo: "Sa a se pousantaj ka jij sa a bay azil.",
         otherReliefInfo:
-            "Sa a se pousantaj ka jij sa a te akòde lòt sekou, tankou retansyon ekspilsyon oswa CAT.",
-        deniedInfo: "Sa a se pousantaj ka jij sa a te refize.",
+            "Sa a se pousantaj ka jij sa a bay lòt sekou, tankou sispansyon depòtasyon oswa CAT.",
+        deniedInfo: "Sa a se pousantaj ka jij sa a refize.",
     },
 };
-
 const parsePercentage = (value: string | number | undefined): number => {
     if (typeof value === "number") return value;
     if (!value) return 0;
@@ -101,7 +100,7 @@ function JudgePage({ currentLanguage }: JudgePageProps) {
     // If judge isn't found, display an error or placeholder
     if (!theJudge) {
         return (
-            <div className='judge-page'>
+            <div className='mobile-judge-page'>
                 <h2>{translations[currentLanguage].judgeNotFound}</h2>
             </div>
         );
@@ -123,18 +122,18 @@ function JudgePage({ currentLanguage }: JudgePageProps) {
     const deniedAmount = Math.round((totalDecisions * deniedRate) / 100);
 
     return (
-        <div className='judge-page'>
+        <div className='mobile-judge-page'>
             {/* Header Section */}
-            <div className='judge-header-section'>
-                <div className='judge-title-description'>
-                    <h2 className='judge-section-header judge-title'>
+            <div className='mobile-judge-header-section'>
+                <div className='mobile-judge-title-description'>
+                    <h2 className='mobile-judge-section-header judge-title'>
                         {theJudge.judge_name}
                     </h2>
-                    <h1 className='judge-descriptor judge-label'>
+                    <h1 className='mobile-judge-descriptor judge-label'>
                         {translations[currentLanguage].judge}
                     </h1>
                     <Link to={`/city/${theJudge.city}`}>
-                        <h3 className='judge-descriptor judge-city'>
+                        <h3 className='mobile-judge-descriptor judge-city'>
                             {theJudge.city}
                         </h3>
                     </Link>
@@ -142,34 +141,42 @@ function JudgePage({ currentLanguage }: JudgePageProps) {
             </div>
 
             {/* Rates Section */}
-            <div className='judge-rates-section'>
-                <h2 className='judge-section-header judge-rates'>
+            <div className='mobile-judge-rates-section'>
+                <h2 className='mobile-judge-section-header judge-rates'>
                     {translations[currentLanguage].averageRates}
                 </h2>
-                <div className='judge-donut-charts-container'>
-                    {/* Asylum Granted */}
-                    <div className='judge-asylum-granted-section'>
-                        <div className='judge-donut-chart-div'>
+                <div
+                    className={`mobile-judge-donut-charts-container ${
+                        currentLanguage === "ht" ? "haitian-percents" : ""
+                    }`}
+                >
+                    <div className='mobile-judge-asylum-granted-section'>
+                        <div
+                            className='mobile-judge-donut-chart-div'
+                            id='asylum-chart'
+                        >
                             <DonutChart
                                 title={
                                     translations[currentLanguage].asylumGranted
                                 }
                                 percentage={asylumRate}
-                                className='judge-asylum-granted-donut-chart'
-                                size={110}
-                                strokeWidth={13}
+                                className='mobile-judge-asylum-granted-donut-chart'
+                                size={80}
+                                strokeWidth={11}
                                 color={"#C5FBA3"}
+                                fontSize='20'
                             />
                         </div>
-                        <div className='judge-donut-chart-description'>
+                        <div className='mobile-judge-donut-chart-description'>
                             <p>{translations[currentLanguage].asylumGranted}</p>
                             <Tooltip
                                 text={
                                     translations[currentLanguage]
                                         .asylumGrantedInfo
                                 }
+                                position='above'
                             >
-                                <span className='judge-info-icon'>
+                                <span className='mobile-judge-info-icon'>
                                     <i className='fas fa-info-circle'></i>
                                 </span>
                             </Tooltip>
@@ -177,21 +184,25 @@ function JudgePage({ currentLanguage }: JudgePageProps) {
                     </div>
 
                     {/* Other Relief Granted */}
-                    <div className='judge-other-relief-section'>
-                        <div className='judge-donut-chart-div'>
+                    <div className='mobile-judge-other-relief-section'>
+                        <div
+                            className='mobile-judge-donut-chart-div'
+                            id='other-chart'
+                        >
                             <DonutChart
                                 title={
                                     translations[currentLanguage]
                                         .otherReliefGranted
                                 }
                                 percentage={otherReliefRate}
-                                className='judge-other-relief-donut-chart'
-                                size={110}
-                                strokeWidth={13}
+                                className='mobile-judge-other-relief-donut-chart'
+                                size={80}
+                                strokeWidth={11}
                                 color={"#C5FBA3"}
+                                fontSize='20'
                             />
                         </div>
-                        <div className='judge-donut-chart-description'>
+                        <div className='mobile-judge-donut-chart-description'>
                             <p>
                                 {
                                     translations[currentLanguage]
@@ -203,8 +214,9 @@ function JudgePage({ currentLanguage }: JudgePageProps) {
                                     translations[currentLanguage]
                                         .otherReliefInfo
                                 }
+                                position='above'
                             >
-                                <span className='judge-info-icon'>
+                                <span className='mobile-judge-info-icon'>
                                     <i className='fas fa-info-circle'></i>
                                 </span>
                             </Tooltip>
@@ -212,23 +224,28 @@ function JudgePage({ currentLanguage }: JudgePageProps) {
                     </div>
 
                     {/* Denied */}
-                    <div className='judge-denied-section'>
-                        <div className='judge-donut-chart-div'>
+                    <div className='mobile-judge-denied-section'>
+                        <div
+                            className='mobile-judge-donut-chart-div'
+                            id='denied-chart'
+                        >
                             <DonutChart
                                 title={translations[currentLanguage].denied}
                                 percentage={deniedRate}
-                                className='judge-denied-donut-chart'
-                                size={110}
-                                strokeWidth={13}
+                                className='mobile-judge-denied-donut-chart'
+                                size={80}
+                                strokeWidth={11}
                                 color={"#FF7A7A"}
+                                fontSize='20'
                             />
                         </div>
-                        <div className='judge-donut-chart-description'>
+                        <div className='mobile-judge-donut-chart-description'>
                             <p>{translations[currentLanguage].denied}</p>
                             <Tooltip
                                 text={translations[currentLanguage].deniedInfo}
+                                position='above-right'
                             >
-                                <span className='judge-info-icon'>
+                                <span className='mobile-judge-info-icon'>
                                     <i className='fas fa-info-circle'></i>
                                 </span>
                             </Tooltip>
@@ -237,28 +254,27 @@ function JudgePage({ currentLanguage }: JudgePageProps) {
                 </div>
             </div>
 
-            {/* Stats Section */}
-            <div className='judge-stats-section'>
-                <h2 className='judge-section-header judge-stats'>
+            <div className='mobile-judge-stats-section'>
+                <h2 className='mobile-judge-section-header judge-stats'>
                     {translations[currentLanguage].judgeStats}
                 </h2>
-                <div className='judge-statistics'>
+                <div className='mobile-judge-statistics'>
                     <p>
                         {translations[currentLanguage].outOf}{" "}
-                        <span className='judge-cases-amount'>
+                        <span className='mobile-judge-cases-amount'>
                             {totalDecisions}
                         </span>{" "}
                         {translations[currentLanguage].casesFor}{" "}
                         <strong>{theJudge.judge_name}</strong>,{" "}
-                        <span className='judge-asylum-granted'>
+                        <span className='mobile-judge-asylum-granted'>
                             {asylumGrantedAmount}
                         </span>{" "}
                         {translations[currentLanguage].wereGrantedAsylum}{" "}
-                        <span className='judge-other-granted'>
+                        <span className='mobile-judge-other-granted'>
                             {otherGrantedAmount}
                         </span>{" "}
                         {translations[currentLanguage].wereGrantedOtherRelief}{" "}
-                        <span className='judge-denied-amount'>
+                        <span className='mobile-judge-denied-amount'>
                             {deniedAmount}
                         </span>{" "}
                         {translations[currentLanguage].wereDenied}

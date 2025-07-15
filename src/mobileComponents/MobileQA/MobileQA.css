@@ -1,0 +1,29 @@
+.Q-and-A {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.Q-and-A a {
+    color: rgb(134, 154, 221);
+}
+
+.question {
+    margin-top: 20px;
+    color: #f1f1f1;
+}
+
+.question-content {
+}
+
+.answer {
+    margin-top: 8px;
+    color: #aaaaaa;
+}
+
+.answer-content {
+}
+
+.QA-key {
+    font-weight: bold;
+}

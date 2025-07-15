@@ -1,0 +1,77 @@
+/* Tooltip container for positioning */
+.mobile-tooltip-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* The tooltip itself */
+.mobile-tooltip {
+    position: absolute;
+    background-color: #c5fba3;
+    color: rgb(31, 31, 31);
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    white-space: normal;
+    z-index: 1001;
+    opacity: 1;
+    width: 40vw;
+}
+
+/* Tooltip above */
+.mobile-tooltip-above {
+    bottom: 100%; /* Position above */
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 8px; /* Space between tooltip and target */
+}
+
+/* Tooltip below */
+.mobile-tooltip-below {
+    padding-right: 120px;
+    top: 100%; /* Position below */
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: -20px; /* Space between tooltip and target */
+}
+
+.mobile-tooltip-above-right {
+    right: -23vw;
+    bottom: 100%; /* Position above */
+    transform: translateX(-50%);
+    margin-bottom: 8px; /* Space between tooltip and target */
+}
+
+/* Tooltip arrow */
+.mobile-tooltip::after {
+    content: "";
+    position: absolute;
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent;
+}
+
+.mobile-tooltip-above::after {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top-color: #333; /* Arrow pointing down */
+}
+
+.mobile-tooltip-below::after {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-color: #333; /* Arrow pointing up */
+}
+
+/* Tooltip target styles */
+.mobile-tooltip-target {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

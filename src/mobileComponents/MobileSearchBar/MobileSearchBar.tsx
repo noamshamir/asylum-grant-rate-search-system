@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import "./SearchBar.css";
-import DropdownMenu from "../DropdownMenu/DropdownMenu.tsx";
+import { useNavigate, Link } from "react-router-dom";
+import "./MobileSearchBar.css";
+import DropdownMenu from "../MobileDropdownMenu/MobileDropdownMenu.tsx";
 import judgeData from "../../data/judge_grant_rates.json";
-import CityCard from "../CityCard/CityCard.tsx";
-import JudgeCard from "../JudgeCard/JudgeCard.tsx";
-import Tooltip from "../Tooltip/Tooltip.tsx";
+import CityCard from "../MobileCityCard/MobileCityCard.tsx";
+import JudgeCard from "../MobileJudgeCard/MobileJudgeCard.tsx";
+import Tooltip from "../MobileTooltip/MobileTooltip.tsx";
 
 // Interfaces
 interface Judge {
@@ -53,25 +53,25 @@ const SORT_OPTIONS = [
         value: "approvalHigh",
         en: "Approval Rate (High to Low)",
         es: "Tasa de Aprobación (Alta a Baja)",
-        ht: "To Apwobasyon (Segondè a Ba)",
+        ht: "To Apwobasyon (Wo a Ba)",
     },
     {
         value: "approvalLow",
         en: "Approval Rate (Low to High)",
         es: "Tasa de Aprobación (Baja a Alta)",
-        ht: "To Apwobasyon (Ba a Segondè)",
+        ht: "To Apwobasyon (Ba a Wo)",
     },
     {
         value: "casesHigh",
         en: "Amount of Cases (High to Low)",
         es: "Cantidad de Casos (Alta a Baja)",
-        ht: "Kantite Ka (Segondè a Ba)",
+        ht: "Kantite Ka (Wo a Ba)",
     },
     {
         value: "casesLow",
         en: "Amount of Cases (Low to High)",
         es: "Cantidad de Casos (Baja a Alta)",
-        ht: "Kantite Ka (Ba a Segondè)",
+        ht: "Kantite Ka (Ba a Wo)",
     },
     {
         value: "alphaAsc",
@@ -89,7 +89,7 @@ const SORT_OPTIONS = [
 
 function SearchBar({ currentLanguage }: SearchBarProps) {
     const [searchTerm, setSearchTerm] = useState("");
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(true);
     const [showFilterMenu, setShowFilterMenu] = useState(false);
     const navigate = useNavigate();
 
@@ -100,14 +100,6 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
      */
     const [sortOption, setSortOption] = useState<SortKey>("approvalHigh");
 
-    const [searchAttempted, setSearchAttempted] = useState(false);
-
-    useEffect(() => {
-        if (searchTerm.trim()) {
-            setSearchAttempted(true);
-        }
-    }, [searchTerm]);
-
     const dropdownOptions = SORT_OPTIONS.map((opt) => ({
         value: opt.value,
         label:
@@ -115,7 +107,7 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
                 ? opt.en
                 : currentLanguage === "es"
                 ? opt.es
-                : opt.ht,
+                : opt.ht, // Use Haitian Creole translation
     }));
 
     // JSON data
@@ -134,39 +126,64 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
     // Translations for other UI text
     const translations = {
         en: {
-            placeholder: "Search by judge or city...",
+            placeholder: "Search judge/city...",
             citiesLabel: "Cities",
             judgesLabel: "Judges",
             filterOptions: "Filter Options",
             sortBy: "Sort by",
+            tooltipText: (
+                <>
+                    Find the asylum grant percentages/rates of your judge or
+                    city by searching for them in the search bar. For more info,
+                    check out our <Link to='/faq'>FAQ page</Link>.
+                </>
+            ),
             noResults: {
-                message:
-                    "Couldn't find these results. Not all judges are in our system.",
-                help: "Need help? Use the info chat on the right.",
+                main: "Couldn't find these results. Not all judges are in our system.",
+                help: "Need help? Visit our ",
+                page: "Frequently Asked Questions page",
             },
         },
         es: {
-            placeholder: "Buscar por juez o ciudad...",
+            placeholder: "Buscar juez/ciudad...",
             citiesLabel: "Ciudades",
             judgesLabel: "Jueces",
             filterOptions: "Opciones de Filtro",
-            sortBy: "Ordenar por",
+            sortBy: "Ordenar",
+            tooltipText: (
+                <>
+                    Encuentra los porcentajes/tasas de concesión de asilo de tu
+                    juez o ciudad buscándolos en la barra de búsqueda. Para más
+                    información, visita{" "}
+                    <Link to='/faq'>
+                        nuestra página de Preguntas Frecuentes
+                    </Link>
+                    .
+                </>
+            ),
             noResults: {
-                message:
-                    "No se pudieron encontrar estos resultados. No todos los jueces están en nuestro sistema.",
-                help: "¿Necesitas ayuda? Usa el chat de información a la derecha.",
+                main: "No se pudieron encontrar estos resultados. No todos los jueces están en nuestro sistema.",
+                help: "¿Necesitas ayuda? Visita nuestra ",
+                page: "página de Preguntas Frecuentes",
             },
         },
         ht: {
-            placeholder: "Rechèch pa jij oswa vil...",
+            placeholder: "Rechèch jij/vil...",
             citiesLabel: "Vil",
             judgesLabel: "Jij",
             filterOptions: "Opsyon Filtre",
-            sortBy: "Triage pa",
+            sortBy: "Triye pa",
+            tooltipText: (
+                <>
+                    Rechèch pousantaj ak to koncesyon azil jij ou oswa vil ou a
+                    lè w antre non yo nan ba rechèch la. Pou plis enfòmasyon,
+                    ale nan <Link to='/faq'>paj Kesyon yo Poze Souvan</Link>.
+                </>
+            ),
             noResults: {
-                message:
-                    "Nou pa jwenn rezilta sa yo. Pa tout jij ki nan sistèm nou an.",
-                help: "Bezwen èd? Itilize chat enfòmasyon an sou bò dwat la.",
+                main: "Nou pa jwenn rezilta sa yo. Pa tout jij ki nan sistèm nou an.",
+                help: "Bezwen èd? Ale nan ",
+                page: "paj Kesyon yo Poze Souvan",
             },
         },
     };
@@ -176,8 +193,9 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
         citiesLabel,
         judgesLabel,
         filterOptions,
-        sortBy,
+        tooltipText,
         noResults,
+        sortBy,
     } = translations[currentLanguage] || translations.en;
 
     /* ---------------------------------------------------
@@ -218,9 +236,7 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
     const searchBarInfo =
         currentLanguage === "en"
             ? `Find the asylum grant percentages/rates of your judge or city by searching for them in the search bar. For more info, use the info chat on the right`
-            : currentLanguage === "es"
-            ? `Encuentra los porcentajes/tasas de concesión de asilo de tu juez o ciudad buscándolos en la barra de búsqueda. Para más información, utiliza el chat de información a la derecha.`
-            : "Jwenn pousantaj/taux apwobasyon azil pou jij ou oswa vil ou lè ou fè rechèch pou yo nan ba rechèch la. Pou plis enfòmasyon, itilize chat enfòmasyon ki sou bò dwat la.";
+            : `Encuentra los porcentajes/tasas de concesión de asilo de tu juez o ciudad buscándolos en la barra de búsqueda. Para más información, utiliza el chat de información a la derecha.`;
 
     /* --------------------------
      *  Filter results by search
@@ -316,11 +332,8 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
     };
 
     return (
-        <div className='search-bar-container'>
-            <div className='search-bar'>
-                <span className='search-icon' onClick={handleSearchIconClick}>
-                    <i className='fas fa-search'></i>
-                </span>
+        <div className='mobile-search-bar-container'>
+            <div className='mobile-search-bar'>
                 <input
                     type='text'
                     value={searchTerm}
@@ -331,58 +344,54 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
                     onFocus={() => setIsDropdownOpen(true)}
                     placeholder={placeholder}
                 />
-                <div className='search-actions'>
-                    <span
-                        className='clear-icon'
+                <div className='mobile-search-actions'>
+                    {/* <span
+                        className='mobile-clear-icon'
                         onClick={() => {
                             setSearchTerm("");
                             if (!searchTerm.trim()) {
                                 setIsDropdownOpen(false);
                             }
-                            setSearchAttempted(false);
                         }}
-                    >
-                        <i className='fas fa-times'></i>
-                    </span>
-                    <div className='divider' />
+                    > */}
+                    {/* <i className='mobile-fas fa-times'></i>
+                    </span> */}
+                    <div className='mobile-divider' />
                     <span
-                        className='filter-icon'
+                        className='mobile-filter-icon'
                         onClick={() => setShowFilterMenu(!showFilterMenu)}
                     >
                         <i className='fas fa-sliders-h'></i>
                     </span>
-                    <div className='tooltip-container-search'>
+                    <div className='mobile-tooltip-container-search'>
                         <Tooltip
-                            position='below'
-                            text={searchBarInfo}
-                            scale='2'
+                            position='below' // Adjust position dynamically if needed
+                            text={tooltipText} // Tooltip content
                         >
-                            <span className='info-icon'>
-                                <i className='fas fa-info-circle'></i>
+                            <span className='mobile-info-icon'>
+                                <i className='fas fa-info-circle'></i>{" "}
+                                {/* Info icon */}
                             </span>
                         </Tooltip>
                     </div>
                 </div>
             </div>
             {showFilterMenu && (
-                <div className='filter-menu'>
-                    <div className='filter-header'>
-                        <span className='filter-header-title'>
+                <div className='mobile-filter-menu'>
+                    <div className='mobile-filter-header'>
+                        <span className='mobile-filter-header-title'>
                             {filterOptions}
                         </span>
                         <span
-                            className='clear-icon filter-box-icon'
+                            className='mobile-clear-icon filter-box-icon'
                             onClick={() => setShowFilterMenu(false)}
                         >
                             <i className='fas fa-times'></i>
                         </span>
                     </div>
-                    <div className='filter-body'>
-                        <span className='sort-by-text'>{sortBy}:</span>
-                        <div
-                            className='dropdown-menu-div'
-                            style={{ transform: "scale(2)" }}
-                        >
+                    <div className='mobile-filter-body'>
+                        <span className='mobile-sort-by-text'>{sortBy}:</span>
+                        <div className='mobile-dropdown-menu-div'>
                             <DropdownMenu
                                 options={dropdownOptions}
                                 selectedValue={sortOption}
@@ -397,8 +406,8 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
             {isDropdownOpen &&
             (cityResults.length > 0 || judgeResults.length > 0) ? (
                 <>
-                    <hr className='horizontal-divider' />
-                    <div className='search-results-dropdown'>
+                    <hr className='mobile-horizontal-divider' />
+                    <div className='mobile-search-results-dropdown'>
                         {cityResults.length > 0 && (
                             <>
                                 <h4>{citiesLabel}</h4>
@@ -432,17 +441,18 @@ function SearchBar({ currentLanguage }: SearchBarProps) {
                     </div>
                 </>
             ) : (
-                searchAttempted && (
-                    <>
-                        <hr className='horizontal-divider' />
-                        <div className='no-results'>
-                            <div className='no-results-text'>
-                                <p>{noResults.message}</p>
-                                <p>{noResults.help}</p>
-                            </div>
+                <>
+                    <hr className='mobile-horizontal-divider' />
+                    <div className='mobile-no-results'>
+                        <div className='mobile-no-results-text'>
+                            <p>{noResults.main}</p>
+                            <p>
+                                {noResults.help}
+                                <Link to='/faq'>{noResults.page}</Link>.
+                            </p>
                         </div>
-                    </>
-                )
+                    </div>
+                </>
             )}
         </div>
     );

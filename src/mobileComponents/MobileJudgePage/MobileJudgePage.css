@@ -1,0 +1,168 @@
+/* Base layout for the single judge page */
+.mobile-judge-page {
+    margin: 10px 5px 0 15px;
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden;
+    max-height: 100vh; /* Set a maximum height for the page */
+}
+
+h2 {
+    color: rgb(230, 230, 230);
+}
+
+/* Header section */
+.mobile-judge-header-section {
+    text-align: left;
+    padding: 5px 0 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mobile-judge-section-header {
+    text-align: left;
+    font-size: 18px;
+    margin-bottom: 0px;
+    color: rgb(230, 230, 230);
+}
+
+.mobile-judge-title {
+    font-size: 18px;
+}
+
+.mobile-judge-descriptor {
+    font-weight: normal;
+    font-size: 18px;
+    margin: 0px 0 5px 0;
+}
+
+.mobile-judge-label {
+    color: rgb(230, 230, 230);
+}
+
+.mobile-judge-city {
+    color: #90969c;
+}
+
+/* Rates section layout */
+.mobile-judge-rates-section {
+    margin-top: 20px;
+}
+
+/* Donut chart container */
+.mobile-judge-donut-charts-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: -5px;
+    margin-left: 0;
+}
+
+/* Individual donut chart section */
+.mobile-judge-asylum-granted-section,
+.mobile-judge-other-relief-section,
+.mobile-judge-denied-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mobile-judge-donut-chart-div {
+    display: inline-block;
+    margin-left: -50px;
+}
+
+.mobile-judge-donut-chart-description {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.mobile-judge-donut-chart-description p {
+    font-size: 12px;
+    white-space: nowrap;
+    color: rgb(230, 230, 230);
+    margin: 0;
+    text-align: center;
+}
+
+/* Info icon styling */
+.mobile-judge-info-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 15px 0 5px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #c5fba3;
+    height: 20px;
+    width: auto;
+}
+
+/* Stats section */
+.mobile-judge-stats-section {
+    margin-top: 40px;
+    padding: 0 0;
+}
+
+.mobile-judge-statistics {
+    font-size: 16px;
+    text-align: left;
+    color: rgb(230, 230, 230);
+}
+
+.mobile-judge-cases-amount {
+    color: white;
+    font-weight: bold;
+}
+
+.mobile-judge-asylum-granted {
+    color: #c5fba3;
+    font-weight: bold;
+}
+
+.mobile-judge-other-granted {
+    color: #c5fba3;
+    font-weight: bold;
+}
+
+.mobile-judge-denied-amount {
+    color: #ff7a7a;
+    font-weight: bold;
+}
+
+#asylum-chart {
+    margin-left: -80px;
+}
+
+#other-chart {
+    margin-left: -70px;
+}
+
+#denied-chart {
+    margin-left: -40px;
+}
+
+.haitian-percents {
+    padding-left: 10px;
+}
+
+.haitian-percents #denied-chart {
+    margin-left: -20px;
+}
+
+.haitian-percents #asylum-chart {
+    margin-left: -40px;
+}
+
+.haitian-percents #other-chart {
+    margin-left: -55px;
+}
+
+.haitian-percents .mobile-judge-asylum-granted-section {
+    margin-right: 30px;
+}
+
+.haitian-percents .mobile-judge-other-relief-section {
+    margin-right: 0px;
+}

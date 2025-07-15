@@ -52,9 +52,10 @@
     border: 1px solid rgb(114, 114, 114);
     padding: 10px 20px;
     padding-bottom: 12px;
-    font-size: 16px;
+    font-size: 15px;
     cursor: pointer;
     border-radius: 15px; /* Default border-radius */
+    text-align: left;
     display: flex;
     justify-content: space-between;
     align-items: center;
